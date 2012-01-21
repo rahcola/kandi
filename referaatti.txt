@@ -1,0 +1,80 @@
+Referaatti artikkelista The "Boston" School Choice Mechanism
+
+Fuhito Kojiman ja M. Utku Ünverin artikkeli kuvaa Bostonin mekanismin
+toimintaa ja ominaisuuksia ensin sanallisesti. Sen jälkeen
+määritellään useita aksioomia ja karakterisoidaan mekanismi sen
+kahdessa eri tapauksessa. Toinen karakterisaatio koskee tapausta jossa
+toisen joukon alkioilla on jaettavana useita resursseja. Toinen tapaus
+on vastaava kuin klassisessa pysyvän avioliiton ongelmassa jossa
+kummankin joukon alkioilla on tasan yksi resurssi.
+
+Bostonin mekanismi on yleisesti käytössä oppilaitosten
+valintajärjestelmissä. Niissä mekanismi toimii tapana sijoittaa
+hakijat oppilaitosten tarjoamiin paikkoihin hakijoiden ja
+oppilaitosten järjestelmään ennalta toimittamien preferenssilistojen
+perusteella. Algoritmi etenee kierroksittain. Ensimmäisellä
+kierroksella jokaiseen oppilaitokseen sijoitetaan oppilaitoksen listan
+mukaisessa järjestyksessä ne hakijat jotka ovat listanneet
+oppilaitoksen ensimmäiseksi vaihtoehdokseen. Toisella kierroksella
+vielä avoinna olevat paikat täytetään oppilaitoksen toiseksi
+listanneilla hakijoilla ja näin jatketaan kunnes joko kaikki paikat on
+täytetty, tai kaikki hakijat on sijoitettu johonkin oppilaitokseen.
+
+Bostonin mekanismissa on kuitenkin teoreettisia ja käytännön ongelmia.
+Se ei tuota pysyvää sijoittelua, sillä hakija voi jäädä valitsematta
+oppilaitokseen johon häntä alemmalla sijalla oleva toinen hakija
+valitaan. Lisäksi mekanismin tuottamaan tulokseen on mahdollista
+vaikuttaa muuttamalla preferenssilistaansa. Mekanismi ei siis ole
+myöskään strategiankestävä.
+
+Galen ja Shapleyn viivytetyn valinnan mekanismi takaa sekä
+pysyvän sijoittelun, että strategiankestävyyden. Lisäksi kokeellisessa
+ympäristössä on havaittu, että useammat hakijat manipuloivat
+preferenssilistaansa Bostonin mekanismin ollessa käytössä kuin
+viivytetyn valinan mekanismin tapauksessa. Bostonin mekanismissa
+preferenssilistojen manipulointi johtaa useammin tulokseen jossa
+listaansa manipuloineet hakijat sijoittuvat paremmin
+totuudenmukaisesti listansa täyttäneiden kustannuksella.
+
+Bostonin mekanismilla on myös hyvät puolensa. Sen on osoitettu olevan
+tietyissä tilanteissa hakijoiden kannalta parempi kuin viivytetyn
+valinnan mekanismi. Yleisessäkin tilanteessa osa totuudenmukaisesti
+preferenssilistansa täyttäneistä saattaa sijoittua paremmin Bostonin
+mekanismissa. Hakijan mahdollisuutta vaikuttaa sijoitteluun
+listaamalla tietty oppilaitos korkealle listassaan voidaan myös pitää
+Bostonin mekanismin vahvuutena. Näin hakijoilla on suurempi
+mahdollisuus vaikuttaa suotuisasti sijoitteluun. Tästä
+mahdollisuudesta seuraavat kuitenkin myös useat Bostonin mekanismin
+ongelmat.
+
+Aksiomaattista lähestymistapaa varten luodaan sijoittelusta seuraava
+malli. Olkoon I hakijoiden ja C oppilaitosten epätyhjä ja äärellinen
+joukko. Jokainen oppilas on joko sijoitettu johonkin oppilaitokseen,
+tai vielä sijoittamatta. Merkitään sijoittamatta olemista
+sijoituksella oppilaitokseen <tyhjä joukko>.
+
+Jokaisella oppilaitoksella c <kuuluu joukkoon> C on q_c avoinna olevaa
+paikkaa. q_<tyhjä joukko> = <ääretön>. Olkoon q = (q_c)_c <kuuluu
+joukkoon> C kaikkien oppilaitosten avoimia paikkoja kuvaava vektori.
+
+Jokaisella hakijalla i on ?strict preferenssi relaatio P_i joukossa
+C <yhdiste> <joukko jossa tyhjä joukko>. Olkoon P = (P_i)_i
+<kuuluu joukkoon> I preferenssi profiili. Merkitään P_i(c) = l oppilaitoksen
+c sijoitusta hakijan i listalla. Nyt kaikilla c, d <kuuluu joukkoon> C
+pätee P_i(c) < P_i(d) jos ja vain jos cP_id. Siis hakija i toivoo
+pääsevänsä mieluummin oppilaitokseen c kuin d.
+
+Sijoittelu on funktio <myy> : I -> C <yhdiste> <joukko jos tyhkä
+joukko> jolle <myy>(i) on oppilaitos johon hakija i on sijoitettu.
+Kaikille c <kuuluu joukkoon> C <myy>_c = {i <kuuluu joukkoon> I :
+<myy>(i) = c} on oppilaitokseen c sijoitettujen hakijoiden joukko.
+Sijoittelun tulee täyttää ehto |<myy>_c| < q_c kaikilla c <kuuluu
+joukkoon> C <yhdiste> <joukko jos tyhjä joukko>. Siis oppilaitokseen
+ei voi olla sijoitettuna avoimia paikkoja useampaa hakijaa.
+
+I, C, P ja q määrittelevät valintaongelman. Valintamekanismi on
+algoritmi joka antaa sijoittelun jokaiseen ongelmaan. Kiinnittämällä
+joukot I ja C voimme merkitä ongelmaa preferenssi profiilin ja
+avoimien paikkojen määrän avulla [P;q]. Olkoon <iso myy>[q] ongelman
+[P;q] kaikkien sijoittelujen joukko ja <gamma>[P;q] <kuuluu joukkoon>
+<iso myy>[q] mekanismin <gamma> antama sijoittelu ongelmalle [P;q].
