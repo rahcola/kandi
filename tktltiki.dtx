@@ -1,0 +1,2032 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2002 Mikael Puolakka
+% ----------------------------------
+%
+% Modifications in version 1.1 (c) 2007 Antti Leino
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.2 of this license or (at your option) any later
+% version. The latest version of this license is in
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of
+% LaTeX version 1999/12/01 or later.
+%
+% \fi
+% \CheckSum{1706}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%
+% \iffalse
+%
+%<*driver>
+\documentclass{ltxdoc}[1999/08/08 v2.0u Standard LaTeX documentation class]
+\usepackage[latin9]{inputenc}[2000/07/01 v0.996 Input encoding file ]
+\usepackage[T1]{fontenc}[2000/08/30 v1.91 Standard LaTeX package]
+\usepackage[finnish]{babel}[2001/03/01 v3.7h The Babel package]
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{tktltiki.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v1.0}{2002/09/16}{Alkuperäinen versio}
+% \changes{v1.1}{2007/09/12}{Tiivistelmälomaketta korjattu}
+%
+% \GetFileInfo{tktltiki.cls}
+%
+% \DoNotIndex{\',\.,\@M,\@@input,\@Alph,\@alph,\@addtoreset,\@arabic}
+% \DoNotIndex{\@badmath,\@centercr,\@cite}
+% \DoNotIndex{\@dotsep,\@empty,\@float,\@gobble,\@gobbletwo,\@ignoretrue}
+% \DoNotIndex{\@input,\@ixpt,\@m,\@minus,\@mkboth}
+% \DoNotIndex{\@ne,\@nil,\@nomath,\@plus,\roman,\@set@topoint}
+% \DoNotIndex{\@tempboxa,\@tempcnta,\@tempdima,\@tempdimb}
+% \DoNotIndex{\@tempswafalse,\@tempswatrue,\@viipt,\@viiipt,\@vipt}
+% \DoNotIndex{\@vpt,\@warning,\@xiipt,\@xipt,\@xivpt,\@xpt,\@xviipt}
+% \DoNotIndex{\@xxpt,\@xxvpt,\\,\ ,\addpenalty,\addtolength,\addvspace}
+% \DoNotIndex{\advance,\ast,\begin,\begingroup,\bfseries,\bgroup,\box}
+% \DoNotIndex{\bullet}
+% \DoNotIndex{\cdot,\cite,\CodelineIndex,\cr,\day,\DeclareOption}
+% \DoNotIndex{\def,\DisableCrossrefs,\divide,\DocInput,\documentclass}
+% \DoNotIndex{\DoNotIndex,\egroup,\ifdim,\else,\fi,\em,\endtrivlist}
+% \DoNotIndex{\EnableCrossrefs,\end,\end@dblfloat,\end@float,\endgroup}
+% \DoNotIndex{\endlist,\everycr,\everypar,\ExecuteOptions,\expandafter}
+% \DoNotIndex{\fbox}
+% \DoNotIndex{\filedate,\filename,\fileversion,\fontsize,\framebox,\gdef}
+% \DoNotIndex{\global,\halign,\hangindent,\hbox,\hfil,\hfill,\hrule}
+% \DoNotIndex{\hsize,\hskip,\hspace,\hss,\if@tempswa,\ifcase,\or,\fi,\fi}
+% \DoNotIndex{\ifhmode,\ifvmode,\ifnum,\iftrue,\ifx,\fi,\fi,\fi,\fi,\fi}
+% \DoNotIndex{\input}
+% \DoNotIndex{\jobname,\kern,\leavevmode,\let,\leftmark}
+% \DoNotIndex{\list,\llap,\long,\m@ne,\m@th,\mark,\markboth,\markright}
+% \DoNotIndex{\month,\newcommand,\newcounter,\newenvironment}
+% \DoNotIndex{\NeedsTeXFormat,\newdimen}
+% \DoNotIndex{\newlength,\newpage,\nobreak,\noindent,\null,\number}
+% \DoNotIndex{\numberline,\OldMakeindex,\OnlyDescription,\p@}
+% \DoNotIndex{\pagestyle,\par,\paragraph,\paragraphmark,\parfillskip}
+% \DoNotIndex{\penalty,\PrintChanges,\PrintIndex,\ProcessOptions}
+% \DoNotIndex{\protect,\ProvidesClass,\raggedbottom,\raggedright}
+% \DoNotIndex{\refstepcounter,\relax,\renewcommand}
+% \DoNotIndex{\rightmargin,\rightmark,\rightskip,\rlap,\rmfamily}
+% \DoNotIndex{\secdef,\selectfont,\setbox,\setcounter,\setlength}
+% \DoNotIndex{\settowidth,\sfcode,\skip,\sloppy,\slshape,\space}
+% \DoNotIndex{\symbol,\the,\trivlist,\typeout,\tw@,\undefined,\uppercase}
+% \DoNotIndex{\usecounter,\usefont,\usepackage,\vfil,\vfill,\viiipt}
+% \DoNotIndex{\viipt,\vipt,\vskip,\vspace}
+% \DoNotIndex{\wd,\xiipt,\year,\z@}
+%
+% \def\fileversion{v1.0}
+% \def\filedate{2002/09/16}
+% \newcommand{\luokka}{|tktltiki|}
+% \newcommand{\bibtyyli}{|tktl|}
+% \newenvironment{options}{%
+%   \begin{list}{}{%
+%   \renewcommand{\makelabel}[1]{\texttt{##1}\hfil}%
+%   \setlength{\itemsep}{-.5\parsep}
+%   \settowidth{\labelwidth}{\texttt{xxxxxxxxxxx\space}}%
+%   \setlength{\leftmargin}{\labelwidth}%
+%   \addtolength{\leftmargin}{\labelsep}}%
+%   \raggedright}{
+%   \end{list}
+% }
+%
+% \title{Luokka \luokka\ \LaTeX{}-versiolle
+%   2$_{\varepsilon}$\thanks{Tämän tiedoston versionumero on \fileversion,
+%   muutettu viimeksi \filedate.}}
+% \author{Mikael Puolakka \\ \texttt{Mikael.Puolakka@cs.Helsinki.FI}}
+% \date{\filedate}
+%
+% \maketitle
+%
+% \begin{abstract}
+% Dokumenttiluokka \luokka\ on tarkoitettu tukemaan Helsingin yliopiston
+% Tietojenkäsittelytieteen laitoksen alempien opinnäytteiden ja harjoitusten
+% laatimista. Luokka soveltuu siten käytettäväksi tieteellisen kirjoittamisen
+% kurssille, ohjelmistotuotantoprojekteihin ja pro gradu -tutkielmiin. Luokka
+% määrittelee sitä käyttävälle dokumentille tietyn ulkoasun ja tarjoaa
+% käyttöliittymän dokumentin rakenteen hallitsemiseksi.
+% \end{abstract}
+%
+% \tableofcontents
+%
+% \section{Johdanto}
+%
+% Tämä dokumentti on luokan \luokka\ toteutuskuvaus. Käytännön syistä tämä
+% dokumentti ei noudata tyypillistä \LaTeX-tyylin dokumentaatiota, joka
+% yhdistäisi sekä käyttöohjeen että toteutuskuvauksen. Sen sijaan luokan
+% \luokka\ käyttöohje sisältyy tämän dokumentin koodiosioon, josta se on
+% tuotettavissa itsenäiseksi \LaTeX-käsikirjoitustiedostokseen ajamalla
+% luokan \luokka\ asennustiedosto |tktltiki.ins| \LaTeX-ohjelmalla.
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{Koodi}
+% \label{koodi}
+%
+%    Identifioidaan itsemme:
+%
+%    \begin{macrocode}
+%<*luokka>
+\NeedsTeXFormat{LaTeX2e}[2000/06/01]
+\ProvidesClass{tktltiki}
+  [2007/09/12 v1.1 Dokumenttiluokka TiKi-kurssia varten]
+%    \end{macrocode}
+%
+%    Määritellään ''kytkimiä'' optioita varten. Oletuksena kytkimet ovat
+%    |false|-asennossa. Jos optio annetaan dokumentin
+%    |\documentclass|-komennossa, vastaava kytkin käännetään päälle eli
+%    |true|-asentoon.
+%
+%    \begin{macrocode}
+\newif\if@finnish
+\newif\if@swedish
+\newif\if@english
+\newif\if@gradu
+\newif\if@emptyfirstpagenumber
+
+\DeclareOption{finnish}{\@finnishtrue}
+\DeclareOption{swedish}{\@swedishtrue}
+\DeclareOption{english}{\@englishtrue}
+\DeclareOption{gradu}{\@gradutrue}
+\DeclareOption{emptyfirstpagenumber}{\@emptyfirstpagenumbertrue}
+%    \end{macrocode}
+%
+%    Osa |article|-dokumenttiluokan optioista välitetään suoraan
+%    |article|-luokalle, mutta \luokka-dokumenttiluokan oletusasetuksia
+%    kumoavat optiot joudutaan välittämään sille välikäden kautta, jotta
+%    saadaan tietää mitkä oletusasetukset on kumottu annetuilla optioilla.
+%    Määritellään kytkimet sellaisia oletusasetuksia varten, jotka on
+%    mahdollista kumota |\documentclass|-komennossa annettavilla optioilla,
+%    ja asetetaan ne |true|-asentoon. Mikäli jokin annettu optio kumoaa
+%    jonkin oletusasetuksen, vastaava kytkin asetetaan |false|-asentoon.
+%    Lopuksi prosessoidaan annetut optiot.
+%
+%    \begin{macrocode}
+\newif\if@defaulttypesize
+\@defaulttypesizetrue
+\newif\if@defaultpaper
+\@defaultpapertrue
+\newif\if@defaulttitlepage
+\@defaulttitlepagetrue
+
+\DeclareOption{10pt}{
+  \@defaulttypesizefalse
+  \PassOptionsToClass{10pt}{article}}
+\DeclareOption{11pt}{
+  \@defaulttypesizefalse
+  \PassOptionsToClass{11pt}{article}}
+
+\DeclareOption{a5paper}{
+  \@defaultpaperfalse
+  \PassOptionsToClass{a5paper}{article}}
+\DeclareOption{b5paper}{
+  \@defaultpaperfalse
+  \PassOptionsToClass{b5paper}{article}}
+\DeclareOption{letterpaper}{
+  \@defaultpaperfalse
+  \PassOptionsToClass{letterpaper}{article}}
+\DeclareOption{legalpaper}{
+  \@defaultpaperfalse
+  \PassOptionsToClass{legalpaper}{article}}
+\DeclareOption{executivepaper}{
+  \@defaultpaperfalse
+  \PassOptionsToClass{executivepaper}{article}}
+  
+\DeclareOption{notitlepage}{
+  \@defaulttitlepagefalse
+  \PassOptionsToClass{notitlepage}{article}}
+  
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax  
+%    \end{macrocode}
+%
+%    Dokumenttiluokka \luokka\ perustuu |article|-luokkaan, joka ladataan
+%    oletusarvoisesti optioilla |12pt|, |a4paper| ja |titlepage| ellei
+%    luokkaa \luokka\ ole kutsuttu vaihtoehtoisilla optioilla. Luokan
+%    \luokka\ oletusoptioiden kanssa ristiriidattomat |article|-luokan
+%    optiot välitettiin jo aiemmin suoraan |article|-luokalle.
+%
+%    \begin{macrocode}
+\if@defaulttypesize
+  \PassOptionsToClass{12pt}{article}
+\fi
+\if@defaultpaper
+  \PassOptionsToClass{a4paper}{article}
+\fi
+\if@defaulttitlepage
+  \PassOptionsToClass{titlepage}{article}
+\fi
+\ProcessOptions\relax
+\LoadClass{article}[2000/05/19]
+%    \end{macrocode}
+%
+%    Lisäksi oletusasetuksiin kuuluu skandimerkit ja vanhan \LaTeX-version
+%    2.09 mukaiset symbolit.
+%
+%    \begin{macrocode}
+\RequirePackage{latexsym}[1998/08/17 v2.2e Standard LaTeX package (lasy symbols)]
+%    \end{macrocode}
+%    Käytetään ääkkösiä turhan kikkailun sijasta. ISO~Latin~9 -merkistö
+%    sisältää muitakin hyödyllisiä merkkejä.
+%
+%    \begin{macrocode}
+\RequirePackage[latin9]{inputenc}[2000/07/01 v0.996 Input encoding file ]
+%    \end{macrocode}
+%    Käytetään fonttia, jossa skandimerkkejä kohdellaan ''oikeina''
+%    kirjaimina.
+%
+%    \begin{macrocode}
+\RequirePackage[T1]{fontenc}[2000/08/30 v1.91 Standard LaTeX package]
+%    \end{macrocode}
+%    Käytetään dokumentin kielenä joko suomea, ruotsia tai englantia.
+%    Oletuskielenä on suomi, ellei optiona ole annettu minkään muun tuetun
+%    kielen nimeä. Jos optiona on annettu yksi tuetun kielen nimi,
+%    käytetään sitä. Jos optiona on annettu useampia tuettujen kielien
+%    nimiä, käytetään sitä joka tulee annetuista kielistä ensimmäisenä
+%    vastaan alla olevassa ehtolauseessa.
+%
+%    \begin{macrocode}
+\if@finnish
+  \RequirePackage[finnish]{babel}[2001/03/01 v3.7h The Babel package]
+\else
+  \if@english
+    \RequirePackage[english]{babel}[2001/03/01 v3.7h The Babel package]
+  \else
+    \if@swedish
+      \RequirePackage[swedish]{babel}[2001/03/01 v3.7h The Babel package]
+    \else
+      \RequirePackage[finnish]{babel}[2001/03/01 v3.7h The Babel package]
+    \fi
+  \fi  
+\fi
+%    \end{macrocode}
+%
+% \begin{macro}{\defaultsettings}
+%
+%    Lisää oletusasetuksia: asetellaan marginaaleja. Marginaalien
+%    oletusasetukset saa mahdollisten muutosten jälkeen käyttöön
+%    |\defaultsettings|-komennolla. Yhdellä sivulla voi käyttää vain yksiä
+%    asetuksia, joten jos asetuksia haluaa muuttaa väliaikaisesti vain
+%    yhdelle sivulle, kannattaa käyttää |\geometry|-komentoa asetuksien
+%    muuttamiseen ja |\newpage|-komentoa sivun lopussa, jonka jälkeen
+%    voi käyttää käskyä |\defaultsettings| oletusasetuksien palauttamiseen.
+%    {\bfseries Huom! |\defaultsettings|-komento ei toimi toivotulla tavalla
+%    kaikissa \LaTeX-toteutuksissa, joten sen käyttöä on syytä välttää
+%    mahdollisten yhteensopivuusongelmien välttämiseksi. Ongelmana on se,
+%    ettei |\geometry|-komentoa saisi kutsua preamblen jälkeen.}
+%
+%    \begin{macrocode}
+\RequirePackage{geometry}[1999/10/07 v2.2 Page Geometry]
+\newcommand{\defaultsettings}{%
+  \if@twoside
+    \geometry{top=2.5cm, left=2.8cm, right=3.2cm,
+              textwidth=15cm, textheight=23cm,
+              headheight=0.5cm, headsep=0.5cm}%
+  \else
+    \geometry{top=2.5cm, left=3.5cm, right=2.5cm,
+              textwidth=15cm, textheight=23cm,
+              headheight=0.5cm, headsep=0.5cm}%
+  \fi
+}
+\defaultsettings
+%    \end{macrocode}
+% \end{macro}
+%
+%    Kappaleiden alkuja ei sisennetä ja kappaleiden väliin tulee hieman
+%    tyhjää.
+%
+%    \begin{macrocode}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+%    \end{macrocode}
+%
+% \begin{macro}{\mytableofcontents}
+%
+% \begin{sloppypar}
+%    Sisällysluettelosivuilla ja mahdollisilla muilla tavallisilla sivuilla
+%    otsikko- ja tiivistelmäsivua lukuun ottamatta sivunumerot tulevat
+%    sivun oikeaan yläkulmaan ja sivunumerointiin käytetään roomalaisia
+%    numeroita (i,~ii,~iii,~iv\ldots). |\mytableofcontents|-komennon jälkeen
+%    sivunumerointiin käytetään arabialaisia numeroita (1,~2,~3,~4\ldots).
+%    Tämän voi halutessaan kumota määrittämällä itse sivunumeroinnin
+%    |\mytableofcontents|-komennon jälkeen.
+% \end{sloppypar}
+%
+%    \begin{macrocode}
+\pagestyle{myheadings}
+\markright{}
+\pagenumbering{roman}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\onehalfspacing}
+% \begin{macro}{\doublespacing}
+% \begin{macro}{\singlespacing}
+%
+%    Seuraavassa kahdessa käskyssä käytetään seuraavia lukuja:
+%
+%    \begin{center}
+%    \begin{tabular}{llll}
+%    \multicolumn{1}{l}{} &
+%    \multicolumn{3}{c}{kirjasinkoko} \\
+%    väli & 10pt  & 11pt  & 12pt \\
+%    1.5  & 1.25  & 1.213 & 1.241 \\
+%    2.0  & 1.667 & 1.618 & 1.655 \\
+%    \end{tabular}
+%    \end{center}
+%    Muuttaa käytetyn rivivälin 1.5-riviväliksi.
+%
+%    \begin{macrocode}
+\newcommand{\onehalfspacing}{%
+  \ifcase\@ptsize\relax % 10pt
+    \renewcommand{\baselinestretch}{1.25}%
+  \or % 11pt
+    \renewcommand{\baselinestretch}{1.213}%
+  \or % 12pt
+    \renewcommand{\baselinestretch}{1.241}%
+  \fi
+  \normalsize
+}
+%    \end{macrocode}
+%    Muuttaa käytetyn rivivälin 2.0-riviväliksi.
+%
+%    \begin{macrocode}
+\newcommand{\doublespacing}{
+  \ifcase\@ptsize\relax % 10pt
+    \renewcommand{\baselinestretch}{1.667}
+  \or % 11pt
+    \renewcommand{\baselinestretch}{1.618}
+  \or % 12pt
+    \renewcommand{\baselinestretch}{1.655}
+  \fi
+  \normalsize
+}
+%    \end{macrocode}
+%    Muuttaa käytetyn rivivälin takaisin 1.0-riviväliksi.
+%
+%    \begin{macrocode}
+\newcommand{\singlespacing}{%
+  \renewcommand{\baselinestretch}{1.0}%
+  \normalsize
+}
+%    \end{macrocode}
+%    Huom! Pakkauksessa |setspace| on vaihtoehtoisia komentoja
+%    rivivälistyksien muuttamiseen.
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\mytableofcontents}
+%
+%    Muuten sama kuin |\tableofcontents|, mutta aloittaa uuden sivun
+%    sisällysluettelon jälkeen ja muuttaa sisällysluetteloon saakka
+%    sivunumerointiin käytetyt roomalaiset numerot arabialaisiksi
+%    numeroiksi (1,~2,~3,~4\ldots).
+%
+%    |emptyfirstpagenumber|-option ollessa voimassa varsinaisen tekstin
+%    ensimmäiselle sivulle ei tule sivunumeroa. Tämä siis kuitenkin
+%    vaatii |\mytableofcontents|-komennon käyttöä.
+%
+%    \begin{macrocode}
+\newcommand{\mytableofcontents}{%
+  \tableofcontents
+  \newpage
+  \pagenumbering{arabic}
+  \if@emptyfirstpagenumber
+    \thispagestyle{empty}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\theappendix}
+%
+%    Luodaan laskuri liitteille. Jokainen |\internalappendix|- ja
+%    |\externalappendix|-komento kasvattaa laskuria yhdellä.
+%    |\theappendix|-komennolla saadaan tietää |appendix|-laskurin nykyinen
+%    arvo. Laskurin arvo ilmoittaa liitteiden nykyisen lukumäärän lisättynä
+%    yhdellä, joten käytännössä se ilmoittaa seuraavan mahdollisen liitteen
+%    järjestysnumeron ja sopii siten käytettäväksi |\internalappendix|- ja
+%    |\externalappendix|-komentojen \meta{liitteen numero}-parametriksi.
+%
+%    \begin{macrocode}
+\newcounter{appendix}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\appendices}
+%
+%    Aloittaa dokumentin \emph{Liitteet}-osion. Liitteiden sivunumeroja ei
+%    ilmesty sisällysluetteloon. Alustaa |appendix|-laskurin, joka
+%    ilmoittaa aina seuraavaksi tulevan liitteen järjestysnumeron eli kun
+%    liitteitä on 0 kpl, laskurin lukema on 1, ja kun liitteitä on 1 kpl,
+%    laskurin lukema on 2, jne. Lopuksi nollaa sivunumerolaskurin |page|,
+%    jotta liitesivujen lukumäärän laskeminen olisi helpompaa.
+%
+%    \begin{macrocode}
+\newcommand{\appendices}{%
+  \setcounter{appendix}{1}%
+  \newpage
+%    \end{macrocode}
+%    Jos et halua liitteisiin sivunumeroita, poista kommenttimerkki
+%    seuraavalta riviltä ja poista sitä seuraavat kaksi riviä.
+%    \begin{macrocode}
+  %\pagestyle{empty}
+  \pagestyle{myheadings}
+  \markright{}
+  \appendix
+  \addtocontents{toc}{\protect \contentsline {section}{\enclname}{}}
+  \setcounter{page}{0}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\internalappendix}
+%
+%    Tuottaa liitteen otsikon siihen kohtaan, jossa tätä kutsutaan, ja
+%    liittää sisällysluetteloon liitteen nimen. Liiteiden numerointi
+%    tapahtuu manuaalisesti. Aloittaa aina uuden sivun. Kunkin liitteen
+%    sivut numeroidaan erikseen. Käyttö:
+%
+%    \begin{quote}
+%    |\internalappendix|\marg{liitteen numero}\marg{liitteen nimi}
+%    \end{quote}
+%
+%    \begin{macrocode}
+\newcommand{\internalappendix}[2]{%
+%    \end{macrocode}
+%    |appendixpage|-laskurin lukemaan lisätään aina edellisen liitteen
+%    sivujen lukumäärä. Viimeisen liitteen sivujen laskenta suoritetaan
+%    |\AtEndDocument|-komennossa avulla hieman myöhempänä.
+%
+%    \begin{macrocode}
+  \addtocounter{appendixpage}{\value{page}}%
+  \newpage
+  \setcounter{page}{1}%
+%    \end{macrocode}
+%    Tämä on se otsikko, joka näkyy liitteen otsikkona.
+%
+%    \begin{macrocode}
+  \section*{\appendixname\ #1. #2}
+%    \end{macrocode}
+%    Lisätään seuraavaksi liitteen nimi sisällysluetteloon.
+%
+%    \begin{macrocode}
+  \addtocontents{toc}{
+    \protect \contentsline {section}{\hspace{0.5cm}#1 #2}{}}
+  \addtocounter{appendix}{+1}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\externalappendix}
+%
+%    Ei tee mitään muuta kuin liittää liitteen nimen sisällysluetteloon.
+%    Tätä kannattaa kutsua silloin, kun haluaa liittää osaksi dokumenttia
+%    dokumentin ulkopuolisen liitteen, kuten ohjelmalistauksen, levykkeen,
+%    tms. Käyttö:
+%
+%    \begin{quote}
+%    |\externalappendix|\marg{liitteen numero}\marg{liitteen nimi}
+%    \end{quote}
+%
+%    \begin{macrocode}
+\newcommand{\externalappendix}[2]{%
+%    \end{macrocode}
+%    Lisätään liitteen nimi sisällysluetteloon.
+%
+%    \begin{macrocode}
+  \addtocontents{toc}{
+    \protect \contentsline {section}{\hspace{0.5cm}#1 #2}{}}
+  \addtocounter{appendix}{+1}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    Määritellään uusi laskuri, jolla lasketaan sekä tavallisten liitteiden
+%    että dokumentin ulkopuolisten liitteiden sivujen lukumäärää.
+%
+%    \begin{macrocode}
+\newcounter{appendixpage}
+%    \end{macrocode}
+%
+% \begin{macro}{\numberofappendixpages}
+%
+%    |\numberofappendixpages|-komento kertoo kaikkien liitteiden sivumäärän. Sillä on
+%    yksi valinnainen parametri: ulkoliitteiden sivumäärä. Jos se puuttuu
+%    komentokutsusta, ulkoliitteiden sivumääräksi tulee 0.
+%
+%    Kaikkien muiden kuin viimeisen liitteen sivumäärät lisättiin laskuriin
+%    |\internalappendix|-komennossa. Viimeisen liitteen sivumäärä lisätään laskuriin
+%    |\AtEndDocument|in avulla ja laskurin arvo kirjoitetaan
+%    |aux|-tiedostoon labelin |@lastappendixpage| ''osanumeroksi''\footnote{%
+%    ''Osa'' on esimerkiksi |equation|, |section|, |figure|, tms.}, jolloin
+%    siihen voi viitata |\ref|-komennolla.
+%
+%    \begin{macrocode}
+\newcommand{\numberofappendixpages}[1][0]{%
+  \addtocounter{appendixpage}{#1}%
+  \ref{@lastappendixpage}%
+}
+
+\AtEndDocument{%
+  \addtocounter{appendixpage}{\value{page}}%
+  \immediate\write\@auxout{\string
+    \newlabel{@lastappendixpage}{{\theappendixpage}{\thepage}}}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\lastpage}
+% \begin{macro}{\numberofpages}
+%
+%    
+%
+%    \begin{macrocode}
+\newcommand{\lastpage}{%
+  \label{lastpage}%
+}
+
+\newcommand{\numberofpages}{%
+  \@ifundefined{r@lastpage}{0}{\pageref{lastpage}}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{macro}{\and}
+%
+%    |\author|-komento ei tunnu toimivan |\and|-komennon kanssa.
+%    Määritellään |\and| uudelleen siten, että |\author| toimii ja että
+%    sekä |\maketitle|n tekemä etusivu että |abstract|-ympäristön tekemä
+%    tiivistelmäsivu näyttävät hyviltä.
+%
+%    \begin{macrocode}
+\renewcommand{\and}{%
+  \\ % Rivinvaihto.
+  \hspace{1em}%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%    Seuraavassa on vanhojen |tktltiki.sty|- ja
+%    |tktlgradu.sty|-tyylitiedostojen sisältöjä muutettuna siten, että ne
+%    kelpaavat tähän dokumenttiluokkatiedostoon.
+%
+%    Optio |openbib| on nykyään erillinen pakkaus.
+%
+%    \begin{macrocode}
+\RequirePackage{openbib}
+%    \end{macrocode}
+%
+%    Määritellään lähdeluettelon suomenkieliseksi otsikoksi \emph{Lähteet}
+%    eikä \emph{Viitteet}.
+%
+%    \begin{macrocode}
+\addto\captionsfinnish{\def\refname{Lähteet}}
+%    \end{macrocode}
+%
+%    Määritellään \emph{Liitteet}-osion englanninkieliseksi nimeksi
+%    \emph{Appendices} ja ruotsinkieliseksi nimeksi \emph{Bilagor}.
+%
+%    \begin{macrocode}
+\addto\captionsenglish{\def\enclname{Appendices}}
+\addto\captionsswedish{\def\enclname{Bilagor}}
+%    \end{macrocode}
+%
+% \begin{environment}{thebibliography}
+%
+%    Määritellään |thebibliography|-ympäristö uudelleen niin, että
+%    viitteiden tunnisteille jää tarpeeksi tilaa.
+%
+%    \begin{macrocode}
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname
+        \@mkboth{\uppercase{\refname}}{\uppercase{\refname}}
+%    \end{macrocode}
+%    Määritellään, että lähdeluettelon sivusta tulee merkintä
+%    sisällysluetteloon.
+%
+%    \begin{macrocode}
+        \addcontentsline{toc}{section}{\refname}}%
+      \list{\@biblabel{\arabic{enumiv}}}%
+%    \end{macrocode}
+%    Alkuperäisessä määritelmässä rivi alla on
+%
+%    \begin{verbatim}
+%          {\settowidth\labelwidth{\@biblabel{#1}}%
+%    \end{verbatim}
+%
+%    \begin{macrocode}
+           {\settowidth\labelwidth{\makebox[5em]{}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+%    \end{macrocode}
+%    Jätetty pois:
+%
+%    \begin{verbatim}
+%            \if@openbib
+%              \advance\leftmargin\bibindent
+%              \itemindent -\bibindent
+%              \listparindent \itemindent
+%              \parsep \z@
+%            \fi
+%    \end{verbatim}
+%
+%    \begin{macrocode}
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\arabic{enumiv}}}%
+%    \end{macrocode}
+%    Jätetty pois:
+%
+%    \begin{verbatim}
+%      \if@openbib
+%        \renewcommand\newblock{\par}
+%      \else
+%    \end{verbatim}
+%
+%    \begin{macrocode}
+        \renewcommand\newblock{\hskip .11em \@plus.33em \@minus.07em}%
+%    \end{macrocode}
+%    Jätetty pois:
+%
+%    \begin{verbatim}
+%      \fi
+%    \end{verbatim}
+%
+%    \begin{macrocode}
+      \sloppy\clubpenalty4000\widowpenalty4000%
+      \sfcode`\.=\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+%    \end{macrocode}
+% \end{environment}
+%
+%    Määritellään viitteen tunnisteen tekevä komento uudelleen niin,
+%    ettei hakasulkeita tule ympärille. Alkuperäisessä määritelmässä rivi
+%    on
+%
+%    \begin{verbatim}
+%   \def\@biblabel#1{[#1]}
+%    \end{verbatim}
+%
+%    \begin{macrocode}
+\def\@biblabel#1{#1}
+%    \end{macrocode}
+%
+%    Määritellään päivämäärä uudestaan 10.2.1998-muotoiseksi
+%
+%    \begin{macrocode}
+\def\datefinnish{%
+  \def\today{\number\day.\number\month.\number\year}}
+%    \end{macrocode}
+%
+% \begin{macro}{\level}
+% \begin{macro}{\maketitle}
+%
+%    Määritellään kansilehden formaatti kokonaan uudestaan.
+%    Uudella komennolla |\level| voidaan kertoa kirjoitelman
+%    laji, esim \emph{Laudaturtutkielma}. Määritellään myös kansilehden
+%    kielikohtaiset termit. Jos dokumenttiluokka ladataan optiolla |gradu|,
+%    otsikkosivun oikeaan yläkulmaan ei ilmesty työn arvosteluun liittyviä
+%    kenttiä.
+%
+%    \begin{macrocode}
+\newcommand{\level}[1]{\gdef\@level{#1}}
+\level{}
+
+\addto\captionsfinnish{%
+  \def\dateofacceptance{hyväksymispäivä}%
+  \def\grade{arvosana}%
+  \def\instructor{arvostelija}%
+  \def\uh{HELSINGIN YLIOPISTO}%
+  \def\helsinki{Helsinki}%
+  \def\ccs{ACM Computing Classification System (CCS):}%
+}
+\addto\captionsenglish{%
+  \def\dateofacceptance{Date of acceptance}%
+  \def\grade{Grade}%
+  \def\instructor{Instructor}%
+  \def\uh{UNIVERSITY OF HELSINKI}%
+  \def\helsinki{Helsinki}%
+  \def\ccs{ACM Computing Classification System (CCS):}%
+}
+\addto\captionsswedish{%
+  \def\dateofacceptance{godk.datum}%
+  \def\grade{vitsord}%
+  \def\instructor{bedömare}%
+  \def\uh{HELSINGFORS UNIVERSITET}%
+  \def\helsinki{Helsingfors}%
+  \def\ccs{ACM Computing Classification System (CCS):}%
+}
+
+\renewcommand{\maketitle}{\begin{titlepage}%
+  \if@gradu
+    \texttt{}
+  \else
+    \hspace*{85mm} \dateofacceptance \hspace{10mm} \grade\
+  \fi
+
+  \vspace{10mm}
+
+  \if@gradu
+    \texttt{}
+  \else
+    \hspace*{85mm} \instructor
+  \fi
+
+  \vspace*{70mm}
+
+  {\large\bf \@title}
+
+  \vspace{5mm}
+
+  \@author
+
+  \vfill
+
+  \helsinki\ \@date
+
+  \@level
+
+  \uh\\
+  \@department
+
+  \end{titlepage}%
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+% \begin{environment}{abstract}
+% \begin{macro}{\numberofpagesinformation}
+% \begin{macro}{\classification}
+% \begin{macro}{\keywords}
+% \begin{macro}{\faculty}
+% \begin{macro}{\department}
+% \begin{macro}{\subject}
+% \begin{macro}{\depositeplace}
+% \begin{macro}{\additionalinformation}
+%
+%    Määritellään abstraktin formaatti uudestaan. Komennoilla |\numberofpagesinformation|,
+%    |\classification|, |\keywords|, |\faculty|, |\department|, |\subject|,
+%    |\depositeplace| ja |\additionalinformation| voidaan kertoa vastaavat
+%    tiedot tiivistelmälehteä varten. Abstraktisivulle ei tule ollenkaan
+%    sivunumeroa.
+%
+%    \begin{macrocode}
+\def\division{\char'057}
+
+\newcommand{\faculty}[1]{\gdef\@faculty{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\subject}[1]{\gdef\@subject{#1}}
+\newcommand{\depositeplace}[1]{\gdef\@depositeplace{#1}}
+\newcommand{\additionalinformation}[1]{\gdef\@additionalinformation{#1}}
+\newcommand{\numberofpagesinformation}[1]{\gdef\@numberofpagesinformation{#1}}
+\newcommand{\classification}[1]{\gdef\@classification{#1}}
+\newcommand{\keywords}[1]{\gdef\@keywords{#1}}
+
+\faculty{}
+\department{}
+\subject{}
+\depositeplace{}
+\additionalinformation{}
+\numberofpagesinformation{}
+\classification{}
+\keywords{}
+
+\addto\captionsfinnish{%
+  \faculty{Matemaattis-luonnontieteellinen tiedekunta}
+  \department{Tietojenkäsittelytieteen laitos}%
+  \subject{Tietojenkäsittelytiede}
+}
+\addto\captionsenglish{%
+  \faculty{Faculty of Science}
+  \department{Department of Computer Science}%
+  \subject{Computer Science}
+}
+\addto\captionsswedish{%
+  \faculty{Matematisk-naturvetenskapliga fakulteten}
+  \department{Institutionen för datavetenskap}%
+  \subject{Datavetenskap}
+}
+%    \end{macrocode}
+%
+%    Määritellään |@summary|-ympäristö, jota käytetään hyväksi hieman
+%    jäljempänä |abstract|-ympäristön uudelleenmäärittelyssä. Tämä
+%    ympäristö toimii siten, että |abstract|-ympäristössä
+%    |\begin{@summary}|- ja |\end{@summary}|-komentojen väliin
+%    sijoitetaan varsinainen tiivistelmäteksti, joka annetaan
+%    \LaTeX-tiedostossa |\begin{abstract}|- ja |\end{abstract}|-komentojen
+%    välissä. Tiivistelmätekstin perään liitetään |\classification|-komennon
+%    parametrina annettujen aiheluokkien mukainen CR-luokitusteksti, mikäli
+%    CCS-luokat on annettu |\classification|-komennolla.
+%
+%    \begin{macrocode}
+\newsavebox{\@abstract}
+\newenvironment{@summary}{
+  \begin{lrbox}{\@abstract}
+    \begin{minipage}[t]{5.95in}
+      \setlength{\parskip}{2ex}
+}{
+
+      \if \@classification 
+      \else
+        \ccs\ \@classification
+      \fi
+    \end{minipage}
+  \end{lrbox}
+  \put(58, 650){\mbox{\usebox{\@abstract}}}
+}
+%    \end{macrocode}
+%
+%    Ja sitten lopultakin määritellään |abstract|-ympäristö uudelleen.
+%
+%    \begin{macrocode}
+
+\def\abst@small{\fontsize{10}{12}\selectfont}
+\def\abst@tiny{\fontsize{6}{7}\selectfont}
+
+\renewenvironment{abstract}{%
+\if@twoside
+\begin{picture}(580,845)(71,-64)%
+\else
+\begin{picture}(580,845)(74,-64)%
+\fi
+\put(58,  784){\makebox(100, 8)[l]{\abst@small\@faculty}}
+\put(289, 784){\makebox(100, 8)[l]{\abst@small\@department}}
+\put(58,  761){\makebox(100, 8)[l]{\abst@small\@author}}
+\put(58,  732){\parbox[l]{450pt}{\renewcommand{\baselinestretch}{.9}\abst@small\@title}}
+\put(58,  704){\makebox(100, 8)[l]{\abst@small\@subject}}
+\put(58,  681){\makebox(100, 8)[l]{\abst@small\@level}}
+\put(212, 681){\makebox(100, 8)[l]{\abst@small\@date}}
+\put(366, 681){\makebox(100, 8)[l]{\abst@small\@numberofpagesinformation}}
+\put(58,  94) {\makebox(100, 8)[l]{\abst@small\@keywords}}
+\put(58,  72) {\makebox(100, 8)[l]{\abst@small\@depositeplace}}
+\put(58,  35) {\makebox(100, 8)[l]{\abst@small\@additionalinformation}}
+\begin{@summary}\abst@small}
+{\end{@summary}
+%    \end{macrocode}
+%    Iso kehys.
+%
+%    \begin{macrocode}
+\put(53,30){\framebox(462,786){}}
+%    \end{macrocode}
+%    Vaakaviivat
+%
+%    \begin{macrocode}
+\put(53,779){\line(1,0){462}}
+\put(53,756.24){\line(1,0){462}}
+\put(53,722.1){\line(1,0){462}}
+\put(53,699.34){\line(1,0){462}}
+\put(53,676.58){\line(1,0){462}}
+\put(53,67){\line(1,0){462}}
+\put(53,89.76){\line(1,0){462}}
+\put(53,112.52){\line(1,0){462}}
+%    \end{macrocode}
+%    Pystyviivat. (Jostain syystä koodissa pitää olla tyhjä rivi
+%    |picture|-ympäristön jälkeen. Muuten abstraktisivu menee pieleen.)
+%
+%    \begin{macrocode}
+\put(284,779){\line(0,1){37}}
+\put(207,676.58){\line(0,1){22.76}}
+\put(361,676.58){\line(0,1){22.76}}
+\put(58,809){\makebox(150,6)[l]{
+\tiny Tiedekunta --- Fakultet --- Faculty}}
+\put(289,809){\makebox(100,6)[l]{\abst@tiny Laitos --- Institution --- Department}}
+\put(58,773){\makebox(100,5)[l]{\abst@tiny Tekij\"a --- F\"orfattare --- Author}}
+\put(58,750){\makebox(100,5)[l]{\abst@tiny Ty\"on nimi --- Arbetets titel --- Title}}
+\put(58,716){\makebox(100,5)[l]{\abst@tiny Oppiaine --- L\"aro\"amne --- Subject}}
+\put(58,693){\makebox(100,5)[l]{\abst@tiny Ty\"on laji --- Arbetets art --- Level}}
+\put(212,693){\makebox(100,5)[l]{\abst@tiny Aika --- Datum --- Month and year }}
+\put(366,693){\makebox(100,5)[l]{\abst@tiny Sivum\"a\"ar\"a --- Sidoantal --- 
+    Number of pages}}
+\put(58,670){\makebox(100,5)[l]{\abst@tiny Tiivistelm\"a --- Referat --- Abstract}}
+\put(58,106){\makebox(100,5)[l]{\abst@tiny Avainsanat --- Nyckelord --- Keywords}}
+\put(58,83){\makebox(100,5)[l]{\abst@tiny S\"ailytyspaikka --- F\"orvaringsst\"alle
+--- Where deposited}}
+\put(58,61){\makebox(100,5)[l]{\abst@tiny Muita tietoja --- \"ovriga uppgifter
+--- Additional information}}
+\put(53,821){\makebox(100,8)[l]{\abst@small HELSINGIN YLIOPISTO --- HELSINGFORS
+UNIVERSITET --- UNIVERSITY OF HELSINKI}}
+\end{picture}
+
+%    \end{macrocode}
+%
+%    Kommentoidut layoutasetuskomennot eivät toimi kaikissa
+%    \LaTeX-toteutuksissa oikein. Siksi ne on kommentoitu pois ja sama
+%    asia hoidetaan nykyisin antamalla |picture|-ympäristölle
+%    \mbox{x- ja y-koordinaatit}. Sivunumeroa ei näytetä.
+%    Mikäli abstraktisivua ei haluta laskea mukaan sivunumeroihin
+%    (roomalaiset numerot), voi alla olevan kommenttimerkin poistaa
+%    |\setcounter|-komennon edestä.
+%
+%    \begin{macrocode}
+\pagestyle{empty}
+%\if@twoside
+%  \geometry{top=0.2cm, left=0.25cm, right=0.7cm, noheadfoot}
+%\else
+%  \geometry{top=0.2cm, left=0.9cm, noheadfoot}
+%\fi
+\newpage
+%\setcounter{page}{1}
+%\defaultsettings
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{environment}
+%
+%    (Jostain syystä koodissa pitää olla tyhjä rivi ennen seuraavia
+%    kommenttirivejä. Muuten abstraktisivu menee pieleen.)
+%
+%    \begin{macrocode}
+
+% Yhdelle riville 75 merkkiä välilyönnit mukaan lukien:
+% 3456789012345678901234567890123456789012345678901234567890123456789012345
+%</luokka>
+%    \end{macrocode}
+%
+% \section{Käyttöohjeet}
+%
+%
+%    \begin{macrocode}
+%<*ohjeet>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                         %
+%% LaTeX-dokumenttiluokan tktltiki käyttöohje                              %
+%% Mikael Puolakka 16.9.2002                                                %
+%%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[gradu,emptyfirstpagenumber]{tktltiki}
+\usepackage{url}
+
+\newcommand{\filedate}{16.9.2002}
+
+\newcommand{\koodi}[1]{\texttt{#1}}
+
+\newcommand{\luokka}{\koodi{tktl\-tiki}}
+
+\newcommand{\bibtyyli}{\koodi{tktl}}
+
+\newcommand{\DescribeEnv}[1]{\marginpar{\texttt{#1}}}
+\newcommand{\DescribeMacro}[1]{\marginpar{\texttt{#1}}}
+
+\newcommand{\meta}[1]{#1}
+\newcommand{\oarg}[1]{[<#1>]}
+\newcommand{\marg}[1]{\{<#1>\}}
+
+%%\newcommand{\koodikoko}{\small}
+\newcommand{\koodikoko}{\footnotesize}
+
+%%\newcommand{\BibTeX}{BibTeX}
+\def\BibTeX{{\rmfamily B\kern-.05em%
+  \textsc{i\kern-.025em b}\kern-.08em%
+  T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\hyphenation{kä-si-kir-joi-tus-tie-dos-to
+             kä-si-kir-joi-tus-tie-dos-to-jen
+             kä-si-kir-joi-tus-tie-dos-ton}
+
+\begin{document}
+
+\title{Dokumenttiluokan \luokka\ käyttöohje}
+\author{Mikael Puolakka}
+\date{\filedate}
+\faculty{Matemaattis-luonnontieteellinen}
+\department{Tietojenkäsittelytieteen laitos}
+\level{Käyttöohje}
+\additionalinformation{Tämä on dokumenttiluokan \luokka\ käyttöohje.}
+\numberofpagesinformation{\numberofpages\ sivua}
+\classification{A.1, I.7.m}
+\keywords{käyttöohje, \LaTeX-dokumenttiluokka, \BibTeX-tyyli}
+
+\maketitle
+
+\begin{abstract}
+Dokumenttiluokka \luokka\ on tarkoitettu tukemaan Helsingin yliopiston
+Tietojenkäsittelytieteen laitoksen alempien opinnäytteiden ja harjoitusten
+laatimista. Luokka soveltuu siten käytettäväksi tieteellisen kirjoittamisen
+kurssille, ohjelmistotuotantoprojekteihin ja pro gradu -tutkielmiin. Luokka
+määrittelee sitä käyttävälle dokumentille tietyn ulkoasun ja tarjoaa
+käyttöliittymän dokumentin rakenteen hallitsemiseksi.
+\end{abstract}
+
+\mytableofcontents
+
+\section{Johdanto}
+Tämä dokumentti on \LaTeX -dokumenttiluokan \luokka\ käyttöohje.
+Dokumentti pyrkii antamaan kuvan siitä, miten
+\LaTeX-käsikirjoitustiedostoja\footnote{Käsikirjoitustiedosto on tiedosto,
+joka sisältää ohjeet dokumentin valmistamiseksi. Käsikirjoitustiedosto siis
+määrittää dokumentin.} rakennetaan käyttäen luokkaa \luokka\ ja millä
+tavalla luokan \luokka\ käyttö vaikuttaa sen dokumentin ulkoasuun, joka
+saadaan \LaTeX-käsikirjoitustiedoston tulosteena.
+
+Tämä dokumentti kuvailee dokumenttiluokan \luokka\ käyttöliittymän eli ne
+komennot ja ympäristöt, jotka luokka \luokka\ tarjoaa sitä käyttävien
+\LaTeX-käsi\-kir\-joi\-tus\-tie\-dos\-to\-jen rakennuspalasiksi. Noista
+rakennuspalasista muodostuu laadittavan dokumentin looginen rakenne.
+Tämä dokumentti kertoo myös, miten käytetyt komennot ja ympäristöt
+vaikuttavat laadittavan dokumentin ulkoasuun ja miten ylipäänsä luokan
+\luokka\ käyttö vaikuttaa laadittavan dokumentin ulkoasuun ja rakenteeseen.
+Jotta tämän käyttöohjeen lukijalle syntyisi visuaalinen mielikuva luokan
+\luokka\ määrittämästä dokumentin tyypistä, on tämä dokumentti tuotettu
+käyttämällä kyseessä olevaa luokkaa.
+
+Dokumentin seuraavat kaksi lukua käsittelevät dokumenttiluokan \luokka\
+käyttöä. Luku~\ref{kaytto} on tarkoitettu pikaohjeeksi, josta saa yleiskuvan
+luokan \luokka\ kaytosta. Luku~\ref{pitkakaytto} on taas tarkoitettu
+yksityiskohtaiseksi ohjeeksi siitä, miten luokkaa \luokka\ käyttäen
+rakennetaan \LaTeX-käsikirjoitustiedosto. Luku~\ref{pitkakaytto} on jaettu
+siten alilukuihin, että kukin aliluku kuvaa yhden osan rakennettavasta
+\LaTeX-käsikirjoitustiedostosta. Lisäksi aliluvut etenevät siinä
+järjestyksessä kuin niiden kuvailemat osat esiintyvät useimmissa
+dokumenttiluokkaa \luokka\ käyttävissä käsikirjoitustiedostoissa.
+
+Mainittakoon selvyyden vuoksi, että jatkossa \emph{dokumentti} tarkoittaa
+sitä tulostus- ja selailukelpoista dokumenttia, joka saadaan tulosteena kun
+käsikirjoitustiedosto syötetään \LaTeX-ohjelmalle.
+
+\section{Lyhyt versio dokumenttiluokan \luokka\ käytöstä}
+\label{kaytto}
+
+Kuvassa~\ref{runko} esitetty \LaTeX-käsikirjoitustiedoston runko toimii
+lyhyenä versiona
+dokumenttiluokan \luokka\ käyttöohjeesta. Se esittelee luokan \luokka\
+keskeiset komennot ja ympäristöt sekä niiden käyttötarkoitukset. Se ei
+kuitenkaan ole täydellinen malli käsikirjoitustiedostosta, sillä se ei
+esimerkiksi sisällä ollenkaan \verb|\cite|-komennolla tehtyjä
+lähdeviittauksia eikä \verb|\label|- ja \verb|\ref|-komennoilla tehtyjä
+ristiviittauksia.
+
+Tavallisesti \LaTeX-käsikirjoitustiedostot ovat \koodi{TEX}-päätteisiä,
+joten kuvan~\ref{runko} tiedostorungon voisi tallentaa esimerkiksi nimellä
+\koodi{esim.tex}.
+
+\begin{figure}
+\centering
+{\koodikoko
+\begin{verbatim}
+    \documentclass{tktltiki}
+    \usepackage{url}
+
+    \begin{document}
+
+    \title{Otsikko}
+    \author{Tekijä}
+    \date{\today}
+    \level{Pro gradu -tutkielma}
+
+    \maketitle
+
+    \doublespacing
+
+    \faculty{Matemaattis-luonnontieteellinen}
+    \department{Tietojenkäsittelytieteen laitos}
+    \subject{Tietojenkäsittelytiede}
+    \depositeplace{Tietojenkäsittelytieteen laitoksen kirjasto,
+                   sarjanumero C-2004-X}
+    \additionalinformation{}
+    \numberofpagesinformation{\numberofpages\ sivua +
+                              \numberofappendixpages[100] liitesivua}
+    \classification{A.1 [Introductory and Survey] \\
+                    I.7.m [Document and Text Processing]: Miscellaneous}
+    \keywords{avainsana}
+
+    \begin{abstract}
+    Tiivistelmä
+    \end{abstract}
+
+    \mytableofcontents
+
+    \section{Eka luku}
+
+    Tämä yksi luku on oikeastaan kaksi lukua: ensimmäinen ja viimeinen.
+
+    \subsection{Ekan luvun eka aliluku}
+
+    Viimeiset sanat.
+
+    \bibliographystyle{tktl}
+    \bibliography{munBibTeXtiedosto}
+
+    \lastpage
+    \appendices
+
+    \internalappendix{\theappendix}{Eka liite}
+
+    Liitetekstiä.
+
+    \internalappendix{2}{Toka liite}
+
+    Liitetekstiä. Ehkä kuviakin.
+
+    \externalappendix{\theappendix}{Ohjelmalistaus joka ei sisälly
+                                    \LaTeX-tiedostoon}
+    \end{document}
+\end{verbatim}
+}
+\caption{\LaTeX-käsikirjoitustiedoston runko} \label{runko}
+\end{figure}
+
+\section{Pitkä versio dokumenttiluokan \luokka\ käytöstä}
+\label{pitkakaytto}
+
+Tämä luku on pitkä versio dokumenttiluokan \luokka\ käyttöohjeesta. Tämän
+luvun aliluvuissa käsitellään tarkemmin luvussa~\ref{kaytto}
+esitellyt luokan \luokka\ komennot sekä monia muita hyödyllisiä
+\LaTeX-komentoja.
+
+\subsection{Aloitus}
+\label{aloitus}
+
+Kun käsikirjoitustiedosto syötetään \LaTeX-ohjelmalle, tulosteena saadaan
+valmis dokumentti. Tämän valmiin dokumentin yleisluonne määritellään
+valitsemalla käsikirjoitustiedostossa dokumenttiluokaksi luokka \luokka.
+Toisin sanoen luokka \luokka\ määrittää valmiin dokumentin tyypin.
+
+Luokka \luokka\ määrää dokumentin eri osien ulkoasun ja sen, mitä kaikkia
+tietoja dokumentin eri osiin tulee. Esimerkiksi otsikkosivu ja
+tiivistelmäsivu ovat luokkaa \luokka\ käyttävässä dokumentissa aivan
+erinäköisiä kuin esimerkiksi luokkaa \koodi{report} käyttävässä
+dokumentissa.
+
+Dokumentin yleispiirteitä voidaan edelleen täsmentää optioilla. Luokassa
+\luokka\ määritellyt optiot on lueteltu alla olevassa listassa.
+Vaihtoehdot, joista enintään yksi pitäisi valita, on eroteltu symbolilla
+\koodi{|}.
+
+\begin{description}
+
+\item[\koodi{gradu}] \texttt{} \\
+Saa aikaan sen, ettei valmiin dokumentin otsikkosivun oikeaan yläkulmaan
+ilmesty työn arvosteluun liittyviä sanoja \emph{\dateofacceptance},
+\emph{\grade} ja \emph{\instructor}.
+
+\item[\koodi{emptyfirstpagenumber}] \texttt{} \\
+Jättää sivunumeron pois dokumentin varsinaisen tekstin ensimmäiseltä
+sivulta. Varsinainen teksti alkaa tavallisesti dokumentissa
+sisällysluettelon jälkeen ja sen sivunumerointiin käytetään arabialaisia
+numeroja.
+
+\item[\koodi{finnish} | \koodi{swedish} | \koodi{english}] \texttt{} \\
+Valitsee dokumentin kielen. Optio \koodi{finnish} valitsee dokumentin
+kieleksi suomen, optio \koodi{swedish} ruotsin ja optio \koodi{english}
+englannin. Oletuksena on optio \koodi{finnish}. Dokumentin kieli vaikuttaa
+siten dokumenttiin, että kaikki automaattisesti tuotetut otsikot ja kentät
+tuotetaan valitulla kielellä. Lisäksi dokumentin tavutuksessa käytetään
+valitun kielen mukaista tavutusta.
+
+Mikäli dokumenttiin sisältyy vieraskielisiä sanoja tai lauseita,
+vieraskielisen osuuden tavutussäännöt voidaan muuttaa esimerkiksi
+\koodi{Babel}-pakkauksen komennolla \verb|\foreignlanguage|. Komennon
+ensimmäisenä parametrina annetaan kielen nimi, jonka sääntöjen mukaisesti
+toisena parametrina annettu teksti ladotaan. Vieraan kielen käyttäminen
+edellyttää kuitenkin sitä, että \TeX\ lataa kielen tavutussäännöt.
+Paikallisen \TeX-järjestelmän lataamat kielien tavutussäännöt pitäisi saada
+selville \TeX in tuottamasta lokitiedostosta, jossa voi lukea esim.\
+\foreignlanguage{english}{\texttt{Babel <v3.7h> and hyphenation patterns
+for american, french, german, ngerman, finnish, italian, swedish,
+nohyphenation, loaded.}} Tarkemmat ohjeet monikielisistä dokumenteista
+löytyvät \koodi{Babel}-pakkauksen dokumentaatiosta.
+
+\end{description}
+
+Yllä mainittujen optioiden lisäksi luokalle \luokka\ kelpaavat kaikki ne
+optiot, jotka kelpaavat standardiluokalle \verb|article|. Tämä johtuu
+siitä, että \luokka\ perustuu \koodi{article}-luokkaan. Alla olevassa
+listassa on lueteltu \koodi{article}-luokan tunnistamat optiot.
+
+\begin{description}
+\item[\koodi{10pt} | \koodi{11pt} | \koodi{12pt}] \texttt{} \\
+Valitsee dokumentin peruskirjasimen koon. Luokan \luokka\ oletuksena on
+\koodi{12pt}, joka valitsee 12 pisteen kirjasinkoon.
+
+\item[\koodi{letterpaper} | \koodi{legalpaper} | \koodi{executivepaper} |
+      \koodi{a4paper} | \koodi{a5paper} | \koodi{b5paper}] \texttt{} \\
+Määrittää dokumentin paperikoon. Luokan \luokka\ oletuksena on
+\koodi{a4paper}.
+
+\item[\koodi{landscape}] \texttt{} \\
+Saa aikaan sen, että dokumentti muokataan sopivaksi vaakatasotulostusta
+varten valitulle paperikoolle.
+
+\item[\koodi{final} | \koodi{draft}] \texttt{} \\
+Optio \koodi{draft} saa aikaan sen, että dokumentissa oikean marginaalin
+yli menevät ylipitkät rivit merkataan mustilla laatikoilla. Optio
+\koodi{final}, joka ei merkitse ylipitkiä rivejä, on oletuksena.
+
+\item[\koodi{oneside} | \koodi{twoside}] \texttt{} \\
+Muokkaa dokumentista sopivan joko yksipuoliseen tai kaksipuoliseen
+tulostukseen. Oletuksena on yksipuolinen tulostus (\koodi{oneside}).
+
+\item[\koodi{onecolumn} | \koodi{twocolumn}] \texttt{} \\
+Määrittää sen, ladotaanko teksti dokumentissa yhdelle palstalle
+(\koodi{onecolumn}) vai kahdelle (\koodi{twocolumn}). Oletuksena on
+\koodi{onecolumn}.
+
+\item[\koodi{notitlepage} | \koodi{titlepage}] \texttt{} \\
+Optio \koodi{titlepage} saa aikaan sen, että \verb|\maketitle|-komento
+tekee erillisen otsikkosivun ja \koodi{abstract}-ympäristö laittaa
+tiivistelmän erilliselle sivulle. Luokan \luokka\ oletuksena on
+\koodi{titlepage}.
+
+\item[\koodi{leqno}] \texttt{} \\
+Asettaa matemaattisten kaavojen numeroinnnin vasempaan reunaan
+\koodi{equation}- ja \koodi{eqnarray}-ympäristöissä.
+
+\item[\koodi{fleqn}] \texttt{} \\
+Latoo matemaattiset kaavat vasempaan reunaan tasattuina.
+
+\end{description}
+
+Dokumentin luokka ja optiot ilmoitetaan dokumentin määrittävän
+käsikirjoitustiedoston ensimmäisellä rivillä komennolla
+\begin{verbatim}
+    \documentclass[<optiot>]{tktltiki}
+\end{verbatim}
+jossa optiot siis toimivat lisämääreinä dokumenttiluokalle \luokka\ ja
+erotetaan toisistaan pilkulla. Tavallisesti \LaTeX-käsikirjoitustiedostojen
+tiedostopääte on \koodi{TEX}, joten muokattavan käsikirjoitustiedoston
+nimi voisi olla esimerkiksi \koodi{malli.tex}.
+
+Kuten jo aiemmin mainittiin, luokka \luokka\ määrittää dokumentin tyypin.
+Luokan \luokka\ mukaisen dokumentin ominaisuuksiin kuuluu alla olevassa
+listassa mainitut ominaisuudet.
+
+\begin{itemize}
+\item
+Helsingin yliopiston Tietojenkäsittelytieteen laitoksen raporttityylin
+mukaisesti muotoillut otsikkosivu eli kansilehti, tiivistelmäsivu ja
+lähdeluettelo.
+\item
+Sopivan kokoiset marginaalit.
+\item
+Ei sisennyksiä kappaleiden aluissa.
+\item
+Hieman tyhjää tilaa kappaleiden välissä.
+\item
+Sivunumerointi roomalaisilla numeroilla sisällysluettelosivuilla ja
+mahdollisilla muilla tavallisilla sivuilla ennen sisällysluetteloa, minkä
+jälkeen sivunumerointi arabialaisilla numeroilla, mikäli sisällysluettelon
+luontiin käytetty komentoa \verb|\mytableofcontents|.
+\item
+Sivunumerointi sivun oikeassa yläkulmassa.
+\end{itemize}
+
+Ylimääräisiä komentoja ja dokumentin ulkoasuun vaikuttavia
+tyylimäärittelyjä voidaan ottaa käyttöön pakkausten avulla. Pakkaus otetaan
+käyttöön kirjoittamalla komento
+\begin{verbatim}
+    \usepackage[<optiot>]{<pakkaus>}
+\end{verbatim}
+Optiot ovat tässä niitä optioita, jotka komennolla käyttöön otettu pakkaus
+tunnistaa. Kunkin pakkauksen tunnistamat optiot on mainittu pakkauksen
+dokumentaatiossa. Jos optioita ei käytetä, komento on yksinkertaisesti
+\begin{verbatim}
+    \usepackage{<pakkaus>}
+\end{verbatim}
+Komento \verb|\usepackage| voi esiintyä käsikirjoitustiedostossa vasta
+\verb|\documentclass|-komennon jälkeen.
+
+Dokumenttiluokan \luokka\ kanssa suositellaan käytettävän seuraavia
+pakkauksia:
+\begin{description}
+\item[\koodi{psfig}] \texttt{} \\
+Pakkaus kuvien liittämistä varten.
+\item[\koodi{graphicx}] \texttt{} \\
+Edellistä helppokäyttöisempi pakkaus kuvien liittämistä varten.
+\item[\koodi{subfigure}] \texttt{} \\
+Pakkaus vierekkäisten kuvien liittämistä varten.
+\item[\koodi{url}] \texttt{} \\
+WWW-osoitteiden ladontapakkaus.
+\end{description}
+
+Taulukossa~\ref{pakkaukset} on lueteltu ne pakkaukset optioineen, jotka
+dokumenttiluokka \luokka\ ottaa käyttöön automaattisesti. Näitä pakkauksia
+ei siis tarvitse ottaa erikseen käyttöön \verb|\usepackage|-komennolla,
+mikäli niiden tarjoamia komentoja ja dokumentin ulkoasuun vaikuttavia
+tyylimäärittelyjä tarvitaan dokumentin laadinnassa.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{l|l}
+\textbf{pakkaus} & \textbf{optiot} \\ \hline
+\koodi{babel}    & \koodi{finnish} tai \koodi{english} tai
+                   \koodi{swedish} \\
+\koodi{fontenc}  & \koodi{T1} \\
+\koodi{geometry} & - \\
+\koodi{inputenc} & \koodi{latin9} \\
+\koodi{latexsym} & - \\
+\koodi{openbib}  & - \\
+\end{tabular}
+\caption{Dokumenttiluokan \luokka\ käyttöönottamat pakkaukset}
+\label{pakkaukset}
+\end{center}
+\end{table}
+
+Kun käsikirjoitustiedostossa on määritelty dokumentin tyyppi, otettu
+käyttöön halutut pakkaukset ja määritelty mahdolliset omat komennot ja
+ympäristöt\footnote{Katso lisätietoja esimerkiksi \emph{Pitkänpuoleinen
+johdanto \LaTeXe:n käyttöön} -oppaasta, joka löytyy WWW-osoitteesta
+\url{ftp://ftp.funet.fi/
+pub/TeX/CTAN/info/
+lshort/finnish/lyhyt2e.pdf}}, varsinainen dokumentin sisältö aloitetaan
+kirjoittamalla käsikirjoitustiedostoon seuraava
+komento:\footnote{Vastaavasti dokumentti päätetään komennolla
+$\mathtt{\backslash}$\koodi{end\{document\}}}
+\begin{verbatim}
+    \begin{document}
+\end{verbatim}
+
+\subsection{Otsikkosivu}
+
+%%\DescribeMacro{\maketitle}
+Otsikkosivu eli kansilehti tuotetaan dokumenttiin kirjoittamalla
+käsikirjoitustiedostoon komento \verb|\maketitle|.
+%%\DescribeMacro{\title}
+%%\DescribeMacro{\author}
+%%\DescribeMacro{\date}
+%%\DescribeMacro{\level}
+Otsikkosivun ja osa tiivistelmäsivun muuttuvista tiedoista ilmoitetaan
+käsikirjoitustiedostossa komennoilla \verb|\title| (työn nimi),
+\verb|\author| (tekijä), \verb|\date| (aika, ei pakollinen) ja
+\verb|\level| (työn laji) ennen otsikkosivun tuottamista. Dokumentissa
+otsikkosivu tulee automaattisesti omalle sivulleen ilman sivunumerointia.
+
+\subsection{Tiivistelmäsivu}
+
+%%\DescribeEnv{abstract}
+Kun otsikkosivun tuottava \verb|\maketitle|-komento on kirjoitettu
+käsikirjoitustiedostoon, dokumenttiin voidaan tehdä tiivistelmäsivu
+\verb|abstract|-ympäristön avulla. Osa tiivistelmäsivun muuttuvista
+tiedoista annettiin aiemmin mainituilla komennoilla ennen
+\verb|\maketitle|-komentoa.
+%%\DescribeMacro{\faculty}
+%%\DescribeMacro{\department}
+%%\DescribeMacro{\subject}
+%%\DescribeMacro{\depositeplace}
+%%\DescribeMacro{\additionalinformation}
+%%\DescribeMacro{\classification}
+%%\DescribeMacro{\keywords}
+Loput tiivistelmäsivun muuttuvista tiedoista annetaan komennoilla
+\verb|\faculty| (tiedekunta/osasto), \verb|\department| (laitos),
+\verb|\subject| (oppiaine), \verb|\depositeplace| (säilytyspaikka),
+\verb|\additionalinformation| (muita tietoja), \verb|\classification|
+(aiheluokat) ja \verb|\keywords| (avainsanat).
+
+%%\DescribeMacro{\numberofpagesinformation}
+Komennon \verb|\numberofpagesinformation| parametrina annetaan varsinaisen
+dokumentin rungon\footnote{Tavallisesti sisällysluettelon ja mahdollisten
+liitteiden välinen osa dokumentista} sivumäärä ja liitteiden sivumäärä.
+
+%%\DescribeMacro{\lastpage}
+%%\DescribeMacro{\numberofpages}
+%%\DescribeMacro{\numberofappendixpages}
+Sivumäärien laskemiseen on olemassa komennot \verb|\lastpage|,
+\verb|\numberofpages| ja \verb|\numberofappendixpages|. Komennolla
+\verb|\lastpage| ilmoitetaan, että käsikirjoitustiedostossa päättyy
+varsinaisen dokumentin rungon käsittely. On siis mielekästä kirjoittaa
+\verb|\lastpage|-komento käsikirjoitustiedostoon juuri ennen
+\verb|\appendices|-ko\-men\-toa tai --- jos liitteitä ei ole --- ennen
+\verb|\end{document}|-komentoa.
+
+Komento \verb|\numberofpages| tulostaa kutsukohtaansa sen sivun
+sivunumeron, jolla komentoa \verb|\lastpage| on kutsuttu, tai numeron 0,
+jos komentoa \verb|\lastpage| ei ole kutsuttu missään dokumentin kohdassa.
+Käytännössä komennon \verb|\numberofpages| ilmoittama sivunumero on samalla
+varsinaisen dokumentin sivumäärä, mikäli komentoa \verb|\lastpage| on
+kutsuttu oikeassa kohdassa ja sivumäärään halutaan sisällyttää ainoastaan
+sisällysluettelon ja mahdollisten liitteiden väliset sivut. Komento
+\verb|\numberofappendixpages| tulostaa dokumentin liitteiden sivumäärän,
+mikäli liitteisiin liittyvissä toimenpiteissä on käytetty luokan \luokka\
+tarjoamia liitekomentoja \verb|\appendices| ja \verb|\internalappendix|.
+Komennon \verb|\numberofappendixpages| valinnaisella parametrilla voidaan
+ilmoittaa dokumentin ulkopuolisten liitteiden yhteenlaskettu sivumäärä.
+
+\begin{sloppypar}
+Nyt dokumentin sivumäärä voidaan ilmoittaa
+\verb|\numberofpagesinformation|-komennolle seuraavasti, kun dokumentin
+viimeisellä varsinaisella sivulla kutsutaan \verb|\lastpage|-komentoa:
+\verb|\numberofpagesinformation{\numberofpages\|\verb|sivua +|
+\verb|\numberofappendixpages[100] liitesivua}|. Komennon
+\verb|\numberofappendixpages| valinnaisella parametrilla (tässä~100)
+ilmoitetaan dokumentin ulkopuolisten liitteiden yhteenlaskettu sivumäärä.
+Jos dokumentin ulkopuolisia liitteitä ei ole, riittää kirjoittaa
+\verb|\numberofappendixpages\ |, jossa \verb*|\ | sijoittaa välilyönnin
+sivumäärän perään.
+\end{sloppypar}
+
+Kun kaikki tiivistelmäsivulle tulevista muuttuvista tiedoista on
+kirjoitettu, tiivistelmäsivu luodaan dokumenttiin kirjoittamalla
+käsikirjoitustiedostoon
+\begin{verbatim}
+    \begin{abstract}
+    Tiivistelmäteksti, joka tulee Tiivistelmä --- Referat --- Abstract
+    -otsikon alle tiivistelmäsivulle.
+    \end{abstract}
+    \end{verbatim}
+Tämä luo omalla, sivunumeroimattomalla sivullaan olevan tiivistelmäsivun
+annetuilla tiedoilla.
+
+\subsection{Sisällysluettelo}
+
+%%\DescribeMacro{\mytableofcontents}
+\begin{sloppypar}
+Sisällysluettelo luodaan kirjoittamalla käsikirjoitustiedostoon komento
+\verb|\mytableofcontents|. Tämä tuottaa dokumenttiin sisällysluettelon,
+jonka sivunumerointiin käytetään roomalaisia numeroita ja joka aloittaa
+loppuessaan uuden sivun, mistä lähtien sivunumerointiin käytetään
+arabialaisia numeroita.
+\end{sloppypar}
+
+Jos sisällysluettelon jälkeen on vielä tarkoitus tulla sivuja, joilla
+käytetään roomalaista sivunumerointia, sisällysluettelo on syytä luoda
+\verb|\tableofcontents|-komennolla. Tämä ainoastaan tuottaa dokumenttiin
+sisällysluettelon eikä siis vaikuta sivunumerointiin tai aloita loppuessaan
+uutta sivua. Sivunumeroinnin voi vaihtaa sitten haluamassaan kohdassa
+arabialaiseksi kirjoittamalla käsikirjoitustiedostoon
+\begin{verbatim}
+    \newpage
+    \pagenumbering{arabic}
+\end{verbatim}
+mikä aloittaa uuden sivun sivunumerolla 1 ja arabialaisella
+sivunumeroinnilla.
+
+\subsection{Varsinainen teksti}
+\label{teksti}
+
+Otsikkosivun, tiivistelmäsivun ja sisällysluettelon jälkeen dokumentissa
+alkaa tavallisesti varsinainen tekstiosa. Kun käsikirjoitustiedostossa
+käytetään sisällysluettelon luontiin \verb|\mytableofcontents|-komentoa,
+dokumentissa alkaa automaattisesti uusi sivu sisällysluettelon jälkeen
+ilman lisäkomentojen kirjoittamista.
+
+%%\DescribeMacro{\section}
+%%\DescribeMacro{\subsection}
+%%\DescribeMacro{\subsubsection}
+Varsinaisen tekstiosan kirjoittamiseen ei välttämättä tarvita muita
+komentoja kuin \verb|\section|, \verb|\subsection| ja
+\verb|\subsubsection|. Komento \verb|\section| aloittaa pääluvun ja sen
+parametrina annetaan pääluvun otsikko. Komennot \verb|\subsection| ja
+\verb|\subsubsection| ovat alilukujen aloittamista varten siten, että
+\verb|\subsection| aloittaa dokumentissa ensimmäisen tason aliluvun ja
+\verb|\subsubsection| toisen tason aliluvun. Näille komennoille annetaan
+niin ikään parametrina aloitettavan luvun otsikko.
+
+%%\DescribeMacro{\label}
+%%\DescribeMacro{\ref}
+%%\DescribeMacro{\pageref}
+%%\DescribeMacro{\cite}
+Erittäin hyödyllisiä komentoja käsikirjoitustiedostoa kirjoitettaessa ovat
+\verb|\label|, \verb|\ref| ja \verb|\pageref|, joita käytetään
+ristiviittauksissa, sekä \verb|\cite|, jota käytetään viitattaessa
+lähteisiin.
+
+Kirjallisissa töissä on usein ristiviittauksia kuviin, taulukoihin,
+tiettyihin tekstin osiin, jne. \LaTeX\ tarjoaa ristiviittaamiseen
+komennot \verb|\label{<tunniste>}|,\linebreak \verb|\ref{<tunniste>}| ja
+\verb|\pageref{<tunniste>}|, joissa tunniste on käyttäjän valitsema nimi
+viitattavalle kohteelle. Valmiissa dokumentissa \LaTeX\ korvaa
+\verb|\ref|-komen\-non sen otsikon, alaotsikon, kuvan, taulukon tai teoreeman
+numerolla, jonka perässä käsikirjoitustiedostossa on vastaavanniminen
+\verb|\label|-komento. Komento \verb|\pageref| tulostaa sen sivun numeron,
+jossa vastaava \verb|\label|-komento on. Juuri ristiviittausten saamiseksi
+ajan tasalle käsikirjoitustiedosto on ajettava \LaTeX:n läpi ainakin
+kahdesti.\footnote{Ohjelmien käyttöä käsitellään luvussa~\ref{ohjelmat}}
+
+Esimerkiksi teksti \emph{Viittaus tähän alaotsikkoon \label{sec:this}
+näyttää tältä: ''katso osiota~\ref{sec:this} sivulla~\pageref{sec:this}.''}
+saatiin aikaan tähän käyttöohjeeseen kirjoittamalla
+käsikirjoitustiedostoon rivit:
+\begin{verbatim}
+    Viittaus tähän alaotsikkoon \label{sec:this}
+    näyttää tältä: ''katso osiota~\ref{sec:this}
+    sivulla~\pageref{sec:this}.''
+\end{verbatim}
+Luonnollisesti soveliaampi paikka komennolle \verb|\label{sec:this}| olisi
+ollut heti tämän aliluvun otsikon alla.
+
+%%\DescribeEnv{thebibliography}
+Bibliografia eli lähdeluettelo voidaan tehdä käsin käsikirjoitustiedostoon
+sijoitettavan \koodi{thebibliography}-ympäristön avulla tai
+\BibTeX-ohjelmalla, joka kirjoittaa \koodi{thebibliography}-ympäristön
+sisältöineen \koodi{BBL}-päätteiseen tiedostoon. Tästä aiheesta kerrotaan
+enemmän luvussa~\ref{lahdeluettelo}. Tässä vaiheessa on tärkeintä tietää,
+kuinka kirjoihin, artikkeleihin tai muihin lähteisiin viitataan
+varsinaisessa tekstissä.
+
+%%\DescribeMacro{\bibitem}
+Jokainen lähde lähdeluettelon tuottavassa
+\koodi{thebibliography}-ympäristössä alkaa komennolla
+\verb|\bibitem{<tunniste>}|.
+%%\DescribeMacro{\cite}
+Viittaus tunnisteen määrittämään lähteeseen tapahtuu komennolla
+\verb|\cite{<tunniste>}|. Kun viitataan lähteeseen, joka alkaa\linebreak
+\koodi{thebibliography}-ympäristössä komennolla \verb|\bibitem{mjpuolak}|,
+kirjoitetaan esimerkiksi
+\begin{verbatim}
+    WWW-lähteitä ja niihin viittaamista käsitellään erillisessä
+    ohjeessa~\cite{mjpuolak}.
+\end{verbatim}
+
+%%\DescribeMacro{\singlespacing}
+%%\DescribeMacro{\onehalfspacing}
+%%\DescribeMacro{\doublespacing}
+\begin{sloppypar}
+Rivivälityksen muuttamiseen on olemassa komennot \verb|\singlespacing|,
+\verb|\onehalfspacing| ja \verb|\doublespacing|.
+\end{sloppypar}
+
+\onehalfspacing
+Komennolla \verb|\onehalfspacing| rivivälitys muutetaan 1.5-riviväliksi. \\
+(Tämän ja edellisen rivin välissä on käytetty 1.5-riviväliä.)
+
+\doublespacing
+Komennolla \verb|\doublespacing| rivivälitys muutetaan puolestaan
+2.0-riviväliksi. \\
+(Tämän ja edellisen rivin välissä on käytetty 2.0-riviväliä.)
+
+\singlespacing
+Komennolla \verb|\singlespacing| onnistuu paluu 1.0-riviväliin. \\
+(Tämän ja edellisen rivin välissä on käytetty 1.0-riviväliä.)
+
+\subsubsection{Suuret projektit}
+
+%%\DescribeMacro{\input}
+%%\DescribeMacro{\include}
+Ryhmätöitä aloitettaessa kannattaa koota pääkäsikirjoitustiedoston rungoksi
+vain välttämättömät asettelut ja tuoda sisältö mukaan \verb|\input|- tai
+\verb|\include|-komen\-noil\-la. Näin käsikirjoitus voidaan jakaa useampaan
+tiedostoon isoja dokumentteja tehtäessä.
+
+Komento \verb|\input{<tiedosto>}| ottaa yksinkertaisesti mukaan tiedoston
+sisällön siihen paikkaan, jossa sitä kutsutaan käsikirjoitustiedostossa.
+Tiedoston nimi voi olla täydellinen nimi päätteineen tai vain nimen
+ensimmäinen osa, jolloin \LaTeX\ käyttää oletuspäätteenä päätettä
+\koodi{.tex}. Komentoa \verb|\input{<tiedosto>}| voidaan kutsua missä
+tahansa käsikirjoitustiedoston kohdassa.
+
+Komentoa \verb|\include{<tiedosto>}| voidaan käyttää ainoastaan itse
+tekstiosassa eli \verb|\begin{document}|- ja
+\verb|\end{document}|-komentojen välissä lisäämään toisen tiedoston
+sisältö. Komentoa ei voi käyttää tiedostossa, joka luetaan jonkun muun
+\verb|\include|-komennon toimesta. \LaTeX\ aloittaa uuden sivun, ennen kuin
+se alkaa käsitellä \verb|\include|-komennolla lisätyn tiedoston sisältöä.
+
+%%\DescribeMacro{\includeonly}
+Komennolla \verb|\includeonly{tiedosto1,tiedosto2,...}| \LaTeX\ ohjataan
+lukemaan ainoastaan komennon parametrina annetut tiedostot. Komentoa voi
+käyttää ainoastaan käsikirjoitustiedoston esittelyosassa.\footnote{Se osa
+käsikirjoitustiedostosta, joka edeltää
+$\mathtt{\backslash}$\koodi{begin\{document\}}-komentoa.} Kun tämä komento
+on kirjoitettu esittelyosaan, suoritetaan vain
+\verb|\includeonly|-komennon listassa mainittujen tiedostojen
+\verb|\include|-komennot.
+
+\begin{sloppypar}
+Kuvassa~\ref{paakasis} on yksinkertainen esimerkki komentoja \verb|\input|,
+\verb|\include| ja \verb|\includeonly| hyödyntävän
+pääkäsikirjoitustiedoston sisällöstä.
+\end{sloppypar}
+\begin{figure}
+\centering
+{\koodikoko
+\begin{verbatim}
+    \documentclass{tktltiki}
+
+    \includeonly{ekaeka,ekaliite}
+
+    \begin{document}
+
+    \title{Otsikko}
+    \author{Tekijä}
+    \date{\today}
+
+    \maketitle
+
+    \begin{abstract}
+    \input{tiivistelma}
+    \end{abstract}
+
+    \mytableofcontents
+
+    \section{Eka luku}
+
+    \input{eka}
+
+    \subsection{Ekan luvun eka aliluku}
+
+    \include{ekaeka}
+
+    \subsection{Ekan luvun toinen aliluku}
+
+    \include{ekatoka}
+
+    \bibliographystyle{tktl}
+    \bibliography{munBibTeXtiedosto}
+
+    \lastpage
+    \appendices
+
+    \internalappendix{\theappendix}{Eka liite}
+
+    \include{ekaliite}
+
+    \internalappendix{2}{Toka liite}
+
+    \include{tokaliite}
+
+    \end{document}
+\end{verbatim}
+}
+\caption{Esimerkki pääkäsikirjoitustiedostosta} \label{paakasis}
+\end{figure}
+
+Kuvan~\ref{paakasis} esimerkissä komento \verb|\includeonly{ekaeka,ekaliite}|
+merkitsee sitä,
+että ainoastaan tiedostot \koodi{ekaeka} ja \koodi{ekaliite} luetaan
+mukaan niistä, jotka liitetään \verb|\include|-komennolla. Tiedostojen
+\koodi{ekatoka} ja \koodi{tokaliite} sisältöjä ei siis oteta mukaan
+valmiiseen dokumenttiin eikä niitä koskaan luetakaan. Sen sijaan tiedostot
+\koodi{tiivistelma} ja \koodi{eka} liitetään osaksi dokumenttia.
+
+Kuvan~\ref{paakasis} käsikirjoitustiedostoa voitaisiin kutsua
+pää- tai kantatiedostoksi.
+Tämä on se tiedosto, joka käsitellään \LaTeX-ohjelmalla kun tuotetaan valmis
+dokumentti luvussa~\ref{ohjelmat} mainittujen ohjeiden mukaisesti.
+
+\pagebreak
+\subsubsection{Kuvien lisääminen}
+
+Kuvat ovat objekteja, jotka eivät ole osa normaalia tekstiä. Tavallisesti
+kuvat vaeltavat sopivaan paikkaan dokumentissa, kuten sivun ylälaitaan.
+Yhtä kuvaa ei pilkota kahdelle sivulle, vaan se sijoitetaan kokonaisena
+yhdelle sivulle.
+
+Kuvien ja muiden normaaliin tekstiin kuulumattomien objektien
+sisällyttämiseen käytetään ympäristöä \koodi{figure}, jonka käyttö voisi
+pääpiirteissään näyttää seuraavalta:
+\begin{verbatim}
+    \begin{figure}[sijoitus]
+
+      kuvan runko
+
+    \caption{kuvan otsikko} \label{tunniste}
+    \end{figure}
+\end{verbatim}
+Käsikirjoitustiedostoon kirjoitettu komento \verb|\begin{figure}| aloittaa
+kuvan muodostaman itsenäisen moduulin ja komento \verb|\end{figure}| päättää
+sen. Näiden komentojen väliin kirjoitetaan kuvan runko, joka muodostuu
+mistä tahansa tekstistä, \LaTeX-komennoista, jne. Kuva otsikoidaan
+\verb|\caption|-komennolla. Lisäksi jokainen kuva kannattaa merkitä
+\verb|\label|-komennolla ristiviittausten mahdollistamiseksi.
+Ympäristön \koodi{figure} (sekä ympäristön \koodi{table}) kohdalla komennon
+\verb|\label| paikka on tarkkaan määrätty: se täytyy sijoittaa
+käsikirjoitustiedostoon \verb|\caption|-komennon perään tai sen parametriin.
+
+Koska kuva on tekstiin kuulumaton objekti, se saattaa vaeltaa tiettyjen
+sijoittelusääntöjen puitteissa paikasta toiseen. Kuvan sijoitteluun voidaan
+vaikuttaa valinnaisella parametrilla \koodi{sijoitus}, joka sisältää yhdestä
+kirjaimesta neljään kirjaimeen koostuvan merkkijonon, jossa kukin kirjain
+tarkoittaa jotain seuraavista paikoista:
+\begin{description}
+\item[\koodi{h}]
+\emph{Here}: paikkaan tekstissä, missä \koodi{figure}-ympäristö esiintyy.
+\item[\koodi{t}]
+\emph{Top}: tekstisivun ylälaitaan.
+\item[\koodi{b}]
+\emph{Bottom}: tekstisivun alalaitaan.
+\item[\koodi{p}]
+\emph{Page of floats}: erilliselle sivulle, joka ei sisällä tekstiä vaan
+pelkkiä kuvia ja taulukkoja (\koodi{table}).
+\end{description} 
+Parametrin \koodi{sijoitus} puuttuessa oletuksena on sijoitus \koodi{tbp}.
+Käytännössä valinnaisella parametrilla \koodi{sijoitus} ilmoitetaan, minne
+kuva on lupa sijoittaa, joten on syytä antaa tarpeeksi vaihtoehtoja.
+
+Kuvan runko voi sisältää tekstiä, \LaTeX-komentoja, jne. Yleinen ja helppo
+tapa lisätä kuvia dokumenttiin on käyttää valmiita kuvia, jotka on tehty
+jollain grafiikan tekoon erikoistuneella ohjelmalla.\footnote{Tällaisia
+ohjelmia ovat mm.\ XFig, CorelDraw!, Freehand, Gnuplot ja XPaint.} Kuvien
+käsittelyyn suositeltuja LaTeX-pakkauksia ovat \koodi{graphicx},
+\koodi{psfig} ja \koodi{subfigure}, joista on ollut puhetta
+luvussa~\ref{aloitus}.
+
+Kuvien \koodi{kuva1.eps}, \koodi{kuva2.eps} ja \koodi{kuva3.eps} liittäminen
+dokumenttiin voisi tapahtua seuraavilla käsikirjoitustiedostoon
+kirjoitettavilla komennoilla, kun käytetään \koodi{graphicx}-pakkausta:
+{\koodikoko
+\begin{verbatim}
+    ...
+    \usepackage{graphicx} % Pakkaus kuvien liittämistä varten.
+    ...
+    \begin{figure}[htb]
+    \includegraphics{kuva1.eps}
+    \caption{Hieno kuva} \label{ekakuva}
+    \end{figure}
+    ...
+    \begin{figure}[htb]
+    \centering \includegraphics{kuva2.eps}
+    \caption{Hienompi kuva} \label{tokakuva}
+    \end{figure}
+    ...
+    \begin{figure}[htb]
+    \centering \includegraphics{kuva3.eps}
+    \caption{Hienoin kuva} \label{kolmaskuva}
+    \end{figure}
+    ...
+\end{verbatim}
+}
+Kahden jälkimmäisen kuvan lisäämisessä käytetty komento \verb|\centering|
+keskittää kuvan sivulle vaakasuunnassa.
+
+\subsection{Lähdeluettelon tuottaminen}
+\label{lahdeluettelo}
+
+\begin{sloppypar}
+Varsinaista tekstiä seuraa dokumentissa usein lähdeluettelo, jonka
+tuottamiseen on kaksi erilaista tapaa: \BibTeX\ ja käsikirjoitustiedostoon
+käsin lisättävä \verb|thebibliography|-ympäristö. Seuraavissa aliluvuissa
+kuvaillaan lähdeluettelon luonti molemmilla eri tavoilla.
+\end{sloppypar}
+
+\subsubsection{\BibTeX -lähdetietokantaa käyttäen}
+
+\BibTeX\ on erillinen ohjelma, joka tuottaa lähdeluettelon dokumenttiin
+hankkien tiedot \koodi{BIB}-päätteisistä tietokantatiedostoista eli
+\BibTeX-tietokannoista. Kaikki viitteet sijoitetaan siis
+\BibTeX-tietokantoihin, joissa jokaista viitettä vastaa yksi tietue ja
+tietueen kentät vastaavat viitteen tiettyä ominaisuutta, kuten
+kirjoittajaa, nimeä, julkaisijaa, jne. Kun \BibTeX-ohjelmaa käyttää, se
+poimii tekstissä \verb|\cite|-komennolla viitatut lähteet tietokannasta ja
+kirjoittaa \koodi{BBL}-päätteiseen tiedostoon
+\verb|thebibliography|-ympäristön sisältöineen, jonka perusteella \LaTeX\
+sitten osaa luoda lähdeluettelon dokumenttiin.
+
+\BibTeX-ohjelman käytön etuna on se, että samaa \BibTeX-tietokantaa voi
+käyttää useissa dokumenteissa ja että viittaamatta jäävät tiedot voivat
+vapaasti jäädä ko.\ tiedostoon. Samoin on mahdollista tuottaa lista
+tiedostossa jo olevista viitteistä kommenttimerkintöineen --- tästä on
+hyötyä tiedonhakuvaiheessa muistiinpanojen koordinaattorina. Lisäksi
+\BibTeX-ohjelman tuottamien lähdeluettelojen ulkoasu perustuu erityisiin
+\BibTeX-tyylitiedostoihin, mikä antaa mahdollisuuden tehdä erityyppisiä
+lähde- ja kirjallisuusluetteloita.
+
+%%\DescribeMacro{\bibliography}
+\BibTeX-ohjelmaa käytettäessä lähdeluettelo kootaan tietokantatiedostojen
+tiedoista. Jos siis lähdetiedot sijaitsevat esimerkiksi tiedostoissa
+\koodi{insect.bib} ja \koodi{animal.bib}, \LaTeX-käsikirjoitustiedostoon
+kirjoitetaan komento
+\begin{verbatim}
+    \bibliography{insect,animal}
+\end{verbatim}
+siihen kohtaan, johon valmiissa dokumentissa halutaan sijoittaa
+\BibTeX-ohjelman luoma lähdeluettelo.
+
+%%\DescribeMacro{\cite}
+Tietokantatiedostojen \koodi{insect.bib} ja \koodi{animal.bib} sisältämiin
+lähdetietoihin viitataan tekstissä \verb|\cite|-komennolla, jolla
+määritetyt lähteet \BibTeX\ poimii mukaan luomaansa lähdeluetteloon.
+Lähdeluetteloon voidaan sisällyttää myös sellaisia lähteitä, joihin ei
+viitata tekstissä \verb|\cite|-komennolla. Tämä tapahtuu
+\verb|\nocite|-komen\-nol\-la, jonka parametrina annetaan pilkulla erotettuina
+lähteiden tunnisteet. Kun lähdeluetteloon halutaan sisällyttää kaikki
+tietokantatiedostojen tietueet, tämä onnistuu kirjoittamalla
+\verb|\nocite{*}| ennen komentoa \verb|\bibliography{insect,animal}|.
+
+%%\DescribeMacro{\bibliographystyle}
+\BibTeX-ohjelman käyttöä varten \LaTeX-käsikirjoitustiedostossa täytyy olla
+jossain kohtaa \verb|\begin{document}|-komennon jälkeen komento
+\verb|\bibliographystyle|, jonka parametrina annetaan lähdeluettelon
+luomisessa käytetty \BibTeX-tyyli. \BibTeX-tyylitiedostot ovat
+\koodi{BST}-päätteisiä tiedostoja, esim.\ \koodi{alpha.bst}, mutta\linebreak
+\verb|\bibliographystyle|-komennon parametriksi kirjoitetaan vain
+tyylitiedoston nimi ilman päätettä eli tässä tapauksessa \koodi{alpha}.
+
+\LaTeX-pakkauksen standardityylit lähdeluetteloille ovat \koodi{plain},
+\koodi{unsrt}, \koodi{alpha} ja\linebreak \koodi{abbrv}. Lisäksi on olemassa lukuisia
+muita \koodi{BST}-päätteisiä tyylitiedostoja, jotka perustuvat enemmän tai
+vähemmän standardityyleihin. Eräs suositeltava \BibTeX-tyyli on Helsingin
+yliopiston Tietojenkäsittelytieteen laitoksella kehitetty \bibtyyli,
+joka on modifioitu standardityylistä \verb|alpha|.
+
+Tyyli \bibtyyli\ käyttää kielisensitiivisissä kohdissa joko suomen, ruotsin
+tai englannin kieltä sen mukaan, mikä näistä kielistä on \LaTeX-pakkauksen
+\verb|Babel| käytössä lähdeluettelon luontiajankohtana. Tämä tietenkin
+määritetään käsikirjoitustiedostossa. Tyylin \bibtyyli\ käytön ehtona on
+siis se, että paketti \verb|Babel| on käytössä ja joko suomen, ruotsin tai
+englannin kieli on aktiivisena.
+
+Dokumenttiluokan \luokka\ kanssa tyylin \bibtyyli\ käyttäminen on helppoa,
+sillä \luokka\ ottaa \verb|Babel|-pakkauksen automaattisesti käyttöönsä ja
+valitsee aktiivikseksi kieleksi joko suomen, ruotsin tai englannin kielen.
+
+Kun siis tietokantatiedostot \koodi{insect.bib} ja \koodi{animal.bib}
+sisältävät niiden lähteiden tiedot, joihin käsikirjoitustiedostoon
+kirjoitetussa tekstissä viitataan \verb|\cite|-komennolla,
+käsikirjoitustiedostoon riittää kirjoittaa esimerkiksi
+\begin{verbatim}
+    \bibliographystyle{alpha}
+    \bibliography{insect,animal}
+\end{verbatim}
+siihen kohtaan, johon lähdeluettelon halutaan ilmestyvän valmiissa
+dokumentissa. Näin \BibTeX\ saa tietoonsa, mistä tietokannoista se poimii
+viitteiden tiedot ja mitä tyyliä se käyttää lähdeluettelon muokkaamiseen.
+Kun käsikirjoitustiedosto on käsitelty luvussa~\ref{ohjelmat} mainitulla
+tavalla, lähdeluettelon valmiiseen dokumenttiin tuottanut
+\koodi{thebibliography}-ympäristö eli lähdeluettelon ''käsikirjoitus''
+löytyy \koodi{BBL}-päätteisestä tiedostosta, jonka nimen alkuosa on sama
+kuin \LaTeX-käsi\-kir\-joi\-tus\-tie\-dos\-ton.
+
+Lisätietoja \BibTeX-ohjelman käytöstä ja \BibTeX-tietokantojen teosta
+löytyy dokumentista \emph{\BibTeX-tyylin \koodi{tktl} käyttöohje}, joka
+on samalla \BibTeX-tyylin \koodi{tktl} käyttöohje.
+
+\subsubsection{Dokumentin sisäistä viiteympäristöä käyttäen}
+
+%%\DescribeEnv{thebibliography}
+Ympäristön \koodi{thebibliography} avulla lähdeluettelon tuottaminen käsin
+onnistuu kirjoittamalla \LaTeX-käsikirjoitustiedostoon esimerkiksi
+\begin{verbatim}
+    \begin{thebibliography}{XXX88}
+    \bibitem[Gri87]{grimm87}
+    Grimm, S. S.,
+    {\em How to write computer documentation for users.}
+    Van Nostrand Reinhold Co.,
+    New York, 1987.
+       .
+       .
+       .
+    \end{thebibliography}
+\end{verbatim}
+
+Kun lähdeluettelon tuottaa käsin, \koodi{thebibliography}-ympäristö
+kirjoitetaan käsikirjoitustiedostoon.
+%%\DescribeMacro{\cite}
+Käsikirjoitustiedoston tekstiosassa lähteeseen viitataan
+\verb|\cite|-komennolla, esim.\ \verb|\cite{grimm87}|.
+
+\subsection{Viimeinen sivu ennen liitteitä}
+Useimmissa tapauksissa lähdeluettelo päättää varsinaisen dokumentin.
+%%\DescribeMacro{\lastpage}
+Sivumäärän laskemiseksi lähdeluettelokomentojen jälkeen kannattaa
+kirjoittaa käsikirjoitustiedostoon komento \verb|\lastpage|, jolla
+ilmoitetaan että kyseessä on viimeinen varsinainen sivu ennen
+liitteiden määrittämistä tai käsikirjoitustiedoston loppumista.
+
+%%\DescribeMacro{\numberofpagesinformation}
+%%\DescribeMacro{\numberofpages}
+%%\DescribeMacro{\numberofappendixpages}
+Jos käsikirjoitustiedoston alussa kirjoitettiin
+\verb|\numberofpagesinformation|\linebreak \verb|{\numberofpages\| \verb|sivua +|
+\verb|\numberofappendixpages[100]| \verb|liitesivua}|, tulostuu valmiin
+dokumentin tiivistelmäsivulle \emph{Sivumäärä}-kohtaan esim.\
+\emph{10~sivua +\linebreak 105~liitesivua}. Tämä tarkoittaa sitä, että dokumentin
+varsinainen tekstiosuus sisältää 10~sivua, dokumentti sisältää
+5~käsikirjoitustiedostossa määritettyä liitesivua ja dokumentin
+käsikirjoitustiedostoon kuulumattomia sivuja on~100~kpl.
+
+\subsection{Liitteet}
+Usein lähdeluetteloa seuraavat dokumentissa liitteet.
+%%\DescribeMacro{\appendices}
+Luokkaa \luokka\ käyttävässä käsikirjoitustiedossa liiteosan aloittaminen
+ilmoitetaan \verb|\appendices|-komennolla.
+
+Liitteitä ei tarvitse määrittää dokumentin käsikirjoitustiedostossa.
+Esimerkiksi ohjelmalistauksen sisällyttäminen
+\LaTeX-käsikirjoitustiedostoon ei olisi mielekästä. Sen sijaan liitteen
+nimen sisällyttäminen dokumentin sisällysluetteloon on mielekästä.
+
+%%\DescribeMacro{\internalappendix}
+%%\DescribeMacro{\externalappendix}
+\begin{sloppypar}
+Dokumentin käsikirjoitustiedostoon sisältyvät liitteet lisätään
+\verb|\internalappendix|-komennolla ja käsikirjoitustiedoston ulkopuoliset
+liitteet \verb|\externalappendix|-\linebreak komennolla. Molemmille komennoille
+annetaan parametreina liitteen nimi ja juokseva numero, esim.\
+\verb|\internalappendix{1}{Malli ABC}| tai
+\verb|\externalappendix{3}{Koodi}|.
+\end{sloppypar}
+
+Komento \verb|\internalappendix| tuottaa liitteen otsikon valmiin
+dokumentin vastaavaan kohtaan, jossa sitä käsikirjoitustiedostossa
+kutsutaan, ja liittää dokumentin sisällysluetteloon liitteen nimen sekä
+aloittaa aina uuden sivun. Kunkin\linebreak \verb|\internalappendix|-komentoa
+seuraavan liitteen sivut numeroidaan automaattisesti erikseen valmiissa
+dokumentissa. Käsikirjoitustiedostoon kirjoitettu komento
+\verb|\externalappendix| ainoastaan liittää valmiin dokumentin
+sisällysluetteloon liitteen nimen.
+
+Tarpeen vaatiessa liitteiden numerointi voidaan hoitaa
+\koodi{appendix}-laskurilla, jonka arvo kasvaa jokaisen
+\verb|\internalappendix|- ja \verb|\externalappendix|-komennon
+kutsukerralla.
+%%\DescribeMacro{\theappendix}
+Laskurin \koodi{appendix} senhetkisen arvon saa ilmestymään dokumentiin
+kirjoittamalla käsikirjoitustiedostoon \verb|\theappendix|. Laskurin arvo
+on olemassa olevien liitteiden määrä lisättynä yhdellä.
+
+\subsection{Luokan käyttäjän omat modifikaatiot}
+
+Dokumenttiluokan \luokka\ käyttäjä voi halutessaan kumota luokan
+määrittelyjä ja oletusasetuksia. Luokan toteutuskuvaus toiminee tässä
+apuna. Lisäksi muiden luokkien ja pakkausten toteutusdokumentaatiot sekä
+erilaiset \LaTeX-oppaat auttavat käyttäjää tutustumaan
+\LaTeX-ladontajärjestelmään pintaa syvemmältä.
+
+\subsection{Ohjelmien käyttö}
+\label{ohjelmat}
+
+Seuraavassa on lyhyt johdatus \LaTeX-ladontajärjestelmään liittyvien
+ohjelmien käyttöön. Huomaa, että ohjeet pätevät useimpiin ajantasalla
+oleviin \TeX-toteutuksiin
+mutta eivät välttämättä kaikkiin. Eroavaisuuksia saattaa löytyä ja
+parhaiten niistä osannee informoida \TeX-järjestelmäsi ylläpito.
+
+\LaTeX-käsikirjoitustiedostoista saa
+PostScript-tiedostoja kirjoittamalla seuraavat komennot
+komentoriville:
+\begin{verbatim}
+    latex <tiedosto>.tex
+    latex <tiedosto>.tex
+    dvips -o <tiedosto>.ps <tiedosto>.dvi
+\end{verbatim}
+
+Mikäli dokumentin lähdeluettelon tuottamiseen käytetään \BibTeX-ohjelmaa,
+edelliset ohjeet muuttuvat seuraavanlaisiksi:
+\begin{verbatim}
+    latex <tiedosto>.tex
+    bibtex <tiedosto>
+    latex <tiedosto>.tex
+    latex <tiedosto>.tex
+    dvips -o <tiedosto>.ps <tiedosto>.dvi
+\end{verbatim}
+
+Yllä olevien ohjeiden mukaisesti \LaTeX-käsikirjoitustiedostoista saa myös
+PDF-tie\-dos\-to\-ja, kun komento \koodi{dvips -o <tiedosto>.ps <tiedosto>.dvi}
+korvataan komennolla \koodi{dvipdf <tiedosto>.dvi}
+
+\LaTeX-käsikirjoitustiedostoista saa PDF-tiedostoja suoraan kirjoittamalla
+seuraavan komennon komentoriville:
+\begin{verbatim}
+    pdflatex <tiedosto>
+\end{verbatim}
+
+Tässä \koodi{<tiedosto>} on \LaTeX-käsikirjoitustiedostosi nimi ilman
+mitään tiedostopäätteitä, kuten \koodi{.tex} tai \koodi{.aux}. Enemmän
+tietoa ohjelmien käytöstä saa optiolla \verb|-help| tai \verb|--help|, eli
+esimerkiksi komento \koodi{latex -help} tuottaa \LaTeX-ohjelman ohjeet.
+Unix-koneissa ohjelmista saattaa löytyä man-sivu, jonka pääsee lukemaan
+komennolla \koodi{man <ohjelma>}. Esimerkiksi \LaTeX-ohjelman man-sivu
+aukeaa komennolla \koodi{man latex}.
+
+%%\section{Lisätietoja}
+%%
+%%Helsingin yliopiston Tietojenkäsittelytieteen laitoksen \LaTeX-sivun
+%%osoite on \url{http://www.cs.helsinki.fi/...}. Sivulta löytyy viitteitä
+%%sekä laitoksen omaan LaTeX-materiaaliin että muihin hyödyllisiin
+%%\LaTeX-lähteisiin. Myös tämä dokumentti on saatavilla kyseisellä
+%%WWW-sivulla.
+%%
+\lastpage
+\appendices
+
+\end{document}
+
+%% Yhdelle riville 75 merkkiä välilyönnit mukaan lukien:
+%% 3456789012345678901234567890123456789012345678901234567890123456789012345
+%</ohjeet>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
