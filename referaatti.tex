@@ -97,19 +97,19 @@ paikkojen määrän avulla \([P;q]\). Olkoon \(M[q]\) ongelman
 \([P;q]\) kaikkien sijoittelujen joukko ja \(\gamma [P;q] \in M[q]\)
 mekanismin \(\gamma\) antama sijoittelu ongelmalle \([P;q]\).
 
-Ensimmäistä aksioomaa varten määritellään \\ \(I_c = \{i \in I : \gamma
-[P;q](i) = c\) jollain \(P\) ja \(q\}\) olemaan niiden hakijoiden joukko,
-jotka sijoitetaan oppilaitokseen c jollakin preferenssiprofiililla P
-ja avoimien paikkojen määrällä q käytettäessa mekanismia \(\gamma\).
-Nyt sijoittelu \(\mu\) \textbf{noudattaa preferenssilistoja}
-mekanismissa \(\gamma\), jos kaikilla \(c \in C \cup \{\emptyset\}\)
-ja \(i \in I_c\) pätee \(cP_{i}\mu(i) \Rightarrow |\mu_c| = q_c\) ja
-\(P_j(c) \leq P_i(c)\) kaikiila \(j \in \mu_c\). Siis jos hakija \(i \in
-I_c\) sijoitetaan c:tä epämieluisempaan oppilaitokseen, on c:n kaikki
-paikat täytetty hakijoilla jotka sijoittivat c:n vähintään yhtä
-korkealle kuin i. Mekanismi \textbf{noudattaa preferenssilistoja} jos se
-löytää jokaiseen ongelmaan sijoittelun, joka noudattaa
-preferenssilistoja.
+Ensimmäistä aksioomaa varten määritellään \\ \(I_c = \{i \in I :
+\gamma [P;q](i) = c\) jollain \(P\) ja \(q\}\) olemaan niiden
+hakijoiden joukko, jotka sijoitetaan oppilaitokseen c jollakin
+preferenssiprofiililla P ja avoimien paikkojen määrällä q käytettäessa
+mekanismia \(\gamma\). Nyt sijoittelu \(\mu\) \textbf{noudattaa
+  preferenssilistoja} mekanismissa \(\gamma\), jos \[\text{kaikilla }c
+\in C \cup \{\emptyset\}, i \in I_c\text{ ja } j \in \mu_c\text{ pätee
+}cP_{i}\mu(i) \Rightarrow |\mu_c| = q_c\text{ ja }P_j(c) \leq
+P_i(c).\] Siis jos hakija \(i \in I_c\) sijoitetaan c:tä
+epämieluisempaan oppilaitokseen, on c:n kaikki paikat täytetty
+hakijoilla jotka sijoittivat c:n vähintään yhtä korkealle kuin i.
+Mekanismi \textbf{noudattaa preferenssilistoja} jos se löytää
+jokaiseen ongelmaan sijoittelun, joka noudattaa preferenssilistoja.
 
 Mikäli mekanismi noudattaa preferenssilistoja, on se myös
 \textbf{rajoitetusti Pareto-tehokas}. Se siis löytää jokaiseen ongelmaan
@@ -142,11 +142,11 @@ P_i(\mu (i)) \text{ ja } P_j(\mu (i)) \leq P_j(\mu (j))\}\]
 \(P\)), jos kaikilla \(i\) joilla \(\mu (i) \in C\) pätee
 \(U_i(P',\mu) \subseteq U_i(P,\mu) \text{ ja } V_i(P',\mu) \subseteq
 V_i(P,\mu)\). Nyt mekanismi \(\gamma\) on \textbf{sijoitusta
-  noudattaen Maskin monotoninen}, jos \(P'\):n ollessa s. n. m. t.
-profiilista \(P\) pätee \(\gamma [P';q] = \gamma [P;q]\). Nyt siis
-sijoittelun tulos muuttuu vain kuten Maskin monotonisella
-mekanismilla, tai jos hakijan i preferenssilistan muutos lisää kilpailua
-pääsystä johonkin muuhun kouluun kuin \(\mu (i)\).
+  noudattaen Maskin monotoninen}, jos \[P'\text{:n ollessa s. n. m. t.
+  profiilista }P \text{ pätee }\gamma [P';q] = \gamma [P;q].\] Nyt
+siis sijoittelun tulos muuttuu vain kuten Maskin monotonisella
+mekanismilla, tai jos hakijan i preferenssilistan muutos lisää
+kilpailua pääsystä johonkin muuhun kouluun kuin \(\mu (i)\).
 
 Mekanismi \(\gamma\) on \textbf{resurssimonotoninen}, jos kaikilla
 preferenssiprofiileilla P pätee \((\forall c \in C : q_c \geq q'_c)
