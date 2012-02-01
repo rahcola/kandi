@@ -1,4 +1,4 @@
-\documentclass{tktltiki}
+\documentclass[gradu]{tktltiki}
 \usepackage{amsmath}
 \begin{document}
 
@@ -16,6 +16,7 @@
 \subject{Tietojenkäsittelytiede}
 
 \pagenumbering{arabic}
+\hyphenation{mo-no-to-ni-suu-den}
 
 Fuhito Kojiman ja M. Utku Ünverin kuvaavat niin sanotun Bostonin
 mekanismin toimintaa ja ominaisuuksia ensin sanallisesti. Sen jälkeen
@@ -113,16 +114,6 @@ kuin \(i\). \emph{Mekanismi noudattaa preferenssilistoja} jos se
 löytää jokaiseen ongelmaan sijoittelun, joka noudattaa
 preferenssilistoja.
 
-Mikäli mekanismi noudattaa preferenssilistoja, on se myös
-\textbf{rajoitetusti Pareto-tehokas}. Se siis löytää jokaiseen
-ongelmaan sijoittelun jota ei voida parantaa niin, että ainakin yksi
-hakija pääsisi mieluisempaan oppilaitokseen kenenkään muun joutumatta
-epämieluisempaan oppilaitokseen. Parannuksia joissa hakija sijoitetaan
-oppilaitokseen johon häntä ei voida valita ei kuitenkaan oteta
-huomioon. Mikäli jokainen hakija voidaan valita mihin tahansa
-oppilaitokseen, on preferenssilistoja noudattava mekanismi myös
-Pareto-tehokas.
-
 Sijoittelumekanismin strategiankestävyys voidaan esittää formaalisti
 Maskin monotonisuuden avulla. Se vaatii, että mikäli hakija tulisi
 sijoitetuksi oppilaitokseen \(c\), muuttuu sijoittelun tulos vain jos
@@ -159,9 +150,7 @@ hakijan sijoitus mahdollisesti paranee.
 Mekanismi \(\gamma\) on \emph{yksilöllisesti rationaalinen}, jos
 kaikilla \(P\) ja \(q\), sekä \(i \in I\) pätee \(\gamma [P;q](i) R_i
 \emptyset\). Siis jokainen hakija pitää saamaansa sijoitusta parempana
-kuin sijoittumatta jäämistä. Jokainen resurssimonotoninen mekanismi on
-myös yksilöllisesti rationaalinen, sillä \(\gamma [P;q](i) R_i \gamma
-[P;(0,\dots,0)] = \emptyset\).
+kuin sijoittumatta jäämistä.
 
 Olkoon \(P\textsuperscript{\(\emptyset\)}\) preferenssiprofiili, jossa
 hakija \(i\) ei halua tulla sijoitetuksi. Mekanismi \(\gamma\) on
