@@ -17,13 +17,13 @@
 
 \pagenumbering{arabic}
 
-Fuhito Kojiman ja M. Utku Ünverin kuvaavat Bostonin mekanismin
-toimintaa ja ominaisuuksia ensin sanallisesti. Sen jälkeen he
-määrittelevät useita aksioomia ja karakterisoivat mekanismi sen
-kahdessa eri tapauksessa. Toinen karakterisaatio koskee tapausta jossa
-toisen joukon alkioilla on jaettavana useita resursseja. Toinen tapaus
-on vastaava kuin klassisessa pysyvän avioliiton ongelmassa, jossa
-kummankin joukon alkioilla on tasan yksi resurssi.
+Fuhito Kojiman ja M. Utku Ünverin kuvaavat niin sanotun Bostonin
+mekanismin toimintaa ja ominaisuuksia ensin sanallisesti. Sen jälkeen
+he määrittelevät useita aksioomia ja karakterisoivat mekanismin sen
+kahdessa eri tapauksessa. Toinen karakterisaatio koskee tapausta,
+jossa toisen joukon alkioilla on jaettavana useita resursseja. Toinen
+tapaus on vastaava kuin klassisessa pysyvän avioliiton ongelmassa,
+jossa kummankin joukon alkioilla on tasan yksi resurssi.
 
 Bostonin mekanismi on yleisesti käytössä oppilaitosten
 valintajärjestelmissä. Niissä mekanismi toimii tapana sijoittaa
@@ -44,11 +44,11 @@ valitaan. Lisäksi mekanismin tuottamaan tulokseen on mahdollista
 vaikuttaa muuttamalla preferenssilistaansa. Mekanismi ei siis ole
 myöskään strategiankestävä.
 
-Galen ja Shapleyn viivytetyn valinnan mekanismi takaa sekä
-pysyvän sijoittelun että strategiankestävyyden. Lisäksi kokeellisessa
-ympäristössä on havaittu, että useammat hakijat manipuloivat
-preferenssilistaansa Bostonin mekanismin ollessa käytössä kuin
-viivytetyn valinna mekanismin tapauksessa. Bostonin mekanismissa
+Galen ja Shapleyn viivytetyn valinnan mekanismi (deferred acceptance
+mechanism) takaa sekä pysyvän sijoittelun että strategiankestävyyden.
+Lisäksi kokeellisessa ympäristössä on havaittu, että useammat hakijat
+manipuloivat preferenssilistaansa Bostonin mekanismin ollessa käytössä
+kuin viivytetyn valinna mekanismin tapauksessa. Bostonin mekanismissa
 preferenssilistojen manipulointi johtaa useammin tulokseen jossa
 listaansa manipuloineet hakijat sijoittuvat paremmin
 totuudenmukaisesti listansa täyttäneiden kustannuksella.
@@ -65,56 +65,58 @@ mahdollisuudesta seuraavat kuitenkin myös useat Bostonin mekanismin
 ongelmat.
 
 Aksiomaattista lähestymistapaa varten luodaan sijoittelusta seuraava
-malli. Olkoon I hakijoiden ja C oppilaitosten epätyhjä ja äärellinen
-joukko. Jokainen oppilas on joko sijoitettu johonkin oppilaitokseen
-tai vielä sijoittamatta. Merkitään sijoittamatta olemista
-sijoituksella oppilaitokseen \(\emptyset\).
+malli. Olkoon \(I\) hakijoiden ja \(C\) oppilaitosten epätyhjä ja
+äärellinen joukko. Jokainen oppilas on joko sijoitettu johonkin
+oppilaitokseen tai vielä sijoittamatta. Merkitään sijoittamatta
+olemista sijoituksella oppilaitokseen \(\emptyset\).
 
 Jokaisella oppilaitoksella \(c \in C\) on \(q_c\) avoinna olevaa
 paikkaa ja \(q_{\emptyset} = \infty\). Olkoon \(q = (q_c)_{c \in C}\)
 kaikkien oppilaitosten avoimia paikkoja kuvaava vektori.
 
-Jokaisella hakijalla i on preferenssirelaatio \(P_i\) joukossa \(C
+Jokaisella hakijalla \(i\) on preferenssirelaatio \(P_i\) joukossa \(C
 \cup \{\emptyset\}\). Olkoon \(P = (P_i)_i \in I\)
-preferenssiprofiili. Merkitään \(P_i(c) = l\) oppilaitoksen c
-sijoitusta hakijan i listalla. Nyt kaikilla \(c, d \in C\) pätee
-\(P_i(c) < P_i(d)\) jos ja vain jos \(cP_id\). Siis hakija i toivoo
-pääsevänsä mieluummin oppilaitokseen c kuin d. Olkoon lisäksi
-\(cR_id\) jos ja vain jos \(P_i(c) \leq P_i(d)\).
+preferenssiprofiili. Merkitään \(P_i(c) = l\) oppilaitoksen \(c\)
+sijoitusta hakijan \(i\) listalla. Nyt kaikilla \(c, d \in C\) pätee
+\(P_i(c) < P_i(d)\) jos ja vain jos \(cP_id\). Siis hakija \(i\)
+toivoo pääsevänsä mieluummin oppilaitokseen \(c\) kuin \(d\). Olkoon
+lisäksi \(cR_id\) jos ja vain jos \(P_i(c) \leq P_i(d)\).
 
 Sijoittelu on funktio \(\mu : I \rightarrow C \cup \{\emptyset\}\)
-jolle \(\mu(i)\) on oppilaitos johon hakija i on sijoitettu. \(\mu_{c
-  \in C} = \{i \in I : \mu(i) = c\}\) on oppilaitokseen c
-sijoitettujen hakijoiden joukko. Sijoittelun tulee täyttää ehto
-\(|\mu_c| < q_c\) kaikilla \(c \in C \cup \{\emptyset\}\). Siis
-oppilaitokseen ei voi olla sijoitettuna avoimia paikkoja useampaa
-hakijaa.
+missä \(\mu(i)\) on oppilaitos johon hakija \(i\) on sijoitettu.
+Merkitään oppilaitokseen \(c \in C\) sijoitettujen hakijoiden joukkoa
+\(\mu_{c \in C} = \{i \in I : \mu(i) = c\}\). Sijoittelun tulee
+täyttää ehto \(|\mu_c| < q_c\) kaikilla \(c \in C \cup
+\{\emptyset\}\). Siis oppilaitokseen ei voi olla sijoitettuna avoimia
+paikkoja useampaa hakijaa.
 
-I, C, P ja q määrittelevät valintaongelman. Valintamekanismi on
-algoritmi joka antaa sijoittelun jokaiseen ongelmaan. Kiinnittämällä
-joukot I ja C voimme merkitä ongelmaa preferenssiprofiilin ja avoimien
-paikkojen määrän avulla \([P;q]\). Olkoon \(M[q]\) ongelman
-\([P;q]\) kaikkien sijoittelujen joukko ja \(\gamma [P;q] \in M[q]\)
-mekanismin \(\gamma\) antama sijoittelu ongelmalle \([P;q]\).
+\(I, C, P \text{ ja } q\) määrittelevät valintaongelman.
+Valintamekanismi on algoritmi joka antaa sijoittelun jokaiseen
+ongelmaan. Kiinnittämällä joukot \(I\) ja \(C\) voimme merkitä
+ongelmaa preferenssiprofiilin ja avoimien paikkojen määrän avulla
+\([P;q]\). Olkoon \(M[q]\) ongelman \([P;q]\) kaikkien sijoittelujen
+joukko ja \(\gamma [P;q] \in M[q]\) mekanismin \(\gamma\) antama
+sijoittelu ongelmalle \([P;q]\).
 
 Ensimmäistä aksioomaa varten määritellään \\ \(I_c = \{i \in I :
 \gamma [P;q](i) = c\) jollain \(P\) ja \(q\}\) olemaan niiden
-hakijoiden joukko, jotka sijoitetaan oppilaitokseen c jollakin
-preferenssiprofiililla P ja avoimien paikkojen määrällä q käytettäessa
-mekanismia \(\gamma\). Nyt sijoittelu \(\mu\) \textbf{noudattaa
-  preferenssilistoja} mekanismissa \(\gamma\), jos \[\text{kaikilla }c
-\in C \cup \{\emptyset\}, i \in I_c\text{ ja } j \in \mu_c\text{ pätee
-}cP_{i}\mu(i) \Rightarrow |\mu_c| = q_c\text{ ja }P_j(c) \leq
-P_i(c).\] Siis jos hakija \(i \in I_c\) sijoitetaan c:tä
-epämieluisempaan oppilaitokseen, on c:n kaikki paikat täytetty
-hakijoilla jotka sijoittivat c:n vähintään yhtä korkealle kuin i.
-Mekanismi \textbf{noudattaa preferenssilistoja} jos se löytää
-jokaiseen ongelmaan sijoittelun, joka noudattaa preferenssilistoja.
+hakijoiden joukko, jotka sijoitetaan oppilaitokseen \(c\) jollakin
+preferenssiprofiililla \(P\) ja avoimien paikkojen määrällä \(q\)
+käytettäessa mekanismia \(\gamma\). Nyt \emph{sijoittelu \(\mu\)
+  noudattaa preferenssilistoja} mekanismissa \(\gamma\),
+jos \[\text{kaikilla }c \in C \cup \{\emptyset\}, i \in I_c\text{ ja }
+j \in \mu_c\text{ pätee }cP_{i}\mu(i) \Rightarrow |\mu_c| = q_c\text{
+  ja }P_j(c) \leq P_i(c).\] Siis jos hakija \(i \in I_c\) sijoitetaan
+\(c\):tä epämieluisempaan oppilaitokseen, on \(c\):n kaikki paikat
+täytetty hakijoilla jotka sijoittivat \(c\):n vähintään yhtä korkealle
+kuin \(i\). \emph{Mekanismi noudattaa preferenssilistoja} jos se
+löytää jokaiseen ongelmaan sijoittelun, joka noudattaa
+preferenssilistoja.
 
 Mikäli mekanismi noudattaa preferenssilistoja, on se myös
-\textbf{rajoitetusti Pareto-tehokas}. Se siis löytää jokaiseen ongelmaan
-sijoittelun jota ei voida parantaa niin, että ainakin yksi hakija
-pääsisi mieluisempaan oppilaitokseen kenenkää muun joutumatta
+\textbf{rajoitetusti Pareto-tehokas}. Se siis löytää jokaiseen
+ongelmaan sijoittelun jota ei voida parantaa niin, että ainakin yksi
+hakija pääsisi mieluisempaan oppilaitokseen kenenkään muun joutumatta
 epämieluisempaan oppilaitokseen. Parannuksia joissa hakija sijoitetaan
 oppilaitokseen johon häntä ei voida valita ei kuitenkaan oteta
 huomioon. Mikäli jokainen hakija voidaan valita mihin tahansa
@@ -123,60 +125,61 @@ Pareto-tehokas.
 
 Sijoittelumekanismin strategiankestävyys voidaan esittää formaalisti
 Maskin monotonisuuden avulla. Se vaatii, että mikäli hakija tulisi
-sijoitetuksi oppilaitokseen c, muuttuu sijoittelun tulos vain jos
-hakija nostaa listassaan c:tä alempana olleen oppilaitoksen c:tä
-ylemmäs. Bostonin mekanismi ei kuitenkaan ole Maskin monotoninen,
-sillä hakija voi muuttaa sijoittelun tulosta lyhentämällä listaansa
-sen yläpäästä. Höllentämällä Maskin monotonisuuden ehtoja saadaan
-kuitenkin aikaan edelleen mielenkiintoinen ominaisuus jonka Bostonin
-mekanismi toteuttaa.
+sijoitetuksi oppilaitokseen \(c\), muuttuu sijoittelun tulos vain jos
+hakija nostaa listassaan \(c\):tä alempana olleen oppilaitoksen
+\(c\):tä ylemmäs. Bostonin mekanismi ei kuitenkaan ole Maskin
+monotoninen, sillä hakija voi muuttaa sijoittelun tulosta lyhentämällä
+listaansa sen yläpäästä. Höllentämällä Maskin monotonisuuden ehtoja
+saadaan kuitenkin aikaan edelleen mielenkiintoinen ominaisuus jonka
+Bostonin mekanismi toteuttaa.
 
-Preferenssiprofiili \(P'\) on \textbf{monotoninen transformaatio}
+Preferenssiprofiili \(P'\) on \emph{monotoninen transformaatio}
 profiilista \(P\), jos kaikilla \(i \in I\) pätee \(\forall b \in C
 \cup \{\emptyset\}:bP'_{i}c \Rightarrow bP_{i}c\) missä c =
 \(\mu(i)\). Olkoon lisäksi \[U_i(P,\mu) = \{j \in I : P_j(\mu (i)) \leq
 P_i(\mu (i)) \text{ ja } P_j(\mu (i)) \leq P_j(\mu (j))\}\]
 \[V_i(P,\mu) = \{j \in I : P_j(\mu (i)) < P_i(\mu (i)) \text{ ja } P_j(\mu
-(i)) \leq P_j(\mu (j))\}\] Nyt \(P'\) on \textbf{sijoitusta noudattava
+(i)) \leq P_j(\mu (j))\}\] Nyt \(P'\) on \emph{sijoitusta noudattava
   monotoninen transformaatio} profiilista \(P\) (\(P'\) s. n. m. t.
 \(P\)), jos kaikilla \(i\) joilla \(\mu (i) \in C\) pätee
 \(U_i(P',\mu) \subseteq U_i(P,\mu) \text{ ja } V_i(P',\mu) \subseteq
-V_i(P,\mu)\). Nyt mekanismi \(\gamma\) on \textbf{sijoitusta
-  noudattaen Maskin monotoninen}, jos \[P'\text{:n ollessa s. n. m. t.
+V_i(P,\mu)\). Nyt mekanismi \(\gamma\) on \emph{sijoitusta noudattaen
+  Maskin monotoninen}, jos \[P'\text{:n ollessa s. n. m. t.
   profiilista }P \text{ pätee }\gamma [P';q] = \gamma [P;q].\] Nyt
 siis sijoittelun tulos muuttuu vain kuten Maskin monotonisella
-mekanismilla, tai jos hakijan i preferenssilistan muutos lisää
+mekanismilla, tai jos hakijan \(i\) preferenssilistan muutos lisää
 kilpailua pääsystä johonkin muuhun kouluun kuin \(\mu (i)\).
 
-Mekanismi \(\gamma\) on \textbf{resurssimonotoninen}, jos kaikilla
-preferenssiprofiileilla P pätee \((\forall c \in C : q_c \geq q'_c)
-\Rightarrow (\forall i \in I : \gamma [P;q](i) R_i \gamma
-            [P;q'](i))\). Siis jos avoimien paikkojen määrää
-            lisätään,jokaisen hakijan sijoitus mahdollisesti paranee.
+Mekanismi \(\gamma\) on \emph{resurssimonotoninen}, jos kaikilla
+preferenssiprofiileilla \(P\) pätee \((\forall c \in C : q_c \geq
+q'_c) \Rightarrow (\forall i \in I : \gamma [P;q](i) R_i \gamma
+[P;q'](i))\). Siis jos avoimien paikkojen määrää lisätään,jokaisen
+hakijan sijoitus mahdollisesti paranee.
 
-Mekanismi \(\gamma\) on \textbf{yksilöllisesti rationaalinen}, jos
-kaikilla P ja q, sekä \(i \in I\) pätee \(\gamma [P;q](i) R_i
+Mekanismi \(\gamma\) on \emph{yksilöllisesti rationaalinen}, jos
+kaikilla \(P\) ja \(q\), sekä \(i \in I\) pätee \(\gamma [P;q](i) R_i
 \emptyset\). Siis jokainen hakija pitää saamaansa sijoitusta parempana
 kuin sijoittumatta jäämistä. Jokainen resurssimonotoninen mekanismi on
 myös yksilöllisesti rationaalinen, sillä \(\gamma [P;q](i) R_i \gamma
 [P;(0,\dots,0)] = \emptyset\).
 
-Olkoon P\textsuperscript{\(\emptyset\)} preferenssiprofiili, jossa
-hakija i ei halua tulla sijoitetuksi. Mekanismi \(\gamma\) on
-\textbf{populaatiomonotoninen}, jos kaikilla preferenssiprofiileilla P
-pätee \\ \(\gamma [P\)\textsuperscript{\(\emptyset\)}\(; q](j) R_j \gamma
-[P;q](j)\) kaikilla \(j \neq i\). Siis jos hakija jättäytyy pois
-valinnasta, jokaisen jäljelle jääneen sijoitus mahdollisesti paranee.
+Olkoon \(P\textsuperscript{\(\emptyset\)}\) preferenssiprofiili, jossa
+hakija \(i\) ei halua tulla sijoitetuksi. Mekanismi \(\gamma\) on
+\emph{populaatiomonotoninen}, jos kaikilla preferenssiprofiileilla
+\(P\) pätee \\ \(\gamma [P\)\textsuperscript{\(\emptyset\)}\(; q](j)
+R_j \gamma [P;q](j)\) kaikilla \(j \neq i\). Siis jos hakija jättäytyy
+pois valinnasta, jokaisen jäljelle jääneen sijoitus mahdollisesti
+paranee.
 
-Olkoon q\textsuperscript{\(\emptyset\)}\(= q_{\gamma [P;q](i)} - 1\)
-Mekanismi \(\gamma\) on \textbf{konsistentti}, jos \(\gamma
+Olkoon \(q\textsuperscript{\(\emptyset\)}\)\(= q_{\gamma [P;q](i)} - 1\)
+Mekanismi \(\gamma\) on \emph{konsistentti}, jos \(\gamma
 [P\)\textsuperscript{\(\emptyset\)}\(;q\)\textsuperscript{\(\emptyset\)}\(](j)
 = \gamma [P;q](j)\) kaikilla \(j \neq i\). Siis jos sekä hakija että
 avoin paikka johon hänet olisi sijoitettu poistetaan, sijoittelun
 tulos ei jäljelle jääneiden hakijoiden osalta muutu.
 
 Nyt Bostonin mekanismi voidaan karaterisoida seuraavasti. Mekanismi
-\(\gamma\) on \textbf{Bostonin mekanismi}, jos ja vain jos \(\gamma\)
+\(\gamma\) on \emph{Bostonin mekanismi}, jos ja vain jos \(\gamma\)
 noudattaa preferenssilistoja, on konsistentti, resurssimonotoninen ja
 preferenssilistoja noudattaen Maskin monotoninen.
 
