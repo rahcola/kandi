@@ -43,14 +43,14 @@ Se ei tuota pysyvää sijoittelua, sillä hakija voi jäädä valitsematta
 oppilaitokseen johon häntä alemmalla sijalla oleva toinen hakija
 valitaan. Lisäksi mekanismin tuottamaan tulokseen on mahdollista
 vaikuttaa muuttamalla preferenssilistaansa. Mekanismi ei siis ole
-myöskään strategiankestävä.
+strategiankestävä.
 
 Galen ja Shapleyn viivytetyn valinnan mekanismi (deferred acceptance
 mechanism) takaa sekä pysyvän sijoittelun että strategiankestävyyden.
 Lisäksi kokeellisessa ympäristössä on havaittu, että useammat hakijat
 manipuloivat preferenssilistaansa Bostonin mekanismin ollessa käytössä
 kuin viivytetyn valinna mekanismin tapauksessa. Bostonin mekanismissa
-preferenssilistojen manipulointi johtaa useammin tulokseen jossa
+preferenssilistojen manipulointi johtaa useammin tulokseen, jossa
 listaansa manipuloineet hakijat sijoittuvat paremmin
 totuudenmukaisesti listansa täyttäneiden kustannuksella.
 
@@ -85,8 +85,8 @@ lisäksi \(cR_id\) jos ja vain jos \(P_i(c) \leq P_i(d)\).
 
 Sijoittelu on funktio \(\mu : I \rightarrow C \cup \{\emptyset\}\)
 missä \(\mu(i)\) on oppilaitos johon hakija \(i\) on sijoitettu.
-Merkitään oppilaitokseen \(c \in C\) sijoitettujen hakijoiden joukkoa
-\(\mu_{c \in C} = \{i \in I : \mu(i) = c\}\). Sijoittelun tulee
+Merkitään oppilaitokseen \(c\) sijoitettujen hakijoiden joukkoa
+\(\mu_{c} = \{i \in I : \mu(i) = c\}\). Sijoittelun tulee
 täyttää ehto \(|\mu_c| < q_c\) kaikilla \(c \in C \cup
 \{\emptyset\}\). Siis oppilaitokseen ei voi olla sijoitettuna avoimia
 paikkoja useampaa hakijaa.
@@ -110,24 +110,24 @@ j \in \mu_c\text{ pätee }cP_{i}\mu(i) \Rightarrow |\mu_c| = q_c\text{
   ja }P_j(c) \leq P_i(c).\] Siis jos hakija \(i \in I_c\) sijoitetaan
 \(c\):tä epämieluisempaan oppilaitokseen, on \(c\):n kaikki paikat
 täytetty hakijoilla jotka sijoittivat \(c\):n vähintään yhtä korkealle
-kuin \(i\). \emph{Mekanismi noudattaa preferenssilistoja} jos se
-löytää jokaiseen ongelmaan sijoittelun, joka noudattaa
+kuin \(i\). \emph{Mekanismi noudattaa preferenssilistoja}, jos se
+löytää jokaiseen ongelmaan sijoittelun joka noudattaa
 preferenssilistoja.
 
 Sijoittelumekanismin strategiankestävyys voidaan esittää formaalisti
 Maskin monotonisuuden avulla. Se vaatii, että mikäli hakija tulisi
-sijoitetuksi oppilaitokseen \(c\), muuttuu sijoittelun tulos vain jos
+sijoitetuksi oppilaitokseen \(c\), muuttuu sijoittelun tulos vain, jos
 hakija nostaa listassaan \(c\):tä alempana olleen oppilaitoksen
 \(c\):tä ylemmäs. Bostonin mekanismi ei kuitenkaan ole Maskin
 monotoninen, sillä hakija voi muuttaa sijoittelun tulosta lyhentämällä
-listaansa sen yläpäästä. Höllentämällä Maskin monotonisuuden ehtoja
-saadaan kuitenkin aikaan edelleen mielenkiintoinen ominaisuus jonka
+listaansa sen yläpäästä. Lieventämällä Maskin monotonisuuden ehtoja
+saadaan kuitenkin aikaan edelleen mielenkiintoinen ominaisuus, jonka
 Bostonin mekanismi toteuttaa.
 
 Preferenssiprofiili \(P'\) on \emph{monotoninen transformaatio}
-profiilista \(P\), jos kaikilla \(i \in I\) pätee \(\forall b \in C
-\cup \{\emptyset\}:bP'_{i}c \Rightarrow bP_{i}c\) missä c =
-\(\mu(i)\). Olkoon lisäksi \[U_i(P,\mu) = \{j \in I : P_j(\mu (i)) \leq
+profiilista \(P\), jos \(\forall i \in I : \forall b \in C \cup
+\{\emptyset\} : bP'_{i}c \Rightarrow bP_{i}c \text{ missä } c =
+\mu(i)\). Olkoon lisäksi \[U_i(P,\mu) = \{j \in I : P_j(\mu (i)) \leq
 P_i(\mu (i)) \text{ ja } P_j(\mu (i)) \leq P_j(\mu (j))\}\]
 \[V_i(P,\mu) = \{j \in I : P_j(\mu (i)) < P_i(\mu (i)) \text{ ja } P_j(\mu
 (i)) \leq P_j(\mu (j))\}\] Nyt \(P'\) on \emph{sijoitusta noudattava
@@ -144,13 +144,13 @@ kilpailua pääsystä johonkin muuhun kouluun kuin \(\mu (i)\).
 Mekanismi \(\gamma\) on \emph{resurssimonotoninen}, jos kaikilla
 preferenssiprofiileilla \(P\) pätee \((\forall c \in C : q_c \geq
 q'_c) \Rightarrow (\forall i \in I : \gamma [P;q](i) R_i \gamma
-[P;q'](i))\). Siis jos avoimien paikkojen määrää lisätään,jokaisen
+[P;q'](i))\). Siis jos avoimien paikkojen määrää lisätään, jokaisen
 hakijan sijoitus mahdollisesti paranee.
 
 Mekanismi \(\gamma\) on \emph{yksilöllisesti rationaalinen}, jos
-kaikilla \(P\) ja \(q\), sekä \(i \in I\) pätee \(\gamma [P;q](i) R_i
-\emptyset\). Siis jokainen hakija pitää saamaansa sijoitusta parempana
-kuin sijoittumatta jäämistä.
+kaikilla \(P \text{ ja } q \text{ sekä } i \in I\) pätee \(\gamma
+[P;q](i) R_i \emptyset\). Siis jokainen hakija pitää saamaansa
+sijoitusta parempana kuin sijoittumatta jäämistä.
 
 Olkoon \(P\textsuperscript{\(\emptyset\)}\) preferenssiprofiili, jossa
 hakija \(i\) ei halua tulla sijoitetuksi. Mekanismi \(\gamma\) on
@@ -160,8 +160,8 @@ R_j \gamma [P;q](j)\) kaikilla \(j \neq i\). Siis jos hakija jättäytyy
 pois valinnasta, jokaisen jäljelle jääneen sijoitus mahdollisesti
 paranee.
 
-Olkoon \(q\textsuperscript{\(\emptyset\)}\)\(= q_{\gamma [P;q](i)} - 1\)
-Mekanismi \(\gamma\) on \emph{konsistentti}, jos \(\gamma
+Olkoon \(q\textsuperscript{\(\emptyset\)}\)\(= q_{\gamma [P;q](i)} -
+1\). Mekanismi \(\gamma\) on \emph{konsistentti}, jos \(\gamma
 [P\)\textsuperscript{\(\emptyset\)}\(;q\)\textsuperscript{\(\emptyset\)}\(](j)
 = \gamma [P;q](j)\) kaikilla \(j \neq i\). Siis jos sekä hakija että
 avoin paikka johon hänet olisi sijoitettu poistetaan, sijoittelun
