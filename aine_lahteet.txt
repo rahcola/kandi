@@ -1,0 +1,15 @@
+Hard variants of stable marriage D. F. Manlove et. al.
+
+College admissions and the stability of marriage D. Gale L. S. Shapley
+
+The Stable Marriage Problem: Structure and Algorithms D. Gusfield R.
+W. Irving
+
+Stable marriage and indifference R. W. Irving
+
+Stable marriage with incomplete lists and ties K. Iwama, D. Manlove,
+S. Miyazaki, Y. Morita
+
+NP-complete stable matcing problems E. Ronn
+
+Lower Bounds for the Stable Marriage Problem and its Variants Cheng Ng

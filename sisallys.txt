@@ -1,0 +1,11 @@
+esitellään pysyvän avioliiton ongelma
+
+gale-shapley algo, O(n^2)
+
+alaraja O(n^2)
+
+preferenssilistoilla joissa tasatilanteita
+
+preferenssilistoilla joissa ei listattu kaikkia
+
+molemmat edellisistä => NP-täydellinen
