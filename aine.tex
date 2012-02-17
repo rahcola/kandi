@@ -1,0 +1,56 @@
+\documentclass[gradu]{tktltiki}
+\usepackage{amsmath}
+\begin{document}
+
+\title{}
+\author{Jani Rahkola}
+\date{\today}
+\level{}
+
+\maketitle
+
+\doublespacing
+
+\faculty{Matemaattis-luonnontieteellinen}
+\department{Tietojenkäsittelytieteen laitos}
+\subject{Tietojenkäsittelytiede}
+
+\pagenumbering{arabic}
+
+Määritellään vakaan avioliiton ongelma seuraavasti. Olkoon \(A\)
+joukko naisia ja \(B\) joukko miehiä. Olkoon lisäksi \(R_{a \in A}
+\subset B \times B\) ja \(P_{b \in B} \subset A \times A\)
+järjestysrelaatioita jotka kertovat mihin järjestykseen mies \(a\)
+(vastaavasti nainen \(b\)) sijoittaa vastakkaisen sukupuolen
+edustajat. Jos siis \(x,y \in A\) ja \(xP_by\) pitää nainen \(b\)
+enemmän miehestä \(x\) kuin \(y\).
+
+Nyt injektiota \(\mu : A \rightarrow B\) joka määrää jokaiselle
+miehelle \(a\) naisen \(\mu(a)\) kutsutaan \emph{sijoitteluksi}.
+Vakaan avioliiton ongelman ratkaiseminen tarkoittaa funktion \(\mu\)
+määräämistä niin että se on vakaa. Sijoittelu on \emph{epävakaa}, jos
+joillakin \(x, y \in A\) ja \(a, b \in B\) pätee, että \(\mu(x) = a\)
+ja \(\mu(y) = b\) mutta \(aR_yb\) ja \(yP_ax\). Siis mies \(y\) pitää
+enemmän naisesta \(a\) kuin paristaan \(b\), ja nainen \(a\) pitää
+enemmän miehestä \(y\) kuin paristaan \(x\). Sijoittelua voitaisiin
+siis parantaa \(y\):n ja \(a\):n kannalta määräämällä \(\mu(y) = a\).
+
+Jokaiseen ongelmaan on olemassa vakaa ratkaisu. Gale ja Shapley
+todistavat tämän antamalla seuraavanlaisen menetelmän vakaan
+sijoittelun löytämiseen. Ensimmäisellä kierroksella jokainen mies
+kosii naista josta hän pitää eniten. Naiset valitsevat alustavasti
+mahdollisista kosijoistaan sen josta he pitävät eniten. Seuraavilla
+kierroksilla valitsematta jääneet miehet kosivat listallaan seuraavana
+olevia naisia, ja naiset valitsevat kosijoistaan ja mahdollisesta
+alustavasti valitusta miehestä jälleen sen josta he pitävät eniten.
+Näin jatketaan kunnes jokaista naista on kosittu ainakin kerran,
+jolloin muodostuneet parit voidaan vahvistaa.
+
+Jos jokaista naista on kosittu ainakin kerran, ei yksikään mies ole
+tullut enää torjutuksi. Jos joku mies olisi tullut torjutuksi, olisi
+joku nainen saanut useamman kuin yhden kosinnan, jolloin joku naisista
+olisi jäänyt ilman kosintaa. Siispä menetelmä on määrännyt parin \((a,
+\mu(a))\) kaikille \(a \in A\) kun jokaista naista on kosittu ainakin
+kerran.
+
+\end{document}
