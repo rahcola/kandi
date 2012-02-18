@@ -1,4 +1,4 @@
-\documentclass[gradu]{tktltiki}
+\documentclass[gradu, twoside]{tktltiki}
 \usepackage{amsmath}
 \begin{document}
 
@@ -15,42 +15,70 @@
 \department{Tietojenkäsittelytieteen laitos}
 \subject{Tietojenkäsittelytiede}
 
-\pagenumbering{arabic}
+\mytableofcontents
 
-Määritellään vakaan avioliiton ongelma seuraavasti. Olkoon \(A\)
-joukko naisia ja \(B\) joukko miehiä. Olkoon lisäksi \(R_{a \in A}
-\subset B \times B\) ja \(P_{b \in B} \subset A \times A\)
-järjestysrelaatioita jotka kertovat mihin järjestykseen mies \(a\)
-(vastaavasti nainen \(b\)) sijoittaa vastakkaisen sukupuolen
-edustajat. Jos siis \(x,y \in A\) ja \(xP_by\) pitää nainen \(b\)
-enemmän miehestä \(x\) kuin \(y\).
+\section{Vakaan avioliiton ongelma}
 
-Nyt injektiota \(\mu : A \rightarrow B\) joka määrää jokaiselle
-miehelle \(a\) naisen \(\mu(a)\) kutsutaan \emph{sijoitteluksi}.
-Vakaan avioliiton ongelman ratkaiseminen tarkoittaa funktion \(\mu\)
+Määritellään vakaan avioliiton ongelma seuraavasti. Olkoon $A$
+joukko naisia ja $B$ joukko miehiä. Olkoon lisäksi $P_{a \in A}
+\subset B \times B$ ja $P_{b \in B} \subset A \times A$
+järjestysrelaatioita jotka kertovat mihin järjestykseen mies $a$
+(vastaavasti nainen $b$) sijoittaa vastakkaisen sukupuolen
+edustajat. Jos siis $x,y \in A$ ja $xP_by$ pitää nainen $b$
+enemmän miehestä $x$ kuin $y$.
+
+Nyt injektiota $\mu : A \rightarrow B$ joka määrää jokaiselle
+miehelle $a$ naisen $\mu(a)$ kutsutaan \emph{sijoitteluksi}.
+Vakaan avioliiton ongelman ratkaiseminen tarkoittaa funktion $\mu$
 määräämistä niin että se on vakaa. Sijoittelu on \emph{epävakaa}, jos
-joillakin \(x, y \in A\) ja \(a, b \in B\) pätee, että \(\mu(x) = a\)
-ja \(\mu(y) = b\) mutta \(aR_yb\) ja \(yP_ax\). Siis mies \(y\) pitää
-enemmän naisesta \(a\) kuin paristaan \(b\), ja nainen \(a\) pitää
-enemmän miehestä \(y\) kuin paristaan \(x\). Sijoittelua voitaisiin
-siis parantaa \(y\):n ja \(a\):n kannalta määräämällä \(\mu(y) = a\).
+joillakin $x, y \in A$ ja $a, b \in B$ pätee, että $\mu(x) = a$
+ja $\mu(y) = b$ mutta $aP_yb$ ja $yP_ax$. Siis mies $y$ pitää
+enemmän naisesta $a$ kuin paristaan $b$, ja nainen $a$ pitää
+enemmän miehestä $y$ kuin paristaan $x$. Sijoittelua voitaisiin
+siis parantaa $y$:n ja $a$:n kannalta määräämällä $\mu(y) = a$.
 
-Jokaiseen ongelmaan on olemassa vakaa ratkaisu. Gale ja Shapley
-todistavat tämän antamalla seuraavanlaisen menetelmän vakaan
-sijoittelun löytämiseen. Ensimmäisellä kierroksella jokainen mies
-kosii naista josta hän pitää eniten. Naiset valitsevat alustavasti
-mahdollisista kosijoistaan sen josta he pitävät eniten. Seuraavilla
-kierroksilla valitsematta jääneet miehet kosivat listallaan seuraavana
-olevia naisia, ja naiset valitsevat kosijoistaan ja mahdollisesta
-alustavasti valitusta miehestä jälleen sen josta he pitävät eniten.
-Näin jatketaan kunnes jokaista naista on kosittu ainakin kerran,
-jolloin muodostuneet parit voidaan vahvistaa.
+\section{Ratkaisu ajassa $\boldsymbol{O(n^2)}$}
+
+Jokaiseen ongelmaan on olemassa vakaa ratkaisu \cite{galeshapley62}.
+Gale ja Shapley todistavat tämän antamalla seuraavanlaisen menetelmän
+vakaan sijoittelun löytämiseen. Ensimmäisellä kierroksella jokainen
+mies kosii naista josta hän pitää eniten. Naiset valitsevat
+alustavasti mahdollisista kosijoistaan sen josta he pitävät eniten.
+Seuraavilla kierroksilla valitsematta jääneet miehet kosivat
+listallaan seuraavana olevia naisia, ja naiset valitsevat kosijoistaan
+ja mahdollisesta alustavasti valitusta miehestä jälleen sen josta he
+pitävät eniten. Näin jatketaan kunnes jokaista naista on kosittu
+ainakin kerran, jolloin muodostuneet parit voidaan vahvistaa.
 
 Jos jokaista naista on kosittu ainakin kerran, ei yksikään mies ole
 tullut enää torjutuksi. Jos joku mies olisi tullut torjutuksi, olisi
 joku nainen saanut useamman kuin yhden kosinnan, jolloin joku naisista
-olisi jäänyt ilman kosintaa. Siispä menetelmä on määrännyt parin \((a,
-\mu(a))\) kaikille \(a \in A\) kun jokaista naista on kosittu ainakin
+olisi jäänyt ilman kosintaa. Siispä menetelmä on määrännyt parin $(a,
+\mu(a))$ kaikille $a \in A$ kun jokaista naista on kosittu ainakin
 kerran.
 
+Menetelmän antama sijoittelu on vakaa \cite{galeshapley62}. Oletetaan,
+että saatu sijoittelu on epävakaa ja on siis olemassa $x \in A$ ja $a
+\in B$ joilla $\mu(x) \neq a$, mutta $aP_x\mu(x)$ ja
+$xP_a\mu^{-1}(a)$. Koska $x$ pitää enemmän naisesta $a$ kuin
+paristaan, on hänen täytynyt kosia naista $a$ ennen pariaan. Koska $x$
+ja $a$ eivät kuitenkaan ole pari, on naisen $a$ täytynyt torjua
+kosinta. Nainen $a$ pitää siis enemmän paristaan kuin miehestä $x$.
+Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
+
+
+
+\begin{thebibliography}{XXX99}
+
+\bibitem[GaS62]{galeshapley62}
+  D. Gale, L. S. Shapley.
+  College Admissions and the Stability of Marriage.
+  \emph{The American Mathematical Monthly, 69, 1 (1962)}
+
+\bibitem[Ito78]{itoga78}
+  Stephen Y. Itoga.
+  The Upper Bound for the Stable Marriage Problem.
+  \emph{The Journal of the Operational Research Society, 29, 8 (1978)}
+
+\end{thebibliography}
 \end{document}

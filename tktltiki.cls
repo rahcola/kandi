@@ -210,7 +210,7 @@
   \hspace{1em}%
 }
 \RequirePackage{openbib}
-\addto\captionsfinnish{\def\refname{L‰hteet}}
+\addto\captionsfinnish{\def\refname{L√§hteet}}
 \addto\captionsenglish{\def\enclname{Appendices}}
 \addto\captionsswedish{\def\enclname{Bilagor}}
 \renewenvironment{thebibliography}[1]
@@ -318,7 +318,7 @@
 \addto\captionsfinnish{%
   \faculty{Matemaattis-luonnontieteellinen tiedekunta}
   \department{Tietojenk√§sittelytieteen laitos}%
-  \subject{Tietojenk‰sittelytiede}
+  \subject{Tietojenk√§sittelytiede}
 }
 \addto\captionsenglish{%
   \faculty{Faculty of Science}
@@ -327,7 +327,7 @@
 }
 \addto\captionsswedish{%
   \faculty{Matematisk-naturvetenskapliga fakulteten}
-  \department{Institutionen fˆr datavetenskap}%
+  \department{Institutionen f√•r datavetenskap}%
   \subject{Datavetenskap}
 }
 \newsavebox{\@abstract}
