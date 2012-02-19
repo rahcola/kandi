@@ -1,5 +1,0 @@
-\select@language {finnish}
-\contentsline {section}{\numberline {1}Vakaan avioliiton ongelma}{1}
-\contentsline {section}{\numberline {2}Ratkaisu ajassa $\boldsymbol {O(n^2)}$}{1}
-\contentsline {section}{\numberline {3}Alaraja $\boldsymbol {\Omega (n^2)}$ ratkaisun l\IeC {\"o}yt\IeC {\"a}miselle}{2}
-\contentsline {section}{L\IeC {\"a}hteet}{3}
