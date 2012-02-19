@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 \begin{document}
 
-\title{}
+\title{Vakaan avioliiton ongleman ja sen muunnelmien aikavaativuuksia}
 \author{Jani Rahkola}
 \date{\today}
 \level{}
@@ -66,7 +66,28 @@ ja $a$ eivät kuitenkaan ole pari, on naisen $a$ täytynyt torjua
 kosinta. Nainen $a$ pitää siis enemmän paristaan kuin miehestä $x$.
 Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
 
+Galen ja Shapley algoritmi ei vaadi, että naisten ja miesten joukot
+ovat yhtämahtavat \cite{galeshapley62}. Mikäli miesten joukon
+mahtavuus on $a$, naisten $b$ ja $a < b$, päättyy algoritmi kun $a$
+kappaletta naisia on saanut kosinnan. Vastaavasti jos $b < a$, päättyy
+algorimi kun jokainen mies on tullut alustavasti valituksi tai
+jokaisen naisen torjumaksi.
 
+Tähän analyysi algoritmin suoritusajasta.
+
+\section{Alaraja $\boldsymbol{\Omega(n^2)}$ ratkaisun löytämiselle}
+
+Ng osoittaa, että Galen ja Shapleyn algoritmi on asymptoottiselta
+aikavaativuudeltaan optimaalinen \cite{cheng89}. Ngin päätuloksen
+mukaan satunnaisesta mies-nainen -parista voidaan päätellä onko se
+vakaa annetussa ongelmassa ajassa $\Omega(n^2)$. Tässä n on naisten
+(ja siten myös miesten) joukon mahtavuus. Tästä seuraa, että vakaan
+avioliiton ongelman ratkaiseminen on asymptoottiselta
+aikavaativuudeltaan $\Theta(n^2)$ \cite{cheng89}. Jos jokin algoritmi
+löytäisi vakaan sijoittelun alle $\Theta(n^2)$ ajassa, päättelisi se
+myös sijoitteluun kuuluvien parien vakauden alle $\Omega(n^2)$ ajassa
+mikä olisi ristiriita. Ng kuitenkin olettaa, että naisten ja miesten
+joukot ovat yhtämahtavat. \textbf{Tarkista mitä gale-shapley analyysi olettaa.}
 
 \begin{thebibliography}{XXX99}
 
@@ -79,6 +100,12 @@ Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
   Stephen Y. Itoga.
   The Upper Bound for the Stable Marriage Problem.
   \emph{The Journal of the Operational Research Society, 29, 8 (1978)}
+
+\bibitem[Che89]{cheng89}
+  Cheng Ng.
+  Lower Bounds for the Stable Marriage Problem and its Variants.
+  \emph{30th Annual Symposium on Foundations of Computer Science,
+    1989, sivut 129-133}
 
 \end{thebibliography}
 \end{document}
