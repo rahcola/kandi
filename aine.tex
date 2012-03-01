@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 \begin{document}
 
-\title{Vakaan avioliiton ongleman ja sen muunnelmien aikavaativuuksia}
+\title{Vakaan avioliiton ongelman ja sen muunnelmien aikavaativuuksia}
 \author{Jani Rahkola}
 \date{\today}
 \level{}
@@ -15,51 +15,114 @@
 \department{Tietojenkäsittelytieteen laitos}
 \subject{Tietojenkäsittelytiede}
 
+\begin{abstract}
+Vakaan avioliiton ongelmassa miesten joukon $M$ ja naisten joukon $N$
+välille pyritään löytämään kuvaus $\mu : M \rightarrow N$ noudattaen
+miesten ja naisten mieltymyksiä kuvaavia järjestysrelaatioita $P_M =
+\{P_a \subset N \times N | a \in M\}$ ja $P_N = \{P_b \subset M \times
+M | b \in N\}$. Gale ja Shapley antavat ongelman esittelyn yhteydessä
+algoritmin joka ratkaisee ongelman ajassa $O(n^2)$. Ng osoittaa, että
+Galen ja Shapleyn algoritmi on suoritusajaltaan optimaalinen.
+
+Käytännön kannalta on usein tarpeellista muokata ongelmanasettelua
+niin, että järjestysrelaatioiden ei tarvitse kattaa koko vastakkaisen
+sukupuolen joukkoa, tai niissä on luvallista olla tasatilanteita.
+Molemmat näistä muunnoksista voidaan ratkaista ajassa $O(n^2)$, mutta
+yhdessä ne tekevät ongelmasta NP-täydellisen.
+\end{abstract}
+
 \mytableofcontents
+
+\section{Johdanto}
+
+Gale ja Shapley määrittelevät vakaan avioliiton ongelman (stable
+marriage problem) artikkelissaan College Admissions and the Stability
+of Marriage \cite{galeshapley62} jossa he esittävät ratkaisun
+yliopistojen valintaongelmaan. Vakaan avioliiton ongelma on
+yksinkertaistettu tilanne, jossa joukosta naisia ja miehiä pyritään
+muodostamaan pareja noudattaen sekä miesten että naisten mieltymyksiä.
+Gale ja Shapley määrittelevät vakauden (stability) ja optimaalisuuden
+käsitteen kuvaamaan hyviä ratkaisuja ongelmaan.
+
+Ensimmäisessä luvussa annan tarkan määritelmän vakaan avioliiton
+ongelmalle, ratkaisun vakaudelle ja sen optimaalisuudelle. Seuraavassa
+luvussa esittelen Galen ja Shapleyn esittelemän algoritmin ratkaisun
+löytämiseksi. Saman luvun lopussa käyn läpi analyysin algoritmin
+suoritusajasta. Kolmannessa luvussa esittelen tuloksen joka osoittaa
+Galen ja Shapleyn algoritmin olevan suoritusajaltaan optimaalinen.
+
+Päätösluvussaan Gale ja Shapley toteavat luomansa vakaan avioliiton
+ongelman olevan hyvin teoreettinen ja kaukana alkuperäisestä
+yliopistojen valintaongelmasta. Ongelman ja sen ratkaisun
+sovellettavuutta voidaan kuitenkin parantaa luopumalla joistakin
+alkuperäisen määrittelyn oletuksista. Neljäs luku käsittelee
+muunnelmaa, jossa naisilla ja miehillä on mahdollisuus ilmaista
+olevansa yhtä mieltyneitä kahteen tai useampaan vastakkaisen
+sukupuolen edustajaan. Tämä muunnelma voidaan ratkaista muokkaamalla
+Galen ja Shapleyn algoritmia suoritusajan pysyessä muuttumattomana
+\cite{manlove02}. Viidennessä luvussa käsittelen muunnelmaa jossa
+miehillä ja naisilla on mahdollisuus ilmoittaa etteivät he missään
+tapauksessa halua muodostaa paria joidenkin vastakkaisen sukupuolen
+edustajien kanssa. Myös tämän ongelman ratkaisuun on suoritusajaltaan
+muuttumaton muunnelma Galen ja Shapleyn algoritmista
+\cite{gusfield89}.
+
+Mainitut kaksi muunnelmaa mahdollistavat niitä koskevien tulosten
+soveltamisen moniin käytännön ongelmiin \cite{manlove02}. Kuudennessa
+luvussa käsittelen muunnelmien yhdistelmää, jonka ratkaiseminen on
+ongelmana NP-täydellinen \cite{manlove02}.
 
 \section{Vakaan avioliiton ongelma}
 
-Määritellään vakaan avioliiton ongelma seuraavasti. Olkoon $A$
-joukko naisia ja $B$ joukko miehiä. Olkoon lisäksi $P_{a \in A}
-\subset B \times B$ ja $P_{b \in B} \subset A \times A$
-järjestysrelaatioita jotka kertovat mihin järjestykseen mies $a$
-(vastaavasti nainen $b$) sijoittaa vastakkaisen sukupuolen
-edustajat. Jos siis $x,y \in A$ ja $xP_by$ pitää nainen $b$
-enemmän miehestä $x$ kuin $y$.
+Määritellään vakaan avioliiton ongelma seuraavasti. Olkoon $M$ joukko
+miehiä ja $N$ joukko naisia. Olkoon lisäksi $P_M = \{P_a \subset N
+\times N | a \in M\}$ ja $P_N = \{P_b \subset M \times M | b \in N\}$
+joukot täydellisiä järjestysrelaatioita jotka kertovat mihin
+järjestykseen mies $a$ (vastaavasti nainen $b$) sijoittaa vastakkaisen
+sukupuolen edustajat. Jos siis $x,y \in M$ ja $xP_by$ pitää nainen $b$
+enemmän miehestä $x$ kuin $y$. Nyt nelikko $(M, N, P_M, P_N)$
+määrittelee vakaan avioliiton ongelman.
 
-Nyt injektiota $\mu : A \rightarrow B$ joka määrää jokaiselle
+Nyt injektiota $\mu : M \rightarrow N$ joka määrää jokaiselle
 miehelle $a$ naisen $\mu(a)$ kutsutaan \emph{sijoitteluksi}.
 Vakaan avioliiton ongelman ratkaiseminen tarkoittaa funktion $\mu$
 määräämistä niin että se on vakaa. Sijoittelu on \emph{epävakaa}, jos
-joillakin $x, y \in A$ ja $a, b \in B$ pätee, että $\mu(x) = a$
+joillakin $x, y \in M$ ja $a, b \in N$ pätee, että $\mu(x) = a$
 ja $\mu(y) = b$ mutta $aP_yb$ ja $yP_ax$. Siis mies $y$ pitää
 enemmän naisesta $a$ kuin paristaan $b$, ja nainen $a$ pitää
 enemmän miehestä $y$ kuin paristaan $x$. Sijoittelua voitaisiin
 siis parantaa $y$:n ja $a$:n kannalta määräämällä $\mu(y) = a$.
 
-\section{Ratkaisu ajassa $\boldsymbol{O(n^2)}$}
+Toinen sijoittelun hyvyyttä kuvaava ominaisuus on optimaalisuus.
+Sijoittelu $\mu$ on \emph{optimaalinen} jos kaikilla $x \in M$ ja $a
+\in N$ pätee, että heidän tilanteensa on ainakin yhtä hyvä kuin
+missään muussa vakaassa sijoittelussa. \textbf{Tälle formaalimpi
+  esitys.}
 
-Jokaiseen ongelmaan on olemassa vakaa ratkaisu \cite{galeshapley62}.
-Gale ja Shapley todistavat tämän antamalla seuraavanlaisen menetelmän
-vakaan sijoittelun löytämiseen. Ensimmäisellä kierroksella jokainen
-mies kosii naista josta hän pitää eniten. Naiset valitsevat
-alustavasti mahdollisista kosijoistaan sen josta he pitävät eniten.
-Seuraavilla kierroksilla valitsematta jääneet miehet kosivat
-listallaan seuraavana olevia naisia, ja naiset valitsevat kosijoistaan
-ja mahdollisesta alustavasti valitusta miehestä jälleen sen josta he
-pitävät eniten. Näin jatketaan kunnes jokaista naista on kosittu
-ainakin kerran, jolloin muodostuneet parit voidaan vahvistaa.
+\section{Ratkaisu ajassa $\boldsymbol{\Theta(n^2)}$}
+
+Jokaiseen vakaan avioliiton ongelmaan on olemassa vakaa ratkaisu
+\cite{galeshapley62}. Gale ja Shapley todistavat tämän antamalla
+seuraavanlaisen algoritmin vakaan sijoittelun löytämiseen.
+Ensimmäisellä kierroksella jokainen mies kosii naista josta hän pitää
+eniten. Naiset valitsevat alustavasti mahdollisista kosijoistaan sen
+josta he pitävät eniten. Seuraavilla kierroksilla valitsematta jääneet
+miehet kosivat listallaan seuraavana olevia naisia, ja naiset
+valitsevat kosijoistaan ja mahdollisesta alustavasti valitusta
+miehestä jälleen sen josta he pitävät eniten. Näin jatketaan kunnes
+jokaista naista on kosittu ainakin kerran, jolloin muodostuneet parit
+voidaan vahvistaa.
 
 Jos jokaista naista on kosittu ainakin kerran, ei yksikään mies ole
 tullut enää torjutuksi. Jos joku mies olisi tullut torjutuksi, olisi
 joku nainen saanut useamman kuin yhden kosinnan, jolloin joku naisista
 olisi jäänyt ilman kosintaa. Siispä menetelmä on määrännyt parin $(a,
-\mu(a))$ kaikille $a \in A$ kun jokaista naista on kosittu ainakin
+\mu(a))$ kaikille $a \in M$ kun jokaista naista on kosittu ainakin
 kerran.
 
 Menetelmän antama sijoittelu on vakaa \cite{galeshapley62}. Oletetaan,
-että saatu sijoittelu on epävakaa ja on siis olemassa $x \in A$ ja $a
-\in B$ joilla $\mu(x) \neq a$, mutta $aP_x\mu(x)$ ja
+että saatu sijoittelu on epävakaa ja on siis olemassa $x \in M$ ja $a
+\in N$ joilla $\mu(x) \neq a$, mutta $aP_x\mu(x)$ ja
 $xP_a\mu^{-1}(a)$. Koska $x$ pitää enemmän naisesta $a$ kuin
 paristaan, on hänen täytynyt kosia naista $a$ ennen pariaan. Koska $x$
 ja $a$ eivät kuitenkaan ole pari, on naisen $a$ täytynyt torjua
@@ -67,27 +130,75 @@ kosinta. Nainen $a$ pitää siis enemmän paristaan kuin miehestä $x$.
 Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
 
 Galen ja Shapley algoritmi ei vaadi, että naisten ja miesten joukot
-ovat yhtämahtavat \cite{galeshapley62}. Mikäli miesten joukon
-mahtavuus on $a$, naisten $b$ ja $a < b$, päättyy algoritmi kun $a$
-kappaletta naisia on saanut kosinnan. Vastaavasti jos $b < a$, päättyy
-algorimi kun jokainen mies on tullut alustavasti valituksi tai
-jokaisen naisen torjumaksi.
+ovat yhtämahtavat. Mikäli miesten joukon mahtavuus on $a$, naisten $b$
+ja $a < b$, päättyy algoritmi kun $a$ kappaletta naisia on saanut
+kosinnan. Vastaavasti jos $b < a$, päättyy algoritmi kun jokainen mies
+on tullut alustavasti valituksi tai jokaisen naisen torjumaksi.
+\cite{galeshapley62}
 
-Tähän analyysi algoritmin suoritusajasta.
+\subsection{Yläraja $\boldsymbol{O(n^2)}$}
 
-\section{Alaraja $\boldsymbol{\Omega(n^2)}$ ratkaisun löytämiselle}
+Gale ja Shapley kirjoittavat algoritmin päättyvän korkeintaan $n^2 -
+2n + 2$ kierroksen jälkeen \cite{galeshapley62}. Asia esitetään
+kuitenkin vain sivuhuomautuksena, eivätkä kirjoittajat ota kantaa
+algoritmin varsinaiseen aikavaativuuteen. Kierrosten määrä ei anna
+suoraan aihetta odottaa $O(n^2)$ aikavaativuutta, sillä yhden
+kierroksen aikana voi tapahtua useita kosintoja. Ei siis ole selvää,
+että yksi kierros on mahdollista suorittaa vakioajassa.
+
+Gusfield ja Irving esittävät algoritmille muotoilun \cite{gusfield89}
+jonka analysointi on alkuperäistä helpompaa. Siinä yhden kierroksen
+aikana yksi mies kosii naista josta pitää eniten ja jota hän ei ole
+vielä kosinut. Gusfiel ja Irving osoittavat että yksi kosinta voidaan
+suorittaa vakioajassa \cite{gusfield89}. Nyt riittää tarkastella
+kosintojen määrää joka tapauksessa $|M| = |N| = n$ on korkeintaan
+$n^2$, sillä jokainen mies kosii jokaista naista korkeintaan kerran
+\cite{gusfield89}. Tästä seuraa algoritmin suorituksen asymptoottinen
+yläraja $O(n^2)$.
+
+\subsection{Alaraja $\boldsymbol{\Omega(n^2)}$}
 
 Ng osoittaa, että Galen ja Shapleyn algoritmi on asymptoottiselta
 aikavaativuudeltaan optimaalinen \cite{cheng89}. Ngin päätuloksen
 mukaan satunnaisesta mies-nainen -parista voidaan päätellä onko se
-vakaa annetussa ongelmassa ajassa $\Omega(n^2)$. Tässä n on naisten
-(ja siten myös miesten) joukon mahtavuus. Tästä seuraa, että vakaan
-avioliiton ongelman ratkaiseminen on asymptoottiselta
+vakaa annetussa ongelmassa ajassa $\Omega(n^2)$. Tästä seuraa, että
+vakaan avioliiton ongelman ratkaiseminen on asymptoottiselta
 aikavaativuudeltaan $\Theta(n^2)$ \cite{cheng89}. Jos jokin algoritmi
 löytäisi vakaan sijoittelun alle $\Theta(n^2)$ ajassa, päättelisi se
 myös sijoitteluun kuuluvien parien vakauden alle $\Omega(n^2)$ ajassa
-mikä olisi ristiriita. Ng kuitenkin olettaa, että naisten ja miesten
-joukot ovat yhtämahtavat. \textbf{Tarkista mitä gale-shapley analyysi olettaa.}
+mikä olisi ristiriita. Toisin kuin Gusfieldin ja Irvinig analyysi
+algoritmin ylärajasta, Ng olettaa, että naisten ja miesten joukot ovat
+yhtämahtavat.
+
+Ng analyysi tarkastelee sitä kuinka monta kertaa mikä tahansa vakaan
+avioliiton ongelmaa ratkaiseva algorimi joutuu tarkastelemaan
+syötteenään saatua ongelman kuvausta. Ng aloittaa kanonisesta
+ongelmasta jossa tutkittava pari on vakaa. Sitten hän esittää
+menetelmän jolla voidaan muodostaa tästä ongelmasta muunnelmia joissa
+tutkittava pari ei ole vakaa. Nyt tunnistaakseen onko pari vakaa
+syötteenä annetussa ongelmassa, tulee algoritmin kyetä erottamaan
+kanoninen ongelma siitä luoduista muunnelmista. Ng osoittaa tähän
+tarvittavan ainakin $\Omega(n^2)$ ongelman kuvauksen tarkastelua.
+\cite{cheng89}
+
+\section{Osittaiset järjestysrelaatiot}
+
+Galen ja Shapleyn määrittelemässä vakaan avioliiton ongelmassa
+molemmat sukupuolet määrittelevät kiinnostuksensa kaikista
+vastakkaisen sukupuolen henkilöistä. Käytännön sovelluksissa tämä ei
+kuitenkaan ole aina haluttua. Esimerkiksi oppilaitosten valinnoissa
+hakijat eivät ole halukkaita opiskelemaan missä tahansa
+oppilaitoksessa eivätkä oppilaitokset halua ottaa vastaan ketä tahansa
+hakijaa.
+
+Näin syntyy muunnelma vakaan avioliiton ongelmasta jossa sukupuolten
+mieltymyksiä kuvaavien järjestysrelaatioiden ei tarvitse olla
+täydellisiä. Ne eivät siis välttämättä anna järjestystä kaikille
+vastakkaisen sukupuolen henkilöille. Lisäksi sijoittelulle $\mu$ tulee
+päteä, että jos $x \in M$, $a \in N$ ja $\mu(x) = a$ niin $(\exists b
+\in N: (a, b) \in P_x$ tai $(b, a) \in P_x)$ ja $(\exists y \in M: (x,
+y) \in P_a$ tai $(y, x) \in P_a)$. Siis jos mies $x$ ja nainen $a$
+ovat pari, ovat nainen ja mies esittäneet mieltymyksensä toisistaan.
 
 \begin{thebibliography}{XXX99}
 
@@ -95,6 +206,17 @@ joukot ovat yhtämahtavat. \textbf{Tarkista mitä gale-shapley analyysi olettaa.
   D. Gale, L. S. Shapley.
   College Admissions and the Stability of Marriage.
   \emph{The American Mathematical Monthly, 69, 1 (1962)}
+
+\bibitem[MII02]{manlove02}
+  David F. Manlove, Robert W. Irving, Kazuo Iwama, Shuichi Miyazaki,
+  Yasufumi Morita.
+  Hard variants of stable marriage.
+  \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
+
+\bibitem[GuI89]{gusfield89}
+  D. Gusfield, Robert W. Irving.
+  The Stable Marriage Problem: Structure and Algorithms.
+  \emph{MIT Press, Cambridge, MA, 1989}
 
 \bibitem[Ito78]{itoga78}
   Stephen Y. Itoga.
@@ -105,7 +227,7 @@ joukot ovat yhtämahtavat. \textbf{Tarkista mitä gale-shapley analyysi olettaa.
   Cheng Ng.
   Lower Bounds for the Stable Marriage Problem and its Variants.
   \emph{30th Annual Symposium on Foundations of Computer Science,
-    1989, sivut 129-133}
+    (1989), sivut 129-133}
 
 \end{thebibliography}
 \end{document}
