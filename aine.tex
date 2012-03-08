@@ -61,7 +61,7 @@ pari kuin missään muussa mahdollisessa ratkaisussa. Tämä
 optimaalisuuden käsite vastaa heikon Pareto-optimaalisuuden käsitettä
 \cite{gusfield89}.
 
-Tämän yksinkertaistetun ongelmaan ratkaisemiseen Gale ja Shapley
+Tämän yksinkertaistetun ongelman ratkaisemiseen Gale ja Shapley
 antavat algoritmin jonka on myöhemmin osoitettu olevan
 suoritusajaltaan optimaalinen \cite{gusfield89, cheng89}.
 Päätösluvussaan Gale ja Shapley kuitenkin toteavat luomansa vakaan
@@ -107,22 +107,23 @@ kannalta kiinnostavia muunnelmia vakaan avioliiton ongelmasta.
 
 \section{Vakaan avioliiton ongelma}
 
-Määritellään Gale ja Shapley esittelemä \cite{galeshapley62} vakaan
-avioliiton ongelma seuraavasti. Olkoon $M$ joukko miehiä ja $N$ joukko
-naisia. Olkoon lisäksi $P_M = \{P_m \subset N \times N | m \in M\}$ ja
-$P_N = \{P_n \subset M \times M | n \in N\}$ joukot täydellisiä
-järjestysrelaatioita jotka kertovat mihin järjestykseen mies $m$
-(vastaavasti nainen $n$) sijoittaa vastakkaisen sukupuolen edustajat.
-Kutsutaan näitä relaatioita \emph{preferenssirelaatioiksi}. Jos siis
-$m_1,m_2 \in M$ ja $m_1P_nm_2$ pitää nainen $n$ enemmän miehestä $m_1$
-kuin $m_2$. Nyt nelikko $(M, N, P_M, P_N)$ määrittelee \emph{vakaan
-  avioliiton ongelman }.
+Määritellään tätä ainetta varten Gale ja Shapley määrittelemä
+\cite{galeshapley62} vakaan avioliiton ongelma seuraavasti. Olkoon $M$
+joukko miehiä ja $N$ joukko naisia. Olkoon lisäksi $P_M = \{P_m
+\subset N \times N | m \in M\}$ ja $P_N = \{P_n \subset M \times M | n
+\in N\}$ joukot täydellisiä järjestysrelaatioita jotka kertovat mihin
+järjestykseen mies $m$ (vastaavasti nainen $n$) sijoittaa vastakkaisen
+sukupuolen edustajat. Kutsutaan näitä relaatioita
+\emph{preferenssirelaatioiksi}. Jos siis $m_1,m_2 \in M$ ja
+$m_1P_nm_2$ pitää nainen $n$ enemmän miehestä $m_1$ kuin $m_2$. Nyt
+nelikko $(M, N, P_M, P_N)$ määrittelee \emph{vakaan avioliiton
+  ongelman }.
 
 Yksi-yhteen relaatiota $\mu \subset M \times N$ kutsutaan
 \emph{sijoitteluksi}. Vakaan avioliiton ongelman perusmuodossa
 sijoittelun tulee olla bijektio. Siis jokaisella naisella ja miehellä
-tulee olla pari. Merkitään miehen $m$ paria sijoittelussa $\mu$
-$\mu(m)$ ja vastaavasti naisen $n$ paria $\mu^{-1}(n)$.
+tulee olla pari. Merkitään miehen $m$ paria sijoittelussa $\mu(m)$ ja
+vastaavasti naisen $n$ paria $\mu^{-1}(n)$.
 
 Vakaan avioliiton ongelman ratkaiseminen tarkoittaa sijoittelun $\mu$
 määräämistä niin että se on vakaa. Sijoittelu on \emph{epävakaa}, jos
@@ -132,6 +133,7 @@ $m_2P_{n_1}m_1$. Siis mies $m_2$ pitää enemmän naisesta $n_1$ kuin
 paristaan $n_2$, ja nainen $n_1$ pitää enemmän miehestä $m_2$ kuin
 paristaan $m_1$. Sijoittelua voitaisiin siis parantaa $m_2$:n ja
 $n_1$:n kannalta määräämällä $(m_2, n_1) \in \mu$.
+\cite{galeshapley62}
 
 \section{Ratkaisu ajassa $\boldsymbol{\Theta(n^2)}$}
 
@@ -304,7 +306,7 @@ poistetaan $n$ $N_m$:stä. \cite{gusfield89} Vastaava tehdään kaikille
 $n \in N$. Lopuksi määritellään preferenssirelaatiot uudelleen. Siis
 jokaisen miehen ja naisen preferenssirelaatiosta poistetaan ne parit
 jotka koskevat sellaista vastakkaisen sukupuolen edustajaa, joka ei
-halua muodostaa paria ko. miehen/naisen kanssa. Tämä esikäsittely
+halua muodostaa paria ko. miehen\slash naisen kanssa. Tämä esikäsittely
 voidaan tehdä ajassa $O(n^2)$ kun henkilön kuuluminen toisen henkilön
 preferenssirelaatioon voidaan tarkistaa vakioajassa. Tämä voidaan
 taata valitsemalla preferenssirelaatioiden esitys sopivasti
@@ -370,14 +372,14 @@ ongelmaan. \cite{manlove02}
 
 Edellä on esitelty vakaan avioliiton ongelma ja sen ratkaisun
 aikavaativuuksia Galen ja Shapleyn esittelemälle muodolle sekä
-kolmelle käytännön kannalta merkittävälle muunnelmalle.
-Ei-refleksiiviset ja ei-antisymmetriset preferenssirelaatiot
-yhdistävän ongelman on osoitettu olevan NP-täydellinen. Tämä on
-tarpeellista ottaa huomioon monissa vakaan avioliiton ongelman
-yleistyksissä, kuten oppilaitosten valinnassa. Käytännön sovelluksissa
-ainakin toisen osapuolen toimijoiden määrä on usein erittäin suuri,
-esimerkiksi Suomen toisen asteen oppilaitosten yhteishaussa haki
-vuoden 2011 keväällä yli 102 000 hakijaa \cite{OPH12}.
+kolmelle käytännön kannalta merkittävälle muunnelmalle. Muunnelman
+jossa preferenssirelaatiot ovat osittaisia ja määritelty sukupuolten
+osajoukoille on osoitettu olevan NP-täydellinen. Tämä on tarpeellista
+ottaa huomioon monissa vakaan avioliiton ongelman yleistyksissä, kuten
+oppilaitosten valinnassa. Käytännön sovelluksissa ainakin toisen
+osapuolen toimijoiden määrä on usein erittäin suuri, esimerkiksi
+Suomen toisen asteen oppilaitosten yhteishaussa haki vuoden 2011
+keväällä yli 102 000 hakijaa \cite{OPH12}.
 
 \begin{thebibliography}{XXX99}
 
