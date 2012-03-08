@@ -59,7 +59,7 @@ jäsenille mieluisemman. Toiseksi ratkaisun tulee olla optimaalinen.
 Jokaisen miehen ja naisen tulee saada ratkaisussa vähintään yhtä hyvä
 pari kuin missään muussa mahdollisessa ratkaisussa. Tämä
 optimaalisuuden käsite vastaa heikon Pareto-optimaalisuuden käsitettä
-\cite{gusfield89}.
+\cite[sivu 13]{gusfield89}.
 
 Tämän yksinkertaistetun ongelman ratkaisemiseen Gale ja Shapley
 antavat algoritmin jonka on myöhemmin osoitettu olevan
@@ -107,17 +107,18 @@ kannalta kiinnostavia muunnelmia vakaan avioliiton ongelmasta.
 
 \section{Vakaan avioliiton ongelma}
 
-Määritellään tätä ainetta varten Gale ja Shapley määrittelemä
-\cite{galeshapley62} vakaan avioliiton ongelma seuraavasti. Olkoon $M$
-joukko miehiä ja $N$ joukko naisia. Olkoon lisäksi $P_M = \{P_m
-\subset N \times N | m \in M\}$ ja $P_N = \{P_n \subset M \times M | n
-\in N\}$ joukot täydellisiä järjestysrelaatioita jotka kertovat mihin
-järjestykseen mies $m$ (vastaavasti nainen $n$) sijoittaa vastakkaisen
-sukupuolen edustajat. Kutsutaan näitä relaatioita
-\emph{preferenssirelaatioiksi}. Jos siis $m_1,m_2 \in M$ ja
-$m_1P_nm_2$ pitää nainen $n$ enemmän miehestä $m_1$ kuin $m_2$. Nyt
-nelikko $(M, N, P_M, P_N)$ määrittelee \emph{vakaan avioliiton
-  ongelman }.
+Gale ja Shapley määrittelivät artikkelissaan vakaan avioliiton
+ongelman, vakauden käsitteen ja ratkaisun optimaalisuuden
+\cite{galeshapley62}. Määritellään nämä käsitteet tätä ainetta varten
+uudelleen seuraavasti. Olkoon $M$ joukko miehiä ja $N$ joukko naisia.
+Olkoon lisäksi $P_M = \{P_m \subset N \times N | m \in M\}$ ja $P_N =
+\{P_n \subset M \times M | n \in N\}$ joukot täydellisiä
+järjestysrelaatioita jotka kertovat mihin järjestykseen mies $m$
+(vastaavasti nainen $n$) sijoittaa vastakkaisen sukupuolen edustajat.
+Kutsutaan näitä relaatioita \emph{preferenssirelaatioiksi}. Jos siis
+$m_1,m_2 \in M$ ja $m_1P_nm_2$ pitää nainen $n$ enemmän miehestä $m_1$
+kuin $m_2$. Nyt nelikko $(M, N, P_M, P_N)$ määrittelee \emph{vakaan
+  avioliiton ongelman }.
 
 Yksi-yhteen relaatiota $\mu \subset M \times N$ kutsutaan
 \emph{sijoitteluksi}. Vakaan avioliiton ongelman perusmuodossa
@@ -133,7 +134,6 @@ $m_2P_{n_1}m_1$. Siis mies $m_2$ pitää enemmän naisesta $n_1$ kuin
 paristaan $n_2$, ja nainen $n_1$ pitää enemmän miehestä $m_2$ kuin
 paristaan $m_1$. Sijoittelua voitaisiin siis parantaa $m_2$:n ja
 $n_1$:n kannalta määräämällä $(m_2, n_1) \in \mu$.
-\cite{galeshapley62}
 
 \section{Ratkaisu ajassa $\boldsymbol{\Theta(n^2)}$}
 
@@ -174,12 +174,13 @@ kosinta. Nainen $n$ pitää siis enemmän paristaan kuin miehestä $m$.
 Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
 
 Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on miesten
-kannalta \emph{heikosti Pareto-optimaalinen} \cite{gusfield89}. Ei
-siis ole olemassa toista sijoittelua $\gamma$ jossa kaikilla $(m, n)
-\in \gamma$ pätee, että $nP_m\mu(m)$. Vastaavasti voidaan määritellä,
-että sijoittelu on heikosti Pareto-optimaalinen naisten kannalta.
-Luonnollista on, että algoritmi antaa naisoptimaalisen sijoittelun,
-kun kosijoiden rooli annetaan naisille.
+kannalta \emph{heikosti Pareto-optimaalinen} \cite[sivu
+  13]{gusfield89}. Ei siis ole olemassa toista sijoittelua $\gamma$
+jossa kaikilla $(m, n) \in \gamma$ pätee, että $nP_m\mu(m)$.
+Vastaavasti voidaan määritellä, että sijoittelu on heikosti
+Pareto-optimaalinen naisten kannalta. Luonnollista on, että algoritmi
+antaa naisoptimaalisen sijoittelun, kun kosijoiden rooli annetaan
+naisille.
 
 \subsection{Yläraja $\boldsymbol{O(n^2)}$}
 
@@ -192,15 +193,15 @@ kierroksen aikana voi tapahtua useita kosintoja. Ei siis ole selvää,
 että yksi kierros on mahdollista suorittaa
 vakioajassa. \enlargethispage{\baselineskip}
 
-Gusfield ja Irving esittävät algoritmille muotoilun \cite{gusfield89}
-jonka analysointi on alkuperäistä helpompaa. Siinä yhden kierroksen
-aikana yksi mies kosii naista josta pitää eniten ja jota hän ei ole
-vielä kosinut. Gusfiel ja Irving osoittavat että yksi kosinta voidaan
-suorittaa vakioajassa \cite{gusfield89}. Nyt riittää tarkastella
-kosintojen määrää joka tapauksessa $|M| = |N| = n$ on korkeintaan
-$n^2$, sillä jokainen mies kosii jokaista naista korkeintaan kerran
-\cite{gusfield89}. Tästä seuraa algoritmin suorituksen asymptoottinen
-yläraja $O(n^2)$.
+Gusfield ja Irving esittävät algoritmille muotoilun \cite[sivu
+  9]{gusfield89} jonka analysointi on alkuperäistä helpompaa. Siinä
+yhden kierroksen aikana yksi mies kosii naista josta pitää eniten ja
+jota hän ei ole vielä kosinut. Gusfiel ja Irving osoittavat että yksi
+kosinta voidaan suorittaa vakioajassa \cite[sivu 14]{gusfield89}. Nyt
+riittää tarkastella kosintojen määrää joka tapauksessa $|M| = |N| = n$
+on korkeintaan $n^2$, sillä jokainen mies kosii jokaista naista
+korkeintaan kerran. Tästä seuraa algoritmin suorituksen asymptoottinen
+yläraja $O(n^2)$. \cite[sivu 14]{gusfield89}
 
 \subsection{Alaraja $\boldsymbol{\Omega(n^2)}$}
 
@@ -279,7 +280,7 @@ Tästä seuraa, että saatu sijoittelu voi olla osittainen sillä jokainen
 mies ja nainen eivät välttämättä saa itselleen paria. Tästä syystä on
 tarpeen muotoilla heikompi versio vakaudesta. Sijoittelu on
 \emph{heikosti epävakaa}, jos on olemassa $m_1 \in M$ ja $n_1 \in N$
-joilla seuraavat ehdot ovat voimassa \cite{gusfield89}:
+joilla seuraavat ehdot ovat voimassa \cite[sivu 27]{gusfield89}:
 \[
 \text{1. }(m_1, n_1) \notin \mu \text{, mutta } m_1 \in M_{n_1} \text{
   ja } n_1 \in N_{m_1}
@@ -296,23 +297,28 @@ joilla seuraavat ehdot ovat voimassa \cite{gusfield89}:
 Myös Pareto-optimaalisuus voidaan laajentaa koskemaan osajoukoille
 määriteltyjä preferenssirelaatioita käyttäen saatua sijoittelua.
 Jokainen mies pitää parempana sijoittelua jossa hänellä on pari, kuin
-sijoittelua jossa hänellä ei ole paria. \cite{gusfield89}
+sijoittelua jossa hänellä ei ole paria. \cite[sivu 27]{gusfield89}
 
 Esitellyn muunnelman ratkaisemiseksi täytyy myös Galen ja Shapleyn
-algoritmiin tehdä muunnos. Jokaisen miehen ja naisen
-preferenssirelaatiot esikäsitellään seuraavasti. Kaikille $m \in M$ ja
-$n \in N_m$ tarkistetaan onko $m \in M_{n}$. Jos näin ei ole,
-poistetaan $n$ $N_m$:stä. \cite{gusfield89} Vastaava tehdään kaikille
-$n \in N$. Lopuksi määritellään preferenssirelaatiot uudelleen. Siis
-jokaisen miehen ja naisen preferenssirelaatiosta poistetaan ne parit
-jotka koskevat sellaista vastakkaisen sukupuolen edustajaa, joka ei
-halua muodostaa paria ko. miehen\slash naisen kanssa. Tämä esikäsittely
-voidaan tehdä ajassa $O(n^2)$ kun henkilön kuuluminen toisen henkilön
-preferenssirelaatioon voidaan tarkistaa vakioajassa. Tämä voidaan
-taata valitsemalla preferenssirelaatioiden esitys sopivasti
-\cite{gusfield89}. Nyt muunnettu ongelma voidaan ratkaista Galen ja
-Shapleyn algoritmilla kunhan vain tehdään mahdolliseksi algoritmin
-pysähtyminen vaikka kaikilla miehillä ja naisilla ei olisi paria.
+algoritmiin tehdä muunnos. Gusfield ja Irving määrittelevät
+algoritmista laajennetun version \cite[sivu 16]{gusfield89} jonka
+avulla voidaan esikäsitellä jokaisen miehen ja naisen
+preferenssirelaatiot seuraavasti. Kaikille $m \in M$ ja $n \in N_m$
+tarkistetaan onko $m \in M_{n}$. Jos näin ei ole, poistetaan $n$
+$N_m$:stä. Vastaava tehdään kaikille $n \in N$. Lopuksi määritellään
+preferenssirelaatiot uudelleen. Siis jokaisen miehen ja naisen
+preferenssirelaatiosta poistetaan ne parit jotka koskevat sellaista
+vastakkaisen sukupuolen edustajaa, joka ei halua muodostaa paria ko.
+miehen\slash naisen kanssa.
+
+Tämä esikäsittely voidaan tehdä ajassa $O(n^2)$ kun henkilön
+kuuluminen toisen henkilön preferenssirelaatioon voidaan tarkistaa
+vakioajassa. Tämä voidaan taata valitsemalla preferenssirelaatioiden
+esitys sopivasti \cite[sivu 14]{gusfield89}. Gusfieldin ja Irvingin
+laajennettu algoritmi suorittaa esikäsittelyn samalla kun se ratkaisee
+perusmuotoisen vakaan avioliiton ongelman. Kun preferenssirelaatiot on
+esikäsitelty yllä kuvatulla tavalla, voidaan ongelma ratkaista myös
+Galen ja Shapleyn versiolla algoritmista \cite[sivu 28]{gusfield89}.
 
 \subsection{Osittaiset preferenssirelaatiot}
 
@@ -322,19 +328,21 @@ preferenssirelaatiot ovat osittaisia. Voi siis olla, että jos $m \in
 M$, $n_1,n_2 \in N$ niin $(n_1, n_2) \notin P_m$ ja $(n_2, n_1) \notin
 P_m$. Muunnelman mukaiset ongelmat voidaan kuitenkin ratkaista
 alkuperäistä Galen ja Shapleyn algoritmia käyttäen, jos esitetyn
-kaltaiset tasatilanteet ratkaistaan satunnaisesti \cite{gusfield89}.
+kaltaiset tasatilanteet ratkaistaan satunnaisesti \cite[sivu
+  31]{gusfield89}.
 
 Myös tässä muunnelmassa on tarpeen määritellä heikompi versio
 vakaudesta. Esimerkiksi täydellisen väliinpitämättömyyden vallitessa
 mikään sijoittelu ei olisi vakaa, sillä jokaisen kahden parin
 tapauksessa henkilöille olisi mieluista muodostaa parit vaihtamalla
-miehiä (tai naisia). Olkoon siis osittaisten preferenssirelaatioiden
-tapauksessa sijoittelu $\mu$ \emph{heikosti epävakaa}, jos on olemassa
-$m \in M$ ja $n \in N$ joilla $(m, n) \notin \mu$, mutta $(n, \mu(m))
-\in P_m$ ja $(m, \mu^{-1}(n)) \in P_n$. Siis sijoittelu on heikosti
-epävakaa, jos on olemassa yksi nainen ja mies, jotka pitävät aidosti
-enemmän toisistaan kuin sijoittelun antamasta paristaan.
-\cite{gusfield89}
+miehiä (tai naisia). Määritellään Gusfieldin ja Irvingin määrittelemä
+\cite[sivu 31]{gusfield89} heikko epävakaus tätä ainetta varten
+seuraavasti.Olkoon osittaisten preferenssirelaatioiden tapauksessa
+sijoittelu $\mu$ \emph{heikosti epävakaa}, jos on olemassa $m \in M$
+ja $n \in N$ joilla $(m, n) \notin \mu$, mutta $(n, \mu(m)) \in P_m$
+ja $(m, \mu^{-1}(n)) \in P_n$. Siis sijoittelu on heikosti epävakaa,
+jos on olemassa yksi nainen ja mies, jotka pitävät aidosti enemmän
+toisistaan kuin sijoittelun antamasta paristaan.
 
 Käytännön ongelmissa tasatilanteiden ratkaiseminen arvalla on usein
 hyväksyttävää. Siitä seuraa kuitenkin, että algoritmi saattaa antaa
@@ -351,11 +359,11 @@ jossa preferenssirelaatiot ovat sekä osittaisia että määritelty vain
 jollekin vastakkaisen sukupuolen joukon osajoukolle. Tässä
 muunnelmassa ensimmäinen merkittävä huomio on, että kaikki mahdolliset
 vakaat sijoittelut eivät välttämättä ole saman kokoisia. Tämä voidaan
-todeta yksinkertaisen esimerkin avulla. Olkoon $m_1: n_1$, $m_2: n_1
-n_2$, $n_1: (m_1 m_2)$ ja $n_2: m_2$. Tässä siis miellyttävin henkilö
-on listassa vasemmanpuolimmaisena ja sulut kuvaavat tasatilannetta.
-Nyt $\{(m_2, n_1)\}$ ja $\{(m_1, n_1), (m_2, n_2)\}$ ovat vakaita
-sijoitteluja. \cite{manlove02}
+todeta Manloven ja kumppanien antaman \cite{manlove02} yksinkertaisen
+esimerkin avulla. Olkoon $m_1: n_1$, $m_2: n_1 n_2$, $n_1: (m_1 m_2)$
+ja $n_2: m_2$. Tässä siis miellyttävin henkilö on listassa
+vasemmanpuolimmaisena ja sulut kuvaavat tasatilannetta. Nyt $\{(m_2,
+n_1)\}$ ja $\{(m_1, n_1), (m_2, n_2)\}$ ovat vakaita sijoitteluja.
 
 Koska vakaat sijoittelut voivat olla eri kokoisia, on mielenkiintoista
 pyrkiä löytämään suurimmat tai pienimmät vakaat sijoittelut. Molemmat
@@ -388,22 +396,10 @@ keväällä yli 102 000 hakijaa \cite{OPH12}.
   College Admissions and the Stability of Marriage.
   \emph{The American Mathematical Monthly, 69, 1 (1962)}
 
-\bibitem[MII02]{manlove02}
-  David F. Manlove, Robert W. Irving, Kazuo Iwama, Shuichi Miyazaki,
-  Yasufumi Morita.
-  Hard variants of stable marriage.
-  \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
-
 \bibitem[GuI89]{gusfield89}
   D. Gusfield, Robert W. Irving.
   The Stable Marriage Problem: Structure and Algorithms.
   \emph{MIT Press, Cambridge, MA, 1989}
-
-\bibitem[Che89]{cheng89}
-  Cheng Ng.
-  Lower Bounds for the Stable Marriage Problem and its Variants.
-  \emph{30th Annual Symposium on Foundations of Computer Science,
-    (1989), sivut 129-133}
 
 \bibitem[OPH12]{OPH12}
   Opetushallitus.
@@ -411,6 +407,18 @@ keväällä yli 102 000 hakijaa \cite{OPH12}.
   kevään 2011 ammatillisen ja lukiokoulutuksen yhteishaussa.
   \url{https://www.kouluta.fi/koulutadw/faces/app/startupDWReports.jspx?report_id=18}
       [3.3.2012]
+
+\bibitem[MII02]{manlove02}
+  David F. Manlove, Robert W. Irving, Kazuo Iwama, Shuichi Miyazaki,
+  Yasufumi Morita.
+  Hard variants of stable marriage.
+  \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
+
+\bibitem[Che89]{cheng89}
+  Cheng Ng.
+  Lower Bounds for the Stable Marriage Problem and its Variants.
+  \emph{30th Annual Symposium on Foundations of Computer Science,
+    (1989), sivut 129-133}
 
 \end{thebibliography}
 \end{document}
