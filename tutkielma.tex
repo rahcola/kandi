@@ -3,18 +3,18 @@
 \usepackage{url}
 \begin{document}
 
-\title{Vakaan avioliiton ongelman ja sen muunnelmien aikavaativuuksia}
+\title{}
 \author{Jani Rahkola}
 \date{\today}
-\level{Aine}
-\numberofpagesinformation{11 sivua}
+\level{Tutkielma}
+\numberofpagesinformation{}
 
 \classification{A.1 [Introductory and Survey] \\ G.2.1 [Discrete
     Mathematics]: Combinatorics---Combinatorial algorithms \\ F.2.2
   [Analysis of Algorithms and Problems]: Nonnumerical Algorithms and
   Problems---Computations on Discrete Structures}
 
-\keywords{vakaan avioliiton ongelma, aikavaativuus}
+\keywords{vakaan avioliiton ongelma, aikavaativuus, opiskelijavalinta}
 
 \maketitle
 
@@ -25,85 +25,11 @@
 \subject{Tietojenkäsittelytiede}
 
 \begin{abstract}
-  Vakaan avioliiton ongelmassa miesten joukon $M$ ja naisten joukon
-  $N$ välille pyritään löytämään relaatio $\mu \subset M \times N$
-  noudattaen miesten ja naisten mieltymyksiä kuvaavia täydellisiä
-  järjestysrelaatioita $P_M = \{P_m \subset N \times N | m \in M\}$ ja
-  $P_N = \{P_n \subset M \times M | n \in N\}$. Gale ja Shapley
-  antavat ongelman esittelyn yhteydessä algoritmin joka ratkaisee
-  ongelman ajassa $O(n^2)$. Ng osoittaa, että Galen ja Shapleyn
-  algoritmi on suoritusajaltaan optimaalinen.
-
-  Käytännön kannalta on usein tarpeellista muokata ongelmanasettelua
-  niin, että järjestysrelaatioiden ei tarvitse kattaa koko vastakkaisen
-  sukupuolen joukkoa, tai niissä on luvallista olla tasatilanteita.
-  Tässä aineessa käydään läpi vakaan avioliiton ongelman määrittely ja
-  analyysi perusongelman ja mainittujen kahden muunnelman suoritusajalle.
 \end{abstract}
 
 \mytableofcontents
 
 \section{Johdanto}
-
-Gale ja Shapley määrittelevät vakaan avioliiton ongelman (stable
-marriage problem) artikkelissaan College Admissions and the Stability
-of Marriage \cite{galeshapley62} jonka motiivina on yliopistojen
-valintaongelma. Vakaan avioliiton ongelma on yksinkertaistettu
-tilanne, jossa joukosta naisia ja miehiä pyritään muodostamaan pareja
-noudattaen sekä miesten että naisten mieltymyksiä. Hyväksyttävien
-ratkaisujen joukoksi he määrittelevät ne ratkaisut jotka täyttävät
-kaksi ehtoa. Ensinnäkin ratkaisun tulee olla vakaa (stable). Kenenkään
-kahden parin kohdalla ei saa olla niin, että miesten (tai naisten)
-vaihtaminen parien kesken tekisi ainakin toisesta uudesta parista sen
-jäsenille mieluisemman. Toiseksi ratkaisun tulee olla optimaalinen.
-Jokaisen miehen ja naisen tulee saada ratkaisussa vähintään yhtä hyvä
-pari kuin missään muussa mahdollisessa ratkaisussa. Tämä
-optimaalisuuden käsite vastaa heikon Pareto-optimaalisuuden käsitettä
-\cite[sivu 13]{gusfield89}.
-
-Tämän yksinkertaistetun ongelman ratkaisemiseen Gale ja Shapley
-antavat algoritmin jonka on myöhemmin osoitettu olevan
-suoritusajaltaan optimaalinen \cite{gusfield89, cheng89}.
-Päätösluvussaan Gale ja Shapley kuitenkin toteavat luomansa vakaan
-avioliiton ongelman olevan hyvin teoreettinen ja kaukana
-alkuperäisestä yliopistojen valintaongelmasta. Vakaan avioliiton
-ongelma on kuitenkin erikoistapaus yliopistojen (myöhemmin
-oppilaitosten) valintaongelmasta tilanteessa jossa jokaisella
-oppilaitoksella on täytettävänä tasan yksi paikka \cite{manlove02}.
-Niinpä vakaan avioliiton ongelmaa tutkimalla saadaan asetettua rajoja
-myös oppilaitosten valintaongelmalle.
-
-Vakaan avioliiton ongelmalle on myös suoria sovelluksia. Esimerkiksi
-työpaikoilla tehtävä toimistojen jako on palautettavissa suoraan
-vakaan avioliiton ongelmaan. Asemaan tai kokemukseen perustuva
-ensisijaisuusjärjestelmä voidaan mallintaa toimistojen
-``mieltymysten'' avulla. Tällaisessa järjestelmässä ei useinkaan ole
-mielekästä vaatia työntekijöitä asettamaan kaikkia toimistoja tiukkaan
-paremmuusjärjestykseen. Jos tarjolla on vain avokonttorin työpisteitä,
-ei sijainnilla ole välttämättä väliä. Näin syntyy muunnelma vakaan
-avioliiton ongelmasta, joka kuitenkin osoittautuu ratkeavaksi Galen ja
-Shapleyn algoritmilla optimiajassa.
-
-Kolmas sovellus vakaan avioliiton ongelmalle on elinluovutusten
-järjestäminen. Luovuttajista ja vastaanottajista pyritään muodostamaan
-mahdollisimman yhteensopivia pareja. Koska veriryhmä ja muut tekijät
-sanelevat luovutuksen mahdollisuuden, on tarpeen muuntaa alkuperäistä
-ongelmankuvausta niin, että mahdottomia pareja ei pääse syntymään.
-Syntyy toinen muunnelma joka on ratkaistavissa pienellä muunnoksella
-alkuperäiseen Galen ja Shapley algoritmiin.
-
-Oppilaitosten valinnoissa usein yhdistyvät molemmat edellä esitellyt
-muunnokset. Hakijoiden hakuvaihtoehtoja voidaan rajata, ja
-oppilaitokset eivät välttämättä ole halukkaita muodostamaan tiukkaa
-paremmuusjärjestystä kaikkien hakijoiden välille. Galen ja Shapleyn
-alkuperäisen ongelman kannalta onkin merkittävää, että tämä kahden
-muunoksen yhdistelmä on NP-täydellinen \cite{manlove02}.
-
-Ensimmäisessä luvussa määritellään vakaan avioliiton ongelma ja
-ratkaisun vakaus. Seuraavassa luvussa esitellään Galen ja Shapleyn
-algoritmi ratkaisun löytämiseksi ja käydään läpi analyysi algoritmin
-suoritusajasta. Luvuissa kolme, neljä ja viisi esitellään käytännön
-kannalta kiinnostavia muunnelmia vakaan avioliiton ongelmasta.
 
 \section{Vakaan avioliiton ongelma}
 
@@ -375,6 +301,12 @@ ja kumppanit todistavat tämän tekemällä reduktion suurimman vakaan
 sijoittelun löytämisestä exact maximal matching -ongelmaan ja
 pienimmän vakaan sijoittelun löytämisestä minimum maximal matching
 ongelmaan. \cite{manlove02}
+
+\section{Tasapuolinen ratkaisu}
+
+\section{Bostonin mekanismi}
+
+\section{Top trading cycles}
 
 \section{Yhteenveto}
 
