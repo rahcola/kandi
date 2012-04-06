@@ -14,7 +14,7 @@
   [Analysis of Algorithms and Problems]: Nonnumerical Algorithms and
   Problems---Computations on Discrete Structures}
 
-\keywords{vakaan avioliiton ongelma, aikavaativuus, opiskelijavalinta}
+\keywords{vakaan avioliiton ongelma, opiskelijavalinta, aikavaativuus}
 
 \maketitle
 
@@ -31,276 +31,77 @@
 
 \section{Johdanto}
 
-\section{Vakaan avioliiton ongelma}
+\section{Opiskelijavalintaongelma}
 
-Gale ja Shapley määrittelivät artikkelissaan vakaan avioliiton
-ongelman, vakauden käsitteen ja ratkaisun optimaalisuuden
-\cite{galeshapley62}. Määritellään nämä käsitteet tätä ainetta varten
-uudelleen seuraavasti. Olkoon $M$ joukko miehiä ja $N$ joukko naisia.
-Olkoon lisäksi $P_M = \{P_m \subset N \times N | m \in M\}$ ja $P_N =
-\{P_n \subset M \times M | n \in N\}$ joukot täydellisiä
-järjestysrelaatioita jotka kertovat mihin järjestykseen mies $m$
-(vastaavasti nainen $n$) sijoittaa vastakkaisen sukupuolen edustajat.
-Kutsutaan näitä relaatioita \emph{preferenssirelaatioiksi}. Jos siis
-$m_1,m_2 \in M$ ja $m_1P_nm_2$ pitää nainen $n$ enemmän miehestä $m_1$
-kuin $m_2$. Nyt nelikko $(M, N, P_M, P_N)$ määrittelee \emph{vakaan
-  avioliiton ongelman }.
+Opiskelijavalintaongelma on tilanne, jossa useat oppilaitokset
+kilpailevat keskenään hakijoista. Hakijat ovat mahdollisesti
+kiinnostuneita vain osasta oppilaitoksista, tai heidän
+valinnanmahdollisuuksiaan on rajattu. Samoin oppilaitokset ovat
+voineet karsia hakijoita esimerkiksi valintakokeilla ja
+oppilaitoksilla on usein rajattu määrä avoimia paikkoja. Lisäksi
+molemmat toimijat asettavat kiinnostuksenkohteensa
+paremmuusjärjestykseen. Toiset oppilaitokset kiinnostavat hakijoita
+toisia enemmän, ja oppilaitokset haluavat täyttää avoimet paikkansa
+mahdollisimman hyvillä hakijoilla.
 
-Yksi-yhteen relaatiota $\mu \subset M \times N$ kutsutaan
-\emph{sijoitteluksi}. Vakaan avioliiton ongelman perusmuodossa
-sijoittelun tulee olla bijektio. Siis jokaisella naisella ja miehellä
-tulee olla pari. Merkitään miehen $m$ paria sijoittelussa $\mu(m)$ ja
-vastaavasti naisen $n$ paria $\mu^{-1}(n)$.
+Määritellään yllä kuvattu ongelma formaalisti. Olkoon $O$
+oppilaitosten joukko ja $H$ hakijoiden joukko. Merkitään $a \prec_x b$
+jos toimija $x$ pitää enemmän $a$:sta kuin $b$:stä, ja $\emptyset
+\prec_x a$ mikäli toimija $x$ ei halua tulla valituksi/valita toimijaa
+a missään tilanteessa. Olkoon lisäksi jokaisella oppilaitoksella $o
+\in O$ avoimien paikkojen määrä $q_o$. Näin kuvattu
+\emph{opiskelijavalintaongelma} pyritään ratkaisemaan määräämällä
+halutut ominaisuudet toteuttava \emph{sijoittelu} $\mu \subset O
+\times H$ jossa $(o, h) \in \mu$ jos hakija $h$ on valittu
+oppilaitokseen $o$. Sijoittelulle tulee päteä $|\mu(o)| \leq q_o$, eli
+jokaiseen oppilaitokseen on valittu korkeintaan niin monta hakijaa
+kuin sillä oli avoimia paikkoja. Lisäksi jos $\emptyset \prec_o h$ tai
+$\emptyset \prec_h o$, niin $(o, h) \notin \mu)$. Siis hakija $o$ ei
+saa tulla sijoitetuksi oppilaitokseen $h$ jos hän ei niin halua, tai
+oppilaitos ei halua ottaa hakijaa vastaan.
 
-Vakaan avioliiton ongelman ratkaiseminen tarkoittaa sijoittelun $\mu$
-määräämistä niin että se on vakaa. Sijoittelu on \emph{epävakaa}, jos
-joillakin $m_1, m_2 \in M$ ja $n_1, n_2 \in N$ pätee, että $(m_1, n_1)
-\in \mu$ ja $(m_2, n_2) \in \mu$ mutta $n_1P_{m_2}n_2$ ja
-$m_2P_{n_1}m_1$. Siis mies $m_2$ pitää enemmän naisesta $n_1$ kuin
-paristaan $n_2$, ja nainen $n_1$ pitää enemmän miehestä $m_2$ kuin
-paristaan $m_1$. Sijoittelua voitaisiin siis parantaa $m_2$:n ja
-$n_1$:n kannalta määräämällä $(m_2, n_1) \in \mu$.
+\section{Sijoittelun ominaisuuksia}
 
-\section{Ratkaisu ajassa $\boldsymbol{\Theta(n^2)}$}
+Sijoittelulle voidaan määritellä useita haluttuja ominaisuuksia. Gale
+ja Shapley määrittelevät kaksi tällaista ominaisuutta
+\cite{galeshapley62}. Ensimmäinen näistä on vakaus. Vakaassa
+sijoittelussa ei löydy sellaista oppilaitosta ja hakijaa, että hakija
+ei ole sijoitettu oppilaitokseen vaikka pitää sitä mieluisampana kuin
+nykyistä sijoitustaan, ja oppilaitoksessa on tyhjä paikka tai
+oppilaitos pitää hakijaa parempana valintana kuin jotain jo paikan
+täyttävää hakijaa. Sijoittelu $\mu$ on siis \emph{epävakaa}, jos on
+olemassa $o \in O$ ja $h \in H$ joilla $(o, h) \notin \mu$, mutta $o
+\prec_h \mu^{-1}(h)$ ja oppilaitoksessa $o$ on vapaa paikka, tai on
+olemassa $h' \in H$ jolla $(o, h') \in \mu$ mutta $h \prec_o h'$.
 
-Jokaiseen vakaan avioliiton ongelmaan on olemassa ratkaisu
-\cite{galeshapley62}. Gale ja Shapley todistavat tämän antamalla
-seuraavanlaisen algoritmin vakaan sijoittelun löytämiseen.
-Ensimmäisellä kierroksella jokainen mies kosii naista josta hän pitää
-eniten. Naiset valitsevat alustavasti mahdollisista kosijoistaan sen
-josta he pitävät eniten. Seuraavilla kierroksilla valitsematta jääneet
-miehet kosivat listallaan seuraavana olevia naisia, ja naiset
-valitsevat kosijoistaan ja mahdollisesta alustavasti valitusta
-miehestä jälleen sen josta he pitävät eniten. Näin jatketaan kunnes
-jokaista naista on kosittu ainakin kerran, jolloin muodostuneet parit
-voidaan vahvistaa.
+Toinen Galen ja Shapleyn määrittelemä ominaisuus on optimaalisuus.
+Sijoittelu on hakija-optimaalinen, jos jokainen hakija on siinä
+vähintään yhtä mieluisassa oppilaitoksessa kuin missä tahansa muussa
+vakaassa sijoittelussa. Sijoittelu $\mu$ on
+\emph{hakija-optimaalinen}, jos ei ole olemassa toista vakaata
+sijoittelu $\gamma$ jossa kaikilla $(o, h) \in \gamma$ pätee $o
+\prec_h \mu^{-1}(h)$. Vastaavasti voidaan määritellä
+oppilaitos-optimaalinen sijoittelu.
 
-Jos jokaista naista on kosittu ainakin kerran, ei yksikään mies ole
-tullut enää torjutuksi. Jos joku mies olisi tullut torjutuksi, olisi
-joku nainen saanut useamman kuin yhden kosinnan, jolloin joku naisista
-olisi jäänyt ilman kosintaa. Siispä algoritmi on määrännyt parin
-jokaiselle miehelle ja naiselle kun jokaista naista on kosittu ainakin
-kerran.
+\section{Galen ja Shapleyn algoritmi}
 
-Galen ja Shapleyn algoritmi ei vaadi, että naisten ja miesten joukot
-ovat yhtämahtavat. Mikäli $|M| < |N|$ päättyy algoritmi kun $|M|$
-kappaletta naisia on saanut kosinnan. Vastaavasti jos $|N| < |M|$,
-päättyy algoritmi kun jokainen mies on tullut alustavasti valituksi
-tai jokaisen naisen torjumaksi. \cite{galeshapley62}
+Galen ja Shapleyn algoritmi etenee seuraavasti. Ensin jokainen hakija
+pyytää tulla sijoitetuksi mieluisimpaan oppilaitokseen. Jokainen
+oppilaitos $o$ valitsee alustavasti $q_o$ mieluisinta hakijaa ja
+hylkää loput pyynnöt. Seuraavaksi kaikki hylätyksi tulleet hakijat
+pyytävät tulla sijoitetuksi seuraavaksi mieluisimpaan oppilaitoseen.
+Jokainen oppilaitos $o$ valitsee $q_o$ mieluisinta hakijaa alustavasti
+valittujen ja uuden pyynnön lähettäneiden joukosta ja hylkää loput.
+Näin jatketaan kunnes jokainen hakija on tullut alustavasti valituksi
+tai hylätyksi jokaisesta listallaan olleesta oppilaitoksesta.
 
-\subsection{Sijoittelun vakaus ja Pareto-optimaalisuus}
+Jotta hakija ei tulisi valituksi oppilaitokseen johon häntä ei voida
+valita, karsitaan ennen algoritmin suoritusta jokaisen hakijan
+listalta ne oppilaitokset joihin hän ei voi tulla valituksi.
 
-Algoritmin antama sijoittelu on vakaa \cite{galeshapley62}. Oletetaan,
-että saatu sijoittelu on epävakaa ja on siis olemassa $m \in M$ ja $n
-\in N$ joilla $(m, n) \notin \mu$, mutta $nP_m\mu(m)$ ja
-$mP_n\mu^{-1}(n)$. Koska $m$ pitää enemmän naisesta $n$ kuin
-paristaan, on hänen täytynyt kosia naista $n$ ennen pariaan. Koska $m$
-ja $n$ eivät kuitenkaan ole pari, on naisen $n$ täytynyt torjua
-kosinta. Nainen $n$ pitää siis enemmän paristaan kuin miehestä $m$.
-Tämä on kuitenkin ristiriita. Siis saatu sijoittelu on vakaa.
-
-Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on miesten
-kannalta \emph{heikosti Pareto-optimaalinen} \cite[sivu
-  13]{gusfield89}. Ei siis ole olemassa toista sijoittelua $\gamma$
-jossa kaikilla $(m, n) \in \gamma$ pätee, että $nP_m\mu(m)$.
-Vastaavasti voidaan määritellä, että sijoittelu on heikosti
-Pareto-optimaalinen naisten kannalta. Luonnollista on, että algoritmi
-antaa naisoptimaalisen sijoittelun, kun kosijoiden rooli annetaan
-naisille.
-
-\subsection{Yläraja $\boldsymbol{O(n^2)}$}
-
-Gale ja Shapley kirjoittavat algoritmin päättyvän korkeintaan $n^2 -
-2n + 2$ kierroksen jälkeen \cite{galeshapley62}. Asia esitetään
-kuitenkin vain sivuhuomautuksena, eivätkä kirjoittajat ota kantaa
-algoritmin varsinaiseen aikavaativuuteen. Kierrosten määrä ei anna
-suoraan aihetta odottaa $O(n^2)$ aikavaativuutta, sillä yhden
-kierroksen aikana voi tapahtua useita kosintoja. Ei siis ole selvää,
-että yksi kierros on mahdollista suorittaa
-vakioajassa. \enlargethispage{\baselineskip}
-
-Gusfield ja Irving esittävät algoritmille muotoilun \cite[sivu
-  9]{gusfield89} jonka analysointi on alkuperäistä helpompaa. Siinä
-yhden kierroksen aikana yksi mies kosii naista josta pitää eniten ja
-jota hän ei ole vielä kosinut. Gusfiel ja Irving osoittavat että yksi
-kosinta voidaan suorittaa vakioajassa \cite[sivu 14]{gusfield89}. Nyt
-riittää tarkastella kosintojen määrää joka tapauksessa $|M| = |N| = n$
-on korkeintaan $n^2$, sillä jokainen mies kosii jokaista naista
-korkeintaan kerran. Tästä seuraa algoritmin suorituksen asymptoottinen
-yläraja $O(n^2)$. \cite[sivu 14]{gusfield89}
-
-\subsection{Alaraja $\boldsymbol{\Omega(n^2)}$}
-
-Koska kummankin sukupuolen preferenssirelaatioiden esittäminen vaatii
-muistia $O(n^2)$ määrän, vie syötteen luku itsessään jo $O(n^2)$ ajan.
-Niinpä alarajan tarkastelussa on mielekästä tutkia tilannetta jossa
-algoritmin syöte on jo valmiiksi luettu muistiin \cite{cheng89}.
-
-Ng osoittaa, että Galen ja Shapleyn algoritmi on asymptoottiselta
-aikavaativuudeltaan optimaalinen \cite{cheng89}. Ngin päätuloksen
-mukaan satunnaisesta mies-nainen -parista voidaan päätellä onko se
-vakaa annetussa ongelmassa ajassa $\Omega(n^2)$. Tästä seuraa, että
-vakaan avioliiton ongelman ratkaiseminen on asymptoottiselta
-aikavaativuudeltaan $\Theta(n^2)$ \cite{cheng89}. Jos jokin algoritmi
-löytäisi vakaan sijoittelun alle $\Theta(n^2)$ ajassa, päättelisi se
-myös sijoitteluun kuuluvien parien vakauden alle $\Omega(n^2)$ ajassa
-mikä olisi ristiriita. Toisin kuin Gusfieldin ja Irvinig analyysi
-algoritmin ylärajasta, Ng olettaa, että naisten ja miesten joukot ovat
-yhtämahtavat.
-
-Ng analyysi tarkastelee sitä kuinka monta kertaa mikä tahansa vakaan
-avioliiton ongelmaa ratkaiseva algorimi joutuu tarkastelemaan
-syötteenään saatua ongelman kuvausta. Ng aloittaa kanonisesta
-ongelmasta jossa tutkittava pari on vakaa. Sitten hän esittää
-menetelmän jolla voidaan muodostaa tästä ongelmasta muunnelmia joissa
-tutkittava pari ei ole vakaa. Nyt tunnistaakseen onko pari vakaa
-syötteenä annetussa ongelmassa, tulee algoritmin kyetä erottamaan
-kanoninen ongelma siitä luoduista muunnelmista. Ng osoittaa tähän
-tarvittavan ainakin $\Omega(n^2)$ ongelman kuvauksen tarkastelua.
-\cite{cheng89}
-
-\section{Perusongelman muunnelmia}
-
-Galen ja Shapleyn määrittelemässä vakaan avioliiton ongelmassa
-molemmat sukupuolet määrittelevät kiinnostuksensa kaikista
-vastakkaisen sukupuolen henkilöistä. Käytännön sovelluksissa tämä ei
-kuitenkaan ole aina haluttua. Esimerkiksi oppilaitosten valinnoissa
-hakijat eivät ole halukkaita opiskelemaan missä tahansa
-oppilaitoksessa eivätkä oppilaitokset halua ottaa vastaan ketä tahansa
-hakijaa. Näin syntyy muunnelma jossa toimijan ei tarvitse suostua
-muodostamaan paria kenen tahansa vastakkaisen osapuolen edustajan
-kanssa.
-
-Monissa käytännön sovelluksissa ei ole aina haluttua määritellä
-järjestystä kaikkien vastakkaisen osapuolen toimijoiden välille.
-Esimerkiksi oppilaitosten valinnoissa jonkin rajan alle jääneistä
-hakijoista valinta saatetaan tehdä esimerkiksi arpomalla. Jaettaessa
-toimistoja työtekijöille voi työntekijällä olla vain muutama
-vaihtoehto joihin hän erityisesti haluaa. Erona ensiksi esiteltyyn
-muunnelmaan on kuitenkin se, että toimijat ovat valmiita muodostamaan
-parin kenen tahansa vastapuolen toimijan kanssa.
-
-Oppilaitosten valinnoissa on mielekästä tutkia myös kahden edellä
-esitellyn muunnelman yhdistelmää. Esimerkiksi tietyn rajan
-ylittäneet hakijat olisivat listan kärkipäässä, jonkin toisen rajan
-alittaneet eivät voisi missään tapauksessa tulla valituiksi
-oppilaitokseen, ja väliin jääneiden tapauksessa valinta kahden hakijan
-välillä ratkaistaisiin aina arvalla.
-
-\subsection{Preferenssirelaatiot osajoukoille}
-
-Jos miesten ja naisten ei tarvitse suostua muodostamaan paria jokaisen
-vastakkaisen sukupuolen edustajan kanssa, syntyy muunnelma vakaan
-avioliiton ongelmasta jossa preferenssirelaatioiden ei tarvitse olla
-määritelty koko vastakkaisen sukupuolen joukon yli. Merkitään $N_m$
-(vastaavasti $M_n$) sitä joukkoa naisia, joiden kanssa mies $m$
-(vastaavasti nainen $n$) on valmis muodostamaan parin. Nyt $P_m
-\subset N_m \times N_m$ ja $P_n \subset M_n \times M_n$.
-
- Lisäksi sijoittelulle $\mu$ tulee päteä, että jos $m \in M$, $n \in
- N$ ja $(m, n) \in \mu$ niin $n \in N_m$ ja $m \in M_n$. Siis jos mies
- $m$ ja nainen $n$ ovat pari, ovat he olleet valmiita muodostamaan
- parin keskenään.
-
-Tästä seuraa, että saatu sijoittelu voi olla osittainen sillä jokainen
-mies ja nainen eivät välttämättä saa itselleen paria. Tästä syystä on
-tarpeen muotoilla heikompi versio vakaudesta. Sijoittelu on
-\emph{heikosti epävakaa}, jos on olemassa $m_1 \in M$ ja $n_1 \in N$
-joilla seuraavat ehdot ovat voimassa \cite[sivu 27]{gusfield89}:
-\[
-\text{1. }(m_1, n_1) \notin \mu \text{, mutta } m_1 \in M_{n_1} \text{
-  ja } n_1 \in N_{m_1}
-\]
-\[
-\text{2. jos }\exists n_2 \in N: (m, n_2) \in \mu \text{, niin
-}n_1P_{m_1}n_2
-\]
-\[
-\text{3. jos }\exists m_2 \in M: (m_2, n) \in \mu \text{, niin
-}m_1P_{n_1}m_2
-\]
-
-Myös Pareto-optimaalisuus voidaan laajentaa koskemaan osajoukoille
-määriteltyjä preferenssirelaatioita käyttäen saatua sijoittelua.
-Jokainen mies pitää parempana sijoittelua jossa hänellä on pari, kuin
-sijoittelua jossa hänellä ei ole paria. \cite[sivu 27]{gusfield89}
-
-Esitellyn muunnelman ratkaisemiseksi täytyy myös Galen ja Shapleyn
-algoritmiin tehdä muunnos. Gusfield ja Irving määrittelevät
-algoritmista laajennetun version \cite[sivu 16]{gusfield89} jonka
-avulla voidaan esikäsitellä jokaisen miehen ja naisen
-preferenssirelaatiot seuraavasti. Kaikille $m \in M$ ja $n \in N_m$
-tarkistetaan onko $m \in M_{n}$. Jos näin ei ole, poistetaan $n$
-$N_m$:stä. Vastaava tehdään kaikille $n \in N$. Lopuksi määritellään
-preferenssirelaatiot uudelleen. Siis jokaisen miehen ja naisen
-preferenssirelaatiosta poistetaan ne parit jotka koskevat sellaista
-vastakkaisen sukupuolen edustajaa, joka ei halua muodostaa paria ko.
-miehen\slash naisen kanssa.
-
-Tämä esikäsittely voidaan tehdä ajassa $O(n^2)$ kun henkilön
-kuuluminen toisen henkilön preferenssirelaatioon voidaan tarkistaa
-vakioajassa. Tämä voidaan taata valitsemalla preferenssirelaatioiden
-esitys sopivasti \cite[sivu 14]{gusfield89}. Gusfieldin ja Irvingin
-laajennettu algoritmi suorittaa esikäsittelyn samalla kun se ratkaisee
-perusmuotoisen vakaan avioliiton ongelman. Kun preferenssirelaatiot on
-esikäsitelty yllä kuvatulla tavalla, voidaan ongelma ratkaista myös
-Galen ja Shapleyn versiolla algoritmista \cite[sivu 28]{gusfield89}.
-
-\subsection{Osittaiset preferenssirelaatiot}
-
-Jos henkilön ei tarvitse määrittää paremmuusjärjestystä kaikkien
-vastakkaisen sukupuolen edustajien välille, saadaan muunnelma jossa
-preferenssirelaatiot ovat osittaisia. Voi siis olla, että jos $m \in
-M$, $n_1,n_2 \in N$ niin $(n_1, n_2) \notin P_m$ ja $(n_2, n_1) \notin
-P_m$. Muunnelman mukaiset ongelmat voidaan kuitenkin ratkaista
-alkuperäistä Galen ja Shapleyn algoritmia käyttäen, jos esitetyn
-kaltaiset tasatilanteet ratkaistaan satunnaisesti \cite[sivu
-  31]{gusfield89}.
-
-Myös tässä muunnelmassa on tarpeen määritellä heikompi versio
-vakaudesta. Esimerkiksi täydellisen väliinpitämättömyyden vallitessa
-mikään sijoittelu ei olisi vakaa, sillä jokaisen kahden parin
-tapauksessa henkilöille olisi mieluista muodostaa parit vaihtamalla
-miehiä (tai naisia). Määritellään Gusfieldin ja Irvingin määrittelemä
-\cite[sivu 31]{gusfield89} heikko epävakaus tätä ainetta varten
-seuraavasti.Olkoon osittaisten preferenssirelaatioiden tapauksessa
-sijoittelu $\mu$ \emph{heikosti epävakaa}, jos on olemassa $m \in M$
-ja $n \in N$ joilla $(m, n) \notin \mu$, mutta $(n, \mu(m)) \in P_m$
-ja $(m, \mu^{-1}(n)) \in P_n$. Siis sijoittelu on heikosti epävakaa,
-jos on olemassa yksi nainen ja mies, jotka pitävät aidosti enemmän
-toisistaan kuin sijoittelun antamasta paristaan.
-
-Käytännön ongelmissa tasatilanteiden ratkaiseminen arvalla on usein
-hyväksyttävää. Siitä seuraa kuitenkin, että algoritmi saattaa antaa
-eri suorituskerroilla eri tuloksen. Kaikki algoritmin antamat
-sijoittelut ovat kuitenkin edelleen heikosti Pareto-optimaalisia. Ei
-siis ole olemassa sellaista sijoittelua jossa jokainen mies pitäisi
-aidosti enemmän paristaan kuin missään algoritmin tuottamassa
-sijoittelussa.
-
-\subsection{Osittaiset preferenssirelaatiot osajoukoille}
-
-Kun yhdistetään kaksi edellä esitettyä muunnelmaa, saadaan muunnelma
-jossa preferenssirelaatiot ovat sekä osittaisia että määritelty vain
-jollekin vastakkaisen sukupuolen joukon osajoukolle. Tässä
-muunnelmassa ensimmäinen merkittävä huomio on, että kaikki mahdolliset
-vakaat sijoittelut eivät välttämättä ole saman kokoisia. Tämä voidaan
-todeta Manloven ja kumppanien antaman \cite{manlove02} yksinkertaisen
-esimerkin avulla. Olkoon $m_1: n_1$, $m_2: n_1 n_2$, $n_1: (m_1 m_2)$
-ja $n_2: m_2$. Tässä siis miellyttävin henkilö on listassa
-vasemmanpuolimmaisena ja sulut kuvaavat tasatilannetta. Nyt $\{(m_2,
-n_1)\}$ ja $\{(m_1, n_1), (m_2, n_2)\}$ ovat vakaita sijoitteluja.
-
-Koska vakaat sijoittelut voivat olla eri kokoisia, on mielenkiintoista
-pyrkiä löytämään suurimmat tai pienimmät vakaat sijoittelut. Molemmat
-näistä ongelmista ovat kuitenkin NP-täydellisiä jopa erittäin
-rajoitetussa tapauksessa jossa tasatilanteet ovat sallittuja vain
-kahden vähiten miellyttävimmän henkilön välillä. Siis jokaisessa
-preferenssirelaatiossa voi olla korkeintaan yksi tasatilanne. Manlove
-ja kumppanit todistavat tämän tekemällä reduktion suurimman vakaan
-sijoittelun löytämisestä exact maximal matching -ongelmaan ja
-pienimmän vakaan sijoittelun löytämisestä minimum maximal matching
-ongelmaan. \cite{manlove02}
+Algoritmin antama sijoittelu on vakaa ja hakija-optimaalinen. Lisäksi
+muuttamalla algoritmia niin, että oppilaitokset tekevät aloitteen
+antaa se oppilaitos-optimaalisen sijoittelun.\cite{galeshapley62}
 
 \section{Tasapuolinen ratkaisu}
 
@@ -309,17 +110,6 @@ ongelmaan. \cite{manlove02}
 \section{Top trading cycles}
 
 \section{Yhteenveto}
-
-Edellä on esitelty vakaan avioliiton ongelma ja sen ratkaisun
-aikavaativuuksia Galen ja Shapleyn esittelemälle muodolle sekä
-kolmelle käytännön kannalta merkittävälle muunnelmalle. Muunnelman
-jossa preferenssirelaatiot ovat osittaisia ja määritelty sukupuolten
-osajoukoille on osoitettu olevan NP-täydellinen. Tämä on tarpeellista
-ottaa huomioon monissa vakaan avioliiton ongelman yleistyksissä, kuten
-oppilaitosten valinnassa. Käytännön sovelluksissa ainakin toisen
-osapuolen toimijoiden määrä on usein erittäin suuri, esimerkiksi
-Suomen toisen asteen oppilaitosten yhteishaussa haki vuoden 2011
-keväällä yli 102 000 hakijaa \cite{OPH12}.
 
 \newpage
 \begin{thebibliography}{XXX99}
