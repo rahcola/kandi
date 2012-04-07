@@ -86,10 +86,10 @@ oppilaitos-optimaalinen sijoittelu.
 \section{Galen ja Shapleyn algoritmi}
 
 Galen ja Shapleyn algoritmi etenee seuraavasti. Ensin jokainen hakija
-pyytää tulla sijoitetuksi mieluisimpaan oppilaitokseen. Jokainen
-oppilaitos $o$ valitsee alustavasti $q_o$ mieluisinta hakijaa ja
-hylkää loput pyynnöt. Seuraavaksi kaikki hylätyksi tulleet hakijat
-pyytävät tulla sijoitetuksi seuraavaksi mieluisimpaan oppilaitoseen.
+pyytää tulla sijoitetuksi hänelle mieluisimpaan oppilaitokseen.
+Jokainen oppilaitos $o$ valitsee alustavasti $q_o$ mieluisinta hakijaa
+ja hylkää loput pyynnöt. Seuraavaksi kaikki hylätyksi tulleet hakijat
+pyytävät tulla sijoitetuksi seuraavaksi mieluisimpaan oppilaitokseen.
 Jokainen oppilaitos $o$ valitsee $q_o$ mieluisinta hakijaa alustavasti
 valittujen ja uuden pyynnön lähettäneiden joukosta ja hylkää loput.
 Näin jatketaan kunnes jokainen hakija on tullut alustavasti valituksi
@@ -103,9 +103,66 @@ Algoritmin antama sijoittelu on vakaa ja hakija-optimaalinen. Lisäksi
 muuttamalla algoritmia niin, että oppilaitokset tekevät aloitteen
 antaa se oppilaitos-optimaalisen sijoittelun.\cite{galeshapley62}
 
+\subsection{Laskennan aikavaativuus}
+
+Galen ja Shapleyn algoritmi opiskelijavalintaongelman ratkaisemiseen
+on yleistys heidän algorimistaan vakaan avioliiton ongelmaan
+\cite[luku 1.6.3]{gusfield89}. Siispä algoritmi vie $\O(nm)$ ajan,
+missä $n$ on oppilaitosten ja $m$ hakijoiden määrä \cite[sivu
+  14]{gusfield89}.
+
+Lisäksi opiskelijavalintaongelmassa kummankaan osapuolen ei tarvitse
+asettaa paremmuusjärjestykseen kaikkia vastakkaisen osapuolen
+toimijoita. Tämä muunnelma ei kuitenkaan muuta algoritmin
+aikavaativuutta \cite{manlove02}.
+
 \section{Tasapuolinen ratkaisu}
 
 \section{Bostonin mekanismi}
+
+Bostonin kaupungin vuodesta 1999 käyttämä valintamekanismi edustaa
+opiskelijavalintaongelman ratkaisemiseksi käytettyjä algoritmeja joita
+usein kutsutaan \emph{Bostonin mekanismiksi}. Sitä käytetään tai on
+käytetty pienin muunnoksin Bostonin lisäksi monissa muissa
+Yhdysvaltain koulupiireissä \cite{abdusön93}. Varsinaisen sijoittelun
+muodostava algoritmi toimii seuraavasti \cite{abdusön93}.
+
+Ensimmäisellä kierroksella jokainen oppilaitos $o$ valitsee
+korkeintaan $q_o$ mieluisinta hakijaa niiden hakijoiden joukosta jotka
+pitävät $o$:ta mieluisimpana hakukohteenaan. Valitut hakijat
+sijoitetaan oppilaitokseen.
+
+Yleisesti kierroksella $k$ jokainen oppilaitos $o$ jolla on vielä
+avoimia paikkoja pyrkii täyttämään paikat mieltymystensä mukaisessa
+järjestyksessä niillä hakijoilla jotka pitävät $o$:ta $k$:neksi
+mieluisimpana hakukohteena. Jokaisella kierroksella tehdyt sijoitukset
+ovat lopullisia. Algoritmin suoritus päättyy, kun kaikki avoimet
+paikat on täytetty.
+
+Bostonin mekanismi ei takaa vakaata sijoittelua. Tarkastellaan
+esimerkkiä, jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1, h_2, h_3\}$ ja
+toimijoiden mieltymykset ovat seuraavat:
+\[
+  \begin{array}{c c c}
+    o_1 & o_2 & o_3 \\
+    \hline
+    h_2 & h_1 & h_1 \\
+    h_1 & h_3 & h_2 \\
+    h_3 & h_2 & h_3
+  \end{array}
+  \begin{array}{|c c c}
+    h_1 & h_2 & h_3 \\
+    \hline
+    o_1 & o_2 & o_1 \\
+    o_3 & o_1 & o_2 \\
+    o_2 & o_3 & o_3
+  \end{array}
+\]
+Bostonin mekanismi antaa sijoittelun $\{(o_1, h_1), (o_2, h_2), (o_3,
+h_3)\}$ joka ei ole vakaa, sillä $h_3 \prec_{o_2} h_2$ ja $o_2
+\prec_{h_3} o_3$.
+
+Bostonin mekanismi antama sijoittelu on hakija-optimaalinen \cite{?}.
 
 \section{Top trading cycles}
 
@@ -113,6 +170,11 @@ antaa se oppilaitos-optimaalisen sijoittelun.\cite{galeshapley62}
 
 \newpage
 \begin{thebibliography}{XXX99}
+
+\bibitem[AbS93]{abdusön93}
+  Atila Abdulkadiroğlu, Tayfun Sönmez
+  School Choice: A Mechanism Design Approach
+  \emph{The American Economic Review, 93, 3 (2003), sivut 729-747}
 
 \bibitem[GaS62]{galeshapley62}
   D. Gale, L. S. Shapley.
