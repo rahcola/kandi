@@ -31,7 +31,7 @@ asettavat paremmuusjärjestykseen ne vastapuolen hakijat joista he ovat
 kiinnostuneita. Opiskelijavalintaongelman ratkaisemiseksi algoritmin
 tulee löytää sijoittelu joka määrää yksikäsitteisiä pareja hakijoista
 ja oppilaitoksista halutuin ominaisuuksin. Tässä tutkielmassa
-esitellään kolme eri algoritmia ja ominaisuudet jotka algoritmit
+esitellään kolme eri algoritmia ja ominaisuuksia jotka algoritmit
 toteuttavat.
 \end{abstract}
 
@@ -292,36 +292,84 @@ sijoitteluss $\mu$.
 
 Bostonin mekanismi puolestaan takaa Pareto-optimaalisen sijoittelun.
 Kojima ja kumppanit todistavat tämän osana karaterisointiaan
-\cite{kojima10}. Samoin top trading cycles -algoritmi takaa
+\cite{kojima10}. Myös top trading cycles -algoritmi takaa
 Pareto-optimaalisen sijoittelun. Tämä on helppo osoittaa algoritmin
-toimintaperiaatteen takia. Ensimmäisellä kierroksella jokainen
-sijoitettu hakija pääsee mieluisimpaan oppilaitokseensa. Siispä heidän
-kohdallaan sijoitusta ei voi mitenkään parantaa.
+toimintaperiaatteen takia.
 
-Seuraavilla kierroksilla jokainen sijoitettu hakija pääsee
-mieluisimpaan vielä vapaita paikkoja sisältävään oppilaitokseen.
-Heidän tilannettaa ei voida parantaa huonontamatta jo sijoitettujen
-hakijoiden tilannetta. Jotta myöhemmillä kierroksilla sijoitettu
-hakija voitaisiin siirtää hänelle mieluisampaan oppilaitokseen, täytyy
-sieltä siirtää pois jokin toinen hakija. Jotta hänen tilanteensa ei
-huononisi, täytyy hänet sijoittaa mieluisampaan oppilaitokseen ja taas
-joudumme tekemään tilaa. Lopulta tulisi siirtää hakija pois hänelle
-mieluisimmasta oppilaitoksesta, joka väistämättä asettaisi hänet
-huonompaan tilanteeseen kuin missä hän aluksi oli. Siispä top trading
-cycles -algoritmin antama sijoittelu on Pareto-optimaalinen.
+Ensimmäisellä kierroksella jokainen sijoitettu hakija pääsee
+mieluisimpaan oppilaitokseensa. Siispä heidän kohdallaan sijoitusta ei
+voi mitenkään parantaa. Seuraavilla kierroksilla jokainen sijoitettu
+hakija pääsee mieluisimpaan vielä vapaita paikkoja sisältävään
+oppilaitokseen. Heidän tilannettaa ei voida parantaa huonontamatta jo
+sijoitettujen hakijoiden tilannetta. Jotta myöhemmillä kierroksilla
+sijoitettu hakija voitaisiin siirtää hänelle mieluisampaan
+oppilaitokseen, täytyy sieltä siirtää pois jokin toinen hakija. Jotta
+hänen tilanteensa ei huononisi, täytyy hänet sijoittaa mieluisampaan
+oppilaitokseen ja taas joudumme tekemään tilaa. Lopulta tulisi siirtää
+hakija pois hänelle mieluisimmasta oppilaitoksesta, joka väistämättä
+asettaisi hänet huonompaan tilanteeseen kuin missä hän aluksi oli.
+Siispä top trading cycles -algoritmin antama sijoittelu on
+Pareto-optimaalinen.
 
 \section{Strategian kestävyys}
 
 Algoritmit voidaan jakaa strategian kestäviin ja kestämättömiin.
-Algoritmi on strategian kestävä, jos hakija tai joukko hakijoita ei
-voi päästä mieluisampaan oppilaitokseen ilmoittamalla valheellisesti
-mieltymyksiään.
+Algoritmi on \emph{strategian kestävä}, jos hakija tai joukko
+hakijoita ei voi päästä mieluisampaan oppilaitokseen ilmoittamalla
+valheellisesti mieltymyksiään. Mieluisuus määritellään hakijoiden
+todellisten, ilmoittamatta jääneiden, mieltymysten perusteella.
+Yhteistyössä toimivasta ja mieltymyksensä valheellisesti ilmoittavasta
+hakijajoukosta osa voi päästä mieluisampaan oppilaitokseen.
 
-Galen ja Shapleyn algoritmi on strategian kestävä \cite{dubins81}.
+Galen ja Shapleyn algoritmi on strategian kestävä, riippumatta siitä
+ovatko hakijat vai oppilaitokset pyynnön tekevänä osapuolena
+\cite{dubins81}. Strategian kestävyys koskee kuitenkin molemmissa
+tapauksissa vain pyynnön tekevää osapuolta. Jos hakijat toimivat
+pyynnön tekevänä osapuolena, voivat oppilaitokset saada mieluisampia
+hakijoita ilmoittamalla mieltymyksensä valheellisesti \cite{dubins81}.
 
-Bostonin mekanismi ei ole strategian kestävä.
+Bostonin mekanismi ei ole strategian kestävä \cite{abdusön03}. Tämä on
+helppo havaita seuraavan yksinkertaisen esimerkin avulla:
 
-Top trading cycles on strategian kestävä.
+\[
+  \begin{array}{c c c}
+    o_1 & o_2 & o_3 \\
+    \hline
+    h_1 & h_1 & h_1 \\
+    h_2 & h_2 & h_2 \\
+    h_3 & h_3 & h_3
+  \end{array}
+  \begin{array}{|c c c}
+    h_1 & h_2 & h_3 \\
+    \hline
+    o_1 & o_1 & o_1 \\
+    o_2 & o_2 & o_2 \\
+    o_3 & o_3 & o_3
+  \end{array}
+\]
+
+Jokaisella oppilaitoksella $o_n$ on yksi vapaa paikka. Bostonin
+mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$.
+Jos hakija $h_3$ olisi ilmoittanut mieltymyksensä järjestyksessä
+$(o_2, o_1, o_3)$ olisi hän tullut sijoitetuksi oppilaitokseen $o_2$
+ja näin parantanut saamaansa sijoitusta. Hakijan $h_3$ saama
+mieluisampi opiskelupaikka tulee hakijan $h_2$ kustannuksella, sillä
+hän tulee sijoitetuksi oppilaitokseen $o_3$. Pathak ja Sönmez
+osoittavat, että sama pätee yleisessä tapauksessa. Jos mieltymyksensä
+valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan se
+tapahtuu jonkun mieltymyksensä totuudenmukaisesti ilmoittaneen hakijan
+kustannuksella \cite{pathak08}.
+
+Top trading cycles on strategian kestävä \cite{abdusön03}.
+Abdulkadiroğlu ja Sönmez antavat seuraavanlaisen intuition
+todistukselleen. Ajatellaan, että hakija joka pohtii mieltymystensä
+manipulointia sijoitetaan algoritmin askeleella $k$. Koska jokaisella
+askeleella hakija on pyrkinyt mieluisimpaan jäljellä olevaan
+oppilaitokseen, ovat kaikki oppilaitokset joihin hän olisi mieluummin
+tullut sijoitetuksi täyttyneet ennen askelta $k$. Muokkaamalla
+mieltymyksiään miten tahansa, hakija ei pysty vaikuttamaan ennen
+askelta $k$ syntyneisiin kierroksiin, joten muokkauksesta voi olla
+vain haittaa.
 
 \section{Laskennan aikavaativuus}
 
@@ -388,10 +436,21 @@ ovat hakijoiden ja oppilaitosten lukumäärät.
   \emph{30th Annual Symposium on Foundations of Computer Science,
     (1989), sivut 129-133}
 
+\bibitem[PaS08]{pathak08}
+  Parag A. Pathak, Tayfun Sönmez
+  Leveling the Playing Field: Sincere and Sophisticated Players in the
+  Boston Mechanism
+  \emph{The American Economic Review, 98, 4, (2008), sivut 1636-1652}
+
 \bibitem[Pap00]{papai00}
   Szilvia Pápai
   Strategy-Proof Assignment by Hierarchical Exchange
   \emph{Econometrica, 68, 6, (2000), sivut 1403-1433}
+
+\bibitem[Rot82]{roth82}
+  Alvin E. Roth
+  The Economics of Matching: Stability and Incentives
+  \emph{Mathematics of Operations Research, 7, 4, (1982), sivut 617-628}
 
 \bibitem[ShS74]{shapley74}
   Lloyd Shapley, Herbert Scarf
