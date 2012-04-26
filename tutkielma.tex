@@ -1,6 +1,7 @@
 \documentclass[gradu, twoside]{tktltiki}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{mdwlist}
 \begin{document}
 
 \title{Kolme algoritmia opiskelijavalintaongelman ratkaisemiseen}
@@ -193,11 +194,10 @@ sillä tietyissä tilanteissa vakaus estää Pareto-optimaalisen ratkaisun
 \cite{ergin02}.
 
 Galen ja Shapleyn algoritmin antama sijoittelu on vakaa
-\cite{galeshapley62}.
-
-Bostonin mekanismi ei takaa vakaata sijoittelua. Tarkastellaan
-esimerkkiä, jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1, h_2, h_3\}$ ja
-toimijoiden mieltymykset ovat seuraavat:
+\cite{galeshapley62, gusfield89}. Bostonin mekanismi ei kuitenkaan
+takaa vakaata sijoittelua. Tarkastellaan esimerkkiä, jossa $O = \{o_1,
+o_2, o_3\}$, $H = \{h_1, h_2, h_3\}$ ja toimijoiden mieltymykset ovat
+seuraavat:
 
 \[
   \begin{array}{c c c}
@@ -238,7 +238,7 @@ sijoittelu $\gamma$ jossa kaikilla $\gamma(h) = o$ pätee $o \prec_h
 sijoittelu.
 
 Koska Bostonin mekanismi ja top trading cycles -algoritmi eivät
-välttämättä anna vakaita sijoitteluja, ei optimaalisuuden käsite ole
+välttämättä anna vakaita sijoitteluja ei optimaalisuuden käsite ole
 hyvin määritelty niiden tapauksessa. Galen ja Shapleyn algoritmin
 antamat sijoittelut ovat kuitenkin hakijaoptimaalisia
 \cite{galeshapley62}. Algoritmia voidaan lisäksi muuntaa antamaan
@@ -255,7 +255,29 @@ oppilaitos pitää kaikkia sijoittelussa $\gamma$ saamiaan hakijoita
 parempina kuin mitä tahansa hakijaa jonka se sai sijoittelussa $\mu$
 muttei $\gamma$. Siis kaikilla $o \in O$ pätee, että kaikilla $h \in
 \gamma^{-1}(o)$ ja $h' \in \mu^{-1}(o) \setminus \gamma^{-1}(o)$: $h
-\prec_o h'$.
+\prec_o h'$. Ei siis ole niin, että oppilaitospessimaalisessa
+sijoittelussa jokainen oppilaitos saisi kaikki huonoimmat hakijansa.
+
+Sijoittelun vakaus vaikuttaa myös oppilaitosten saamiin hakijoihin.
+Maalais sairaala -lause (rural hospitals theorem) toteaa, että
+kaikille yhden opiskelijavalintaongelman ratkaiseville sijoitteluille
+pätee seuraavaa \cite{gusfield89}:
+\begin{itemize*}
+  \item Jokainen oppilaitos saa saman määrän opiskelijoita kaikissa
+    vakaissa sijoitteluissa,
+  \item samat hakijat jäävät ilman opiskelupaikkaa kaikissa vakaissa
+    sijoitteluissa, ja
+  \item jokainen oppilaitos jonka kaikki avoimet paikat eivät täyty,
+    saa jokaisessa vakaassa sijoittelussa täsmälleen samat
+    opiskelijat.
+\end{itemize*}
+
+Maalais sairaala -lause siis takaa, että Galen ja Shapleyn algoritmin
+vaihtaminen johonkin toiseen vakaan sijoittelun tuottavaan algoritmiin
+ei muuta niiden oppilaitosten tilannetta jotka eivät saa täytettyä
+kaikkia vapaita paikkojaan. Erityisesti siis oppilaitospessimaalisen
+algoritmin vaihtaminen oppilaitosoptimaaliseen ei paranna vähälle
+kiinnostukselle jääneiden oppilaitosten tilannetta.
 
 \section{Pareto-optimaalisuus}
 
