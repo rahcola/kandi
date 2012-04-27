@@ -395,14 +395,42 @@ vain haittaa.
 
 \section{Laskennan aikavaativuus}
 
-Gusfield ja Irving esittävät analyysin vakaan avioliiton ongelman
-ratkaisevalle Galen ja Shapleyn algoritmille, ja toteavat sen toimivan
-$O(n^2)$ ajassa \cite{gusfield89}. Lisäksi on osoitettu, että
-algoritmin aikavaativuus itse asiassa on $\Theta(n^2)$ \cite{cheng89}.
-Gusfield ja Irving eivät analysoi algoritmin opiskelijavalintaongelman
-ratkaisevaa versiota. Heidän antamasta muotoilusta on kuitenkin helppo
-havaita, että algoritmin aikavaativuus on $O(nm)$ missä $n$ ja $m$
-ovat hakijoiden ja oppilaitosten lukumäärät.
+Galen ja Shapleyn algoritmi on verrattain yksinkertainen yleistys
+heidän vakaan avioliiton ongelman ratkaisevalle algoritmille
+\cite{gusfield89}. On siis varsin todennäköistä, että myös
+opiskelijavalintaongelman ratkaiseva algoritmi toimii vastaavassa
+ajassa. Vakaan avioliiton ongelma ratkeaa ajassa $O(n^2)$, missä $n$
+on osapuolten joukon mahtavuus \cite{gusfield89}. Näin ollen voi
+olettaa opiskelijavalintaongelman ratkeavan ajassa $O(nm)$, missä $n$
+on oppilaitosten ja $m$ hakijoiden joukon mahtavuus. Manlove ja
+kumppanit antavat ymmärtää näin artikkelissaan Hard variants of stable
+marriage \cite{manlove02} ja tekevät tämän oletuksen artikkelissaan A
+constraint programming approach to the hospitals/residents problem
+\cite{manlove07}.
+
+\section{Osittaiset preferenssirelaatiot osajoukoille}
+
+Opiskelijavalintaongelman määrittelyssä sekä oppilaitoksille että
+hakijoille annettiin mahdollisuus olla hyväksymättä joitain
+vastakkaisen puolen toimijoita. Tämä on käytännön kannalta erityisen
+tärkeä myönnytys. Kaikki hakijat eivät ole valmiita muuttamaan pitkiä
+matkoja opiskelupaikan takia, ja täten kaikkien valinnassa mukana
+olevien oppilaitosten listaaminen mahdollisiksi olisi tarpeetonta.
+Oppilaitoksilla on usein tarve karsia hakijoita heidän
+ennakkotietojensa perusteella, sillä koulutuksen järjestäminen on
+vaikeaa, jos opiskelijoiden lähtötiedot ovat hyvin eri tasoiset.
+
+Järjestettäessä hakijoita esimerkiksi valintakokeen pisteiden avulla
+syntyy usein tasatilanteita hakijoiden välillä. Usein tasatilanteet
+ratkaistaan arvalla, jolloin saadaan lopputulokseksi täydellinen
+järjestys. Tämä ei kuitenkaan ole täysin ongelmatonta. Mikäli
+tasatilanteiden purkaminen arvalla otetaan osaksi vakaan sijoittelun
+takaavaa valinta-algoritmia, eivät kaikki saadut vakaat sijoittelut
+enää ole saman kokoisia \cite{manlove02}. Isompi ongelma koskee
+laskennan aikavaativuutta. Galen ja Shapleyn algoritmi toimii ajassa
+$O(n^2)$, mutta mikä tahansa algoritmi joka sallii osittaiset
+preferenssirelaatiot osajoukoille on aikavaativuudeltaan
+NP-täydellinen \cite{manlove02}.
 
 \section{Yhteenveto}
 
@@ -411,17 +439,17 @@ ovat hakijoiden ja oppilaitosten lukumäärät.
 
 \bibitem[AbS03]{abdusön03}
   Atila Abdulkadiroğlu, Tayfun Sönmez
-  School Choice: A Mechanism Design Approach
+  School Choice: A Mechanism Design Approach.
   \emph{The American Economic Review, 93, 3 (2003), sivut 729-747}
 
 \bibitem[DuF81]{dubins81}
   L. E. Dubins, D. A. Freedman
-  Machiavelli and the Gale-Shapley Algorithm
+  Machiavelli and the Gale-Shapley Algorithm.
   \emph{The American Mathematical Monthly, 88, 7 (1981)}
 
 \bibitem[Erg02]{ergin02}
   Haluk I. Ergin
-  Efficient Resource Allocation on the Basis of Priorities
+  Efficient Resource Allocation on the Basis of Priorities.
   \emph{Econometrica, 70, 6, (2002), sivut 2489-2497}
 
 \bibitem[GaS62]{galeshapley62}
@@ -436,7 +464,7 @@ ovat hakijoiden ja oppilaitosten lukumäärät.
 
 \bibitem[KoU10]{kojima10}
   Fuhito Kojima, M. Utku Ünver
-  The 'Boston' School Choice Mechanism
+  The 'Boston' School Choice Mechanism.
   \emph{Boston College Working Papers in Economics}
 
 \bibitem[OPH12]{OPH12}
@@ -452,6 +480,12 @@ ovat hakijoiden ja oppilaitosten lukumäärät.
   Hard variants of stable marriage.
   \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
 
+\bibitem[MMP07]{manlove07}
+  D. F. Manlove, G. O'Malley, P. Prosser, C. Unsworth
+  A constraint programming approach to the hospitals/residents
+  problem.
+  \emph{Lecture Notes in Computer Science 4510 (2007), sivut 155-170}
+
 \bibitem[Che89]{cheng89}
   Cheng Ng.
   Lower Bounds for the Stable Marriage Problem and its Variants.
@@ -461,22 +495,22 @@ ovat hakijoiden ja oppilaitosten lukumäärät.
 \bibitem[PaS08]{pathak08}
   Parag A. Pathak, Tayfun Sönmez
   Leveling the Playing Field: Sincere and Sophisticated Players in the
-  Boston Mechanism
+  Boston Mechanism.
   \emph{The American Economic Review, 98, 4, (2008), sivut 1636-1652}
 
 \bibitem[Pap00]{papai00}
   Szilvia Pápai
-  Strategy-Proof Assignment by Hierarchical Exchange
+  Strategy-Proof Assignment by Hierarchical Exchange.
   \emph{Econometrica, 68, 6, (2000), sivut 1403-1433}
 
 \bibitem[Rot82]{roth82}
   Alvin E. Roth
-  The Economics of Matching: Stability and Incentives
+  The Economics of Matching: Stability and Incentives.
   \emph{Mathematics of Operations Research, 7, 4, (1982), sivut 617-628}
 
 \bibitem[ShS74]{shapley74}
   Lloyd Shapley, Herbert Scarf
-  On Cores and Indivisibility
+  On Cores and Indivisibility.
   \emph{Journal of Mathematical Economics, 1, 1, (1974), sivut 23-37}
 
 \end{thebibliography}
