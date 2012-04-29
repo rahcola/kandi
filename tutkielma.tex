@@ -53,6 +53,16 @@ mahdollisuuksia puolestaan rajoittavat menestyminen valintakokeissa ja
 mahdolliset valintajärjestelmän asettamat rajoitukset hakukohteiden
 määrälle.
 
+Käytännön kannalta on tärkeää, että hakijoilla on mahdollisuus hakea
+vain osaan oppilaitoksista ja oppilaitoksilla mahdollisuus tarjota
+opiskelupaikka vain osalle hakijoista. Kaikki hakijat eivät ole
+esimerkiksi valmiita muuttamaan pitkiä matkoja opiskelupaikan takia,
+ja täten hakeminen kaikkiin valinnassa mukana oleviin oppilaitoksiin
+ei olisi järkevää. Oppilaitoksilla taas on usein tarve karsia
+hakijoita heidän ennakkotietojensa perusteella, sillä koulutuksen
+järjestäminen on vaikeaa, jos opiskelijoiden lähtötiedot ovat hyvin
+eri tasolla.
+
 Sekä oppilaitokset että hakijat priorisoivat toiveensa asettamalla
 toisen osapuolen toimijat paremmuusjärjestykseen. Oppilaitosten
 tapauksessa järjestys kuvaa esimerkiksi valintakokeen tuloksia tai
@@ -60,25 +70,38 @@ aikaisempiin koulutodistuksiin perustuvaa pisteytystä. Hakijoilla
 paremmuusjärjestys taas kuvaa suoraan heidän haluaan päästä
 opiskelemaan järjestettyihin oppilaitoksiin.
 
-Opiskelijavalintaongelma pyritään ratkaisemaan sijoittamalla hakijat
-oppilaitosten avoimiin opiskelupaikkoihin noudattaen sekä oppilaitosten ja
-hakijoiden mieltymyksiä, että oppilaitosten opiskelupaikkakiintiöitä.
-Samalla pyritään optimoimaan osan tai kaikkien osapuolten lopputulosta
-sijoittelussa paremmuusjärjestyksien avulla mitattuna. Luvussa ?
-esitellään erilaisia tähän tarkoitukseen kehitettyjä ominaisuuksia.
-Haluttuihin ominaisuuksiin vaikuttavat yleisimmin erilaiset
-opiskelijavalintaa koskevat lait ja säädökset. Ne voivat esimerkiksi
-määrittää tuleeko valinnan suosia hakijoita vai oppilaitoksia.
+Yksinkertaisessa järjestelmässä hakijat ja oppilaitokset voivat sopia
+opiskelupaikoista kahdenkeskisesti. Kun oppilaitosten ja hakijoiden
+määrä kasvaa, muuttuu yksinkertainen järjestelmä nopeasti
+monimutkaiseksi. Hakijat saattavat joutua odottamaan myöhemmin tulevaa
+tietoa pääsystä heidän prioriteeteissa ylinpinä oleviin
+oppilaitoksiin. Oppilaitokset eivät voi olla varmoja ottavatko hakijat
+heidän tarjoamansa opiskelupaikan vastaan, vai ovatko he kenties
+saaneet paikan jostain mieluisammasta oppilaitoksesta. Näin ollen
+opiskelupaikkaa ei voida tarjota jollekkin muulle hakijalla, joka
+kenties olisi valmis ottamaan paikan vastaan. Syntyy erilaisten paikan
+vahvistus käytäntöjen ja jonotuslistojen hankaloittama mekanismi.
 
-Kaikki esiteltävät algoritmit toimivat hakijoiden ja oppilaitosten
-näkökulmasta samalla periaatteella. Kaikki toimijat ilmoittavat
-jollekkin keskitetylle taholle mieltymyksensä. Samalla oppilaitokset
-ilmoittavat avoimien paikkojensa määrän ja keitä hakijoista he eivät
-ole missään tilanteessa valmiita ottamaan opiskelijoiksi. Hakijat
-ilmoittavat vastaavasti mihin oppilaitoksiin he eivät missään
-tilanteessa halua tulla sijoitetuksi. Algoritmi ajetaan kaikilla
-edellä mainituilla syötteillä, ja tuloksena saadaan sijoittelu joka
-määrittää kunkin hakijan opiskelupaikan.
+Kaikki tässä tutkielmassa esiteltävät algoritmit toimivat hakijoiden
+ja oppilaitosten näkökulmasta samalla periaatteella. Hakijat
+ilmoittavat mihin oppilaitoksiin he hakevat, ja oppilaitokset
+järjestävät tämän tiedon pohjalta mahdolliset valintamenettelyt.
+Kaikki toimijat ilmoittavat jollekkin keskitetylle taholle
+mieltymyksensä. Lisäksi oppilaitokset ilmoittavat avoimien paikkojensa
+määrän ja kenelle hakijoista tarjotaan opiskelupaikkaa. Algoritmi
+ajetaan kaikilla edellä mainituilla syötteillä, ja tuloksena saadaan
+sijoittelu joka määrittää kunkin hakijan opiskelupaikan.
+
+Opiskelijavalintaongelma pyritään ratkaisemaan sijoittamalla hakijat
+oppilaitosten avoimiin opiskelupaikkoihin noudattaen sekä
+oppilaitosten ja hakijoiden mieltymyksiä, että oppilaitosten
+opiskelupaikkakiintiöitä. Samalla pyritään optimoimaan osan tai
+kaikkien osapuolten lopputulosta sijoittelussa paremmuusjärjestyksien
+avulla mitattuna. Luvussa \ref{ominaisuus_luku} esitellään erilaisia
+tähän tarkoitukseen kehitettyjä ominaisuuksia. Haluttuihin
+ominaisuuksiin vaikuttavat yleisimmin erilaiset opiskelijavalintaa
+koskevat lait ja säädökset. Ne voivat esimerkiksi määrittää tuleeko
+valinnan suosia hakijoita vai oppilaitoksia.
 
 \section{Opiskelijavalintaongelma ja ratkaisualgoritmit}
 
@@ -183,10 +206,11 @@ avoimet paikat on täytetty.
 
 Bostonin mekanismi eroaa Galen ja Shapleyn algoritmista sillä
 merkittävällä tavalla, että kerran sisään otettujen hakijoiden
-sijoitusta ei uudelleen mietitä vaikka uusi sisään pyrkivä hakija
+sijoitusta ei mietitä uudelleen vaikka uusi sisään pyrkivä hakija
 olisi oppilaitoksen mielestä mieluisampi.
 
 \subsection{Top trading cycles}
+\label{top_trading_cycles}
 
 Artikkelissaan School Choice: A Mechanism Design Approach
 Abdulkadiroğlu ja Sönmez esittelevät \emph{top trading cycles
@@ -215,8 +239,40 @@ on täytetty.
   kohtaan 1.
 \end{enumerate}
 
-\section{Sijoittelun ominaisuuksia}
+Algoritmi siis käsittelee aina niitä hakijoita jotka ovat mieluisimman
+oppilaitoksensa mieluisimpia hakijoita ja vastaavasti niitä
+oppilaitoksia joiden mieluisin hakija pitää oppilaitosta mieluisimpana
+hakukohteenaan. Nämä toimijat muodostavat kierroksia, jotka
+käsitellään siten, että hakijat voivat vaihtaa sijoituksiaan
+oppilaitosten prioriteeteissä. Prioriteettien vaihtamista voidaan
+havainnollistaa esimerkillä, jossa $O = \{o_1, o_2\}$ ja $H = \{h_1,
+h_2\}$ ja toimijoiden mieltymykset taulukon \ref{top_esimerkki}
+mukaiset.
 
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{ c c | c c }
+    $o_1$ & $o_2$ & $h_1$ & $h_2$ \\
+    \hline
+    $h_1$ & $h_2$ & $o_2$ & $o_1$ \\
+    $h_2$ & $h_1$ & $o_1$ & $o_2$
+    \end{tabular}
+    \caption{Toimijoiden mieltymykset sarakkeittain, mieluisampi ylempänä.}
+    \label{top_esimerkki}
+  \end{center}
+\end{table}
+
+Taulukosta \ref{top_esimerkki} nähdään, että hakijoiden ja
+oppilaitosten mieltymykset menevät ristiin. Oppilaitos $o_1$ haluaisi
+opiskelijan $h_1$, mutta tämä haluaisi opiskelemaan oppilaitokseen
+$o_2$. Algoritmi muodostaa siis kierroksen $h_1 \rightarrow o_2
+\rightarrow h_2 \rightarrow o_1$, joka käsitellään muodostamalla
+sijoitukset $(h_1, o_2)$ ja $(h_2, o_1)$. Hakijat $h_1$ ja $h_2$ ovat
+siis vaihtaneet oppilaitosten heille antamia prioriteettejä keskenään
+ja päässeet näin mieluisampiin opiskelupaikkoihin.
+
+\section{Sijoittelun ominaisuuksia}
+\label{ominaisuus_luku}
 \subsection{Vakaus}
 
 Gale ja Shapley määrittelemä vakauden käsite \cite{galeshapley62} on
@@ -488,6 +544,16 @@ vain haittaa.
 
 \section{Laskennan aikavaativuus}
 
+Opiskelijavalintaongelman ratkaisemisessa algortimin tehokkuus on
+merkittävä ominaisuus. Algoritmeja käytetään usein keskitetyissä
+valinnoissa, kuten Suomen toisen ja kolmannen asteen yhteishaut,
+joissa oppilaitosten määrä on tuhansien ja hakijoiden satojen
+tuhansien luokkaa. Esimerkiksi vuoden 2011 kevään toisen asteen
+oppilaitosten yhteishaussa oli yli 102 000 hakijaa \cite{OPH12}.
+Toisaalta keskitetyt valinnat vievät muiden järjestelyjen takia paljon
+aikaa, joten sijoittelun laskemisessa useaa päivää tai jopa viikkoa
+voidaan vielä pitää hyväksyttävänä suoritusaikana.
+
 Galen ja Shapleyn algoritmi on verrattain yksinkertainen yleistys
 heidän vakaan avioliiton ongelman ratkaisevalle algoritmille
 \cite{gusfield89}. On siis varsin todennäköistä, että myös
@@ -501,28 +567,31 @@ marriage \cite{manlove02} ja tekevät tämän oletuksen artikkelissaan A
 constraint programming approach to the hospitals/residents problem
 \cite{manlove07}.
 
-\subsection{Tasatilanteet mieltymyksissä}
-
-Opiskelijavalintaongelman määrittelyssä sekä oppilaitoksille että
-hakijoille annettiin mahdollisuus olla hyväksymättä joitain
-vastakkaisen puolen toimijoita. Tämä on käytännön kannalta erityisen
-tärkeä myönnytys. Kaikki hakijat eivät ole valmiita esimerkiksi
-muuttamaan pitkiä matkoja opiskelupaikan takia, ja täten kaikkien
-valinnassa mukana olevien oppilaitosten listaaminen mahdollisiksi ei
-olisi järkevää. Oppilaitoksilla on usein tarve karsia hakijoita heidän
-ennakkotietojensa perusteella, sillä koulutuksen järjestäminen on
-vaikeaa, jos opiskelijoiden lähtötiedot ovat hyvin eri tasolla.
+Luvussa \ref{top_trading_cycles} esitetty top trading cycles algoritmi
+on yleistys Galen esittelemästä algoritmista joka sijoittelee perheitä
+asuntoihin. Perheiden ja asuntojen sijoittelua voidaan pitää
+erikoistapauksena, jossa oppilaitoksilla on vain yksi avoin paikka.
+Abraham ja kumppanit antavat algoritmin joka ratkaisee tämän
+erikoistapauksen ajassa $O(\sqrt(n)m)$, missä $n$ on kaikkien
+toimijoiden määrä ja $m$ kaikkien preferenssirelaatioiden yhteen
+laskettu pituus listana kuvattuna \cite{abraham05}.
+Opiskelijavalintaongelman tilanne voidaan kuitenkin kuvata edellä
+kuvatun erikoistapauksen avulla. Jokainen oppilaitos monistetaan sen
+avoimien paikkojen määrään verran ja jokaiselle kopiolle asetetaan
+yksi avoin paikka. Lisäksi jokainen monistettuun oppilaitokseen
+hakenut hakija asetetaan hakemaan kaikkiin oppilaitoksen kopioihin.
+Hakijan mieltymyksissä monistettu oppilaitos korvataan jollain,
+kaikille oppilaitokseen hakeneille samalla, järjestyksellä kopioista.
 
 Järjestettäessä hakijoita esimerkiksi valintakokeen pisteiden avulla
 syntyy usein tasatilanteita hakijoiden välillä. Usein tasatilanteet
 ratkaistaan arvalla, jolloin saadaan lopputulokseksi täydellinen
-järjestys. Tämä ei kuitenkaan ole täysin ongelmatonta. Mikäli
-tasatilanteiden purkaminen arvalla otetaan osaksi vakaan sijoittelun
-takaavaa valinta-algoritmia, eivät kaikki saadut vakaat sijoittelut
-enää ole saman kokoisia \cite{manlove02}. Isompi ongelma koskee
-laskennan aikavaativuutta. Galen ja Shapleyn algoritmi toimii ajassa
-$O(nm)$, mutta mikä tahansa algoritmi joka sallii tasatilanteet
-mieltymyksissä on aikavaativuudeltaan NP-täydellinen \cite{manlove02}.
+järjestys. Tämä ei kuitenkaan ole täysin ongelmatonta, sillä nyt
+kaikki saadut vakaat sijoittelut eivät välttämättä ole saman kokoisia
+\cite{manlove02}. Isompi ongelma koskee laskennan aikavaativuutta.
+Mikä tahansa algoritmi joka takaa vakaan sijoittelun ja sallii
+tasatilanteet mieltymyksissä on aikavaativuudeltaan NP-täydellinen
+\cite{manlove02}.
 
 \section{Yhteenveto}
 
@@ -533,6 +602,12 @@ mieltymyksissä on aikavaativuudeltaan NP-täydellinen \cite{manlove02}.
   Atila Abdulkadiroğlu, Tayfun Sönmez
   School Choice: A Mechanism Design Approach.
   \emph{The American Economic Review, 93, 3 (2003), sivut 729-747}
+
+\bibitem[ACM05]{abraham05}
+  David J. Abraham, Katarína Cechlárobá, David F. Manlove, Kurt
+  Mehlhorn
+  Pareto Optimality in House Allocation Problems.
+  \emph{Lecture Notes in Computer Science, 3341, (2005), sivut 159-164}
 
 \bibitem[DuF81]{dubins81}
   L. E. Dubins, D. A. Freedman
@@ -576,7 +651,7 @@ mieltymyksissä on aikavaativuudeltaan NP-täydellinen \cite{manlove02}.
   D. F. Manlove, G. O'Malley, P. Prosser, C. Unsworth
   A constraint programming approach to the hospitals/residents
   problem.
-  \emph{Lecture Notes in Computer Science 4510 (2007), sivut 155-170}
+  \emph{Lecture Notes in Computer Science, 4510, (2007), sivut 155-170}
 
 \bibitem[Che89]{cheng89}
   Cheng Ng.
