@@ -74,11 +74,11 @@ Yksinkertaisessa järjestelmässä hakijat ja oppilaitokset voivat sopia
 opiskelupaikoista kahdenkeskisesti. Kun oppilaitosten ja hakijoiden
 määrä kasvaa, muuttuu yksinkertainen järjestelmä nopeasti
 monimutkaiseksi. Hakijat saattavat joutua odottamaan myöhemmin tulevaa
-tietoa pääsystä heidän prioriteeteissa ylinpinä oleviin
+tietoa pääsystä heidän prioriteeteissa ylimpinä oleviin
 oppilaitoksiin. Oppilaitokset eivät voi olla varmoja ottavatko hakijat
 heidän tarjoamansa opiskelupaikan vastaan, vai ovatko he kenties
 saaneet paikan jostain mieluisammasta oppilaitoksesta. Näin ollen
-opiskelupaikkaa ei voida tarjota jollekkin muulle hakijalla, joka
+opiskelupaikkaa ei voida tarjota jollekin muulle hakijalla, joka
 kenties olisi valmis ottamaan paikan vastaan. Näin syntyy helposti
 erilaisten paikan vahvistus käytäntöjen ja jonotuslistojen
 hankaloittama mekanismi.
@@ -87,7 +87,7 @@ Kaikki tässä tutkielmassa esiteltävät algoritmit toimivat hakijoiden
 ja oppilaitosten näkökulmasta samalla periaatteella. Hakijat
 ilmoittavat mihin oppilaitoksiin he hakevat, ja oppilaitokset
 järjestävät tämän tiedon pohjalta mahdolliset valintamenettelyt.
-Kaikki toimijat ilmoittavat jollekkin keskitetylle taholle
+Kaikki toimijat ilmoittavat jollekin keskitetylle taholle
 mieltymyksensä. Lisäksi oppilaitokset ilmoittavat avoimien paikkojensa
 määrän ja kenelle hakijoista tarjotaan opiskelupaikkaa. Algoritmi
 ajetaan kaikilla edellä mainituilla syötteillä, ja tuloksena saadaan
@@ -140,14 +140,14 @@ ei niin halua tai oppilaitos ei halua ottaa hakijaa vastaan.
 \subsection{Galen ja Shapleyn algoritmi}
 
 Tutkiessaan yliopistojen opiskelijavalintaongelmaa artikkelissaan
-College Admission and Stability of Marriage Gale ja Shapley kehittävät
-vakauden ja optimaalisuuden käsitteen ja määrittelevät niiden avulla
-vakaan avioliiton ongelman. Tämän jälkeen he yleistävät vakaan
-avioliiton ongelman ratkaisevan algoritminsa opiskelijavalintaongelman
-tapaukseen, ja osoittavat sen edelleen tuottavan vakaan ja
-optimaalisen sijoittelun. Galen ja Shapleyn algoritmi tunnetaan myös
-sen toimintaa kuvaavalla nimellä viivytetyn valinnan makanismi
-(deferred acceptance mechanism). \cite{galeshapley62}
+College Admission and Stability of Marriage \cite{galeshapley62} Gale
+ja Shapley kehittävät vakauden ja optimaalisuuden käsitteen ja
+määrittelevät niiden avulla vakaan avioliiton ongelman. Tämän jälkeen
+he yleistävät vakaan avioliiton ongelman ratkaisevan algoritminsa
+opiskelijavalintaongelman tapaukseen, ja osoittavat sen edelleen
+tuottavan vakaan ja optimaalisen sijoittelun. Galen ja Shapleyn
+algoritmi tunnetaan myös sen toimintaa kuvaavalla nimellä viivytetyn
+valinnan mekanismi (deferred acceptance mechanism).
 \newpage
 
 Galen ja Shapleyn algoritmi etenee seuraavasti, kunnes jokainen hakija
@@ -185,12 +185,12 @@ pyytää tulla sijoitetuksi seuraavaksi mieluisimpaan oppilaitokseen.
 \subsection{Bostonin mekanismi}
 
 Bostonin kaupungin vuodesta 1999 käyttämä valinta-algoritmi on antanut
-nimen opiskelijavalintaongelman ratkaisemiseksi käytettyille
+nimen opiskelijavalintaongelman ratkaisemiseksi käytetyille
 algoritmeille joita usein kutsutaan \emph{Bostonin mekanismeiksi}.
 Niitä käytetään tai on käytetty eri muunnoksin Bostonin lisäksi
 monissa muissa Yhdysvaltain koulupiireissä \cite{abdusön03}.
 Seuraavaksi esitettävä algoritmi on Abdulkadiroğlun ja Sönmezin kuvaus
-juuri Bostonin kaupungin käyttämästä algoritmista \cite{abdusön03}.
+Bostonin kaupungin käyttämästä algoritmista \cite{abdusön03}.
 Myöhemmissä luvuissa esiteltävät ominaisuudet kuitenkin koskevat koko
 sitä algoritmien joukkoa jonka Kojima ja kumppanit karakterisoivat
 artikkelissaan The 'Boston' School Choice Mechanism \cite{kojima10}.
@@ -242,7 +242,7 @@ on täytetty.
 \item Jokainen kierros käsitellään sijoittamalla hakija mieluisimpaan
   oppilaitokseensa.
 
-\item Sijoitettut hakijat ja oppilaitokset joiden kaikki paikat on
+\item Sijoitetut hakijat ja oppilaitokset joiden kaikki paikat on
   täytetty poistetaan käsiteltävien toimijoiden joukosta ja siirrytään
   kohtaan 1.
 \end{enumerate}
@@ -252,7 +252,7 @@ oppilaitoksensa mieluisimpia hakijoita ja vastaavasti niitä
 oppilaitoksia joiden mieluisin hakija pitää oppilaitosta mieluisimpana
 hakukohteenaan. Nämä toimijat muodostavat kierroksia, jotka
 käsitellään siten, että hakijat voivat vaihtaa sijoituksiaan
-oppilaitosten prioriteeteissä.
+oppilaitosten prioriteeteissa.
 
 Prioriteettien vaihtamista voidaan havainnollistaa esimerkillä, jossa
 $O = \{o_1, o_2\}$ ja $H = \{h_1, h_2\}$ ja toimijoiden mieltymykset
@@ -277,7 +277,7 @@ opiskelijan $h_1$, mutta tämä haluaisi opiskelemaan oppilaitokseen
 $o_2$. Algoritmi muodostaa siis kierroksen $h_1 \rightarrow o_2
 \rightarrow h_2 \rightarrow o_1$, joka käsitellään muodostamalla
 sijoitukset $(h_1, o_2)$ ja $(h_2, o_1)$. Hakijat $h_1$ ja $h_2$ ovat
-siis vaihtaneet oppilaitosten heille antamia prioriteettejä keskenään
+siis vaihtaneet oppilaitosten heille antamia prioriteetteja keskenään
 ja päässeet näin mieluisampiin opiskelupaikkoihin.
 
 \section{Sijoittelun ominaisuuksia}
@@ -286,7 +286,7 @@ ja päässeet näin mieluisampiin opiskelupaikkoihin.
 
 Gale ja Shapley määrittelemä vakauden käsite \cite{galeshapley62} on
 seuraava. Vakaassa sijoittelussa ei löydy sellaista oppilaitosta ja
-hakijaa, että oppilaitoksessa on vapaa paikkaa tai se pitää hakijaa
+hakijaa, että oppilaitoksessa on vapaa paikka tai se pitää hakijaa
 mieluisampana kuin jotain siihen sijoitettua hakijaa, ja hakija ei ole
 sijoitettu oppilaitokseen vaikka pitää sitä mieluisampana kuin
 nykyistä sijoitustaan. Sijoittelu $\mu$ on siis \emph{epävakaa}, jos
@@ -310,7 +310,7 @@ yleisten säännösten, kuten tasavertaisuusperiaatteiden, kanssa.
 
 Abdulkadiroğlu ja Sönmez luonnehtivat vakautta kateuden kautta
 \cite{abdusön03}. Epävakaassa sijoittelussa löytyy hakija joka on
-oikeutetusti kateellinen jollekkin toiselle hakijalle hänen saamastaan
+oikeutetusti kateellinen jollekin toiselle hakijalle hänen saamastaan
 paikasta. Joissain tapauksissa vakaudesta on kuitenkin tarpeen luopua,
 sillä tietyissä tilanteissa vakaus estää Pareto-optimaalisen ratkaisun
 \cite{ergin02}.
@@ -352,7 +352,7 @@ Toinen Galen ja Shapleyn määrittelemä ominaisuus on optimaalisuus
 hakija on siinä vähintään yhtä mieluisassa oppilaitoksessa kuin missä
 tahansa muussa vakaassa sijoittelussa. Sijoittelu $\mu$ on
 \emph{hakijaoptimaalinen}, jos ei ole olemassa toista vakaata
-sijoittelu $\gamma$ jossa kaikilla $\gamma(h) = o$ pätee $o \prec_h
+sijoittelua $\gamma$ jossa kaikilla $\gamma(h) = o$ pätee $o \prec_h
 \mu(h)$. Vastaavasti voidaan määritellä oppilaitosoptimaalinen
 sijoittelu.
 
@@ -424,19 +424,19 @@ toista sijoittelua $\gamma$ jossa kaikilla $h \in H$: $(\gamma(h) =
 jolla $\gamma(h') \prec_{h'} \mu(h')$. Siis ei ole olemassa toista
 sijoittelua jossa jokainen hakija pääsisi vähintään yhtä mieluisaan
 oppilaitokseen ja ainakin yksi hakija pääsisi mieluisampaan
-oppilaitoseen kuin sijoittelussa $\mu$.
+oppilaitokseen kuin sijoittelussa $\mu$.
 
 Määritellyssä opiskelijavalintaongelmassa oppilaitosten on mahdollista
-ottaa vastaan vain osan hakijoista, ja hakijoiden on mahdollista hakea
+ottaa vastaan vain osa hakijoista, ja hakijoiden on mahdollista hakea
 vain osaan oppilaitoksista. Tämän voidaan tulkita estävän yllä
 määritellyn Pareto-optimaalisuuden \cite{kojima10}.
 Pareto-optimaalisuudesta voidaan kuitenkin määritellä rajoitettu
 muoto. Sijoittelu $\mu$ on \emph{rajoitetusti Pareto-optimaalinen} jos
 ei ole olemassa toista sijoittelua $\gamma$ jossa jokainen hakija
 pääsisi vähintään yhtä mieluisaan oppilaitokseen, ainakin yksi hakija
-pääsisi mieluisampaan oppilaitoseen kuin sijoittelussa $\mu$ ja ketään
-ei ole sijoitettu oppilaitokseen johon hän ei ole hakenut tai joka ei
-pitänyt häntä hyväksyttävänä hakijana.
+pääsisi mieluisampaan oppilaitokseen kuin sijoittelussa $\mu$ ja
+ketään ei ole sijoitettu oppilaitokseen johon hän ei ole hakenut tai
+joka ei pitänyt häntä hyväksyttävänä hakijana.
 
 Galen ja Shapleyn algoritmi ei takaa Pareto-optimaalista sijoittelua.
 Roth osoittaa tämän antamalla esimerkin \ref{roth_optimaalisuus}
@@ -460,8 +460,8 @@ sijoittelu voi olla Pareto\hyph optimaalinen \cite{ergin02}.
   \end{center}
 \end{table}
 
-Talukon \ref{roth_optimaalisuus} esimerkissä ainut vakaa sijoittelu on
-$\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$, mutta se ei ole
+Taulukon \ref{roth_optimaalisuus} esimerkissä ainut vakaa sijoittelu
+on $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$, mutta se ei ole
 Pareto-optimaalinen. Sijoittelu $\mu = \{(h_1, o_2), (h_2, o_1), (h_3,
 o_3)\}$ olisi Pareto-optimaalinen, sillä siinä jokainen hakija pääsee
 mieluisimpaan hakukohteeseensa. Se ei kuitenkaan ole vakaa, sillä
@@ -471,11 +471,11 @@ o_3$.
 Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on kuitenkin
 \emph{heikosti Pareto-optimaalinen} \cite{gusfield89}. Ei siis ole
 olemassa toista sijoittelua $\gamma$ jossa jokainen hakija on päässyt
-mieluisampaan oppilaitokseen kuin sijoitteluss $\mu$.
+mieluisampaan oppilaitokseen kuin sijoittelussa $\mu$.
 
 \enlargethispage{\baselineskip}
 Bostonin mekanismi puolestaan takaa Pareto-optimaalisen sijoittelun.
-Kojima ja kumppanit todistavat tämän osana karaterisointiaan
+Kojima ja kumppanit todistavat tämän osana karakterisointiaan
 \cite{kojima10}. Myös top trading cycles -algoritmi takaa
 Pareto-optimaalisen sijoittelun. Tämä on helppo osoittaa algoritmin
 toimintaperiaatteen takia.
@@ -484,15 +484,15 @@ Ensimmäisellä kierroksella jokainen sijoitettu hakija pääsee
 mieluisimpaan oppilaitokseensa. Siispä heidän kohdallaan sijoitusta ei
 voi mitenkään parantaa. Seuraavilla kierroksilla jokainen sijoitettu
 hakija pääsee mieluisimpaan vielä vapaita paikkoja sisältävään
-oppilaitokseen. Heidän tilannettaa ei voida parantaa huonontamatta jo
+oppilaitokseen. Heidän tilannettaan ei voida parantaa huonontamatta jo
 sijoitettujen hakijoiden tilannetta. Jotta myöhemmillä kierroksilla
 sijoitettu hakija voitaisiin siirtää hänelle mieluisampaan
 oppilaitokseen, täytyy sieltä siirtää pois jokin toinen hakija. Jotta
 hänen tilanteensa ei huononisi, täytyy hänet sijoittaa mieluisampaan
-oppilaitokseen ja taas joudumme tekemään tilaa. Lopulta tulisi siirtää
-hakija pois hänelle mieluisimmasta oppilaitoksesta, joka väistämättä
-asettaisi hänet huonompaan tilanteeseen kuin missä hän aluksi oli.
-Siispä top trading cycles -algoritmin antama sijoittelu on
+oppilaitokseen ja taas joudutaan tekemään tilaa. Lopulta tulisi
+siirtää hakija pois hänelle mieluisimmasta oppilaitoksesta, joka
+väistämättä asettaisi hänet huonompaan tilanteeseen kuin missä hän
+aluksi oli. Siispä top trading cycles -algoritmin antama sijoittelu on
 Pareto-optimaalinen.
 
 \subsection{Strategian kestävyys}
@@ -557,7 +557,7 @@ vain haittaa.
 
 \section{Laskennan aikavaativuus}
 
-Opiskelijavalintaongelman ratkaisemisessa algortimin tehokkuus on
+Opiskelijavalintaongelman ratkaisemisessa algoritmin tehokkuus on
 merkittävä ominaisuus. Algoritmeja käytetään usein keskitetyissä
 valinnoissa, kuten Suomen toisen ja kolmannen asteen yhteishaut,
 joissa oppilaitosten määrä on tuhansien ja hakijoiden satojen
@@ -614,10 +614,10 @@ tasatilanteet mieltymyksissä on aikavaativuudeltaan NP-täydellinen
 
 \section{Yhteenveto}
 
-Ratkaisualgoritmien ominaisuudet on esitetty
-taulukossa \ref{algoritmi_ominaisuudet}. Opiskelijavalintaongelmassa
+Ratkaisualgoritmien ominaisuudet on esitetty taulukossa
+\ref{algoritmi_ominaisuudet}. Opiskelijavalintaongelmassa
 ratkaisualgoritmin valinta perustuu usein erilaisten säännösten ja
-politiikkojen asettamiin vaatimuksiin. Mikäli tärkeinpänä kriteerinä
+politiikkojen asettamiin vaatimuksiin. Mikäli tärkeimpänä kriteerinä
 pidetään hakijoiden saamaa hyötyä, ovat Bostonin mekanismi ja top
 trading cycles Pareto-optimaalisina hyviä vaihtoehtoja.
 
@@ -640,7 +640,7 @@ kahdenkeskisiin päätöksiin ohi valintajärjestelmän.
 Vakauden lisäksi Galen ja Shapleyn algoritmi takaa, että sijoittelu on
 myös toisen osapuolen kannalta optimaalinen. Samalla sijoittelu on
 kuitenkin vastakkaisen osapuolen kannalta pessimaalinen, mikä täytyy
-ottaa huomioon valintajärjestelmissä jossa on tarkotus optimoida
+ottaa huomioon valintajärjestelmissä jossa on tarkoitus optimoida
 molempien osapuolten tulosta sijoittelussa.
 
 \begin{table}[]
