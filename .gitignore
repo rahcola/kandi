@@ -1,3 +1,11 @@
+*.bst
+*.dtx
+*.glo
+*.idx
+*.ins
+*.bbl
+*.blg
+*.dvi
 *.aux
 *.log
 *.toc

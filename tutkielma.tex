@@ -37,8 +37,9 @@ tulee löytää sijoittelu joka määrää yksikäsitteisiä pareja hakijoista
 ja oppilaitoksista halutuin ominaisuuksin. Tässä tutkielmassa
 esitellään Galen ja Shapleyn algoritmi, Bostonin mekanismi ja top
 trading cycles algoritmi, ja vertaillaan niitä vakauden,
-optimaalisuuden, Pareto\hyph optimaalisuuden ja strategian kestävyyden
-käsitteillä.
+optimaalisuuden, Pareto\hyph optimaalisuuden ja strategiankestävyyden
+käsitteillä. Lisäksi käsitellään lyhyesti algoritmien asymptoottisia
+aikavaativuuksia.
 \end{abstract}
 
 \mytableofcontents
@@ -80,18 +81,20 @@ heidän tarjoamansa opiskelupaikan vastaan, vai ovatko he kenties
 saaneet paikan jostain mieluisammasta oppilaitoksesta. Näin ollen
 opiskelupaikkaa ei voida tarjota jollekin muulle hakijalla, joka
 kenties olisi valmis ottamaan paikan vastaan. Näin syntyy helposti
-erilaisten paikan vahvistus käytäntöjen ja jonotuslistojen
-hankaloittama mekanismi.
+erilaisten paikanvahvistuskäytäntöjen ja jonotuslistojen hankaloittama
+mekanismi.
 
-Kaikki tässä tutkielmassa esiteltävät algoritmit toimivat hakijoiden
-ja oppilaitosten näkökulmasta samalla periaatteella. Hakijat
-ilmoittavat mihin oppilaitoksiin he hakevat, ja oppilaitokset
-järjestävät tämän tiedon pohjalta mahdolliset valintamenettelyt.
-Kaikki toimijat ilmoittavat jollekin keskitetylle taholle
-mieltymyksensä. Lisäksi oppilaitokset ilmoittavat avoimien paikkojensa
-määrän ja kenelle hakijoista tarjotaan opiskelupaikkaa. Algoritmi
-ajetaan kaikilla edellä mainituilla syötteillä, ja tuloksena saadaan
-sijoittelu joka määrittää kunkin hakijan opiskelupaikan.
+Tässä tutkielmassa esitellään opiskelijavalintaongelman
+ratkaisemiseksi Galen ja Shapleyn algoritmi, Bostonin mekanismi ja top
+trading cycles -algoritmi. Nämä algoritmit toimivat hakijoiden ja
+oppilaitosten näkökulmasta samalla periaatteella. Hakijat ilmoittavat
+mihin oppilaitoksiin he hakevat, ja oppilaitokset järjestävät tämän
+tiedon pohjalta mahdolliset valintamenettelyt. Kaikki toimijat
+ilmoittavat jollekin keskitetylle taholle mieltymyksensä. Lisäksi
+oppilaitokset ilmoittavat avoimien paikkojensa määrän ja kenelle
+hakijoista tarjotaan opiskelupaikkaa. Algoritmi ajetaan kaikilla
+edellä mainituilla syötteillä, ja tuloksena saadaan sijoittelu joka
+määrittää kunkin hakijan opiskelupaikan.
 
 Opiskelijavalintaongelma pyritään ratkaisemaan sijoittamalla hakijat
 oppilaitosten avoimiin opiskelupaikkoihin noudattaen sekä
@@ -103,6 +106,14 @@ tähän tarkoitukseen kehitettyjä ominaisuuksia. Haluttuihin
 ominaisuuksiin vaikuttavat yleisimmin erilaiset opiskelijavalintaa
 koskevat lait ja säädökset. Ne voivat esimerkiksi määrittää tuleeko
 valinnan suosia hakijoita vai oppilaitoksia.
+
+Luvussa \ref{aikavaativuus_luku} käsitellään lyhyesti algoritmien
+aikavaativuuksia. Opiskelijavalintaongelmassa ainakin toisen osapuolen
+joukko on usein hyvin suuri, joten laskennan tehokkuus on tärkeä ottaa
+huomioon. Luvussa nostetaan esiin erikoistapaus, jossa toimijoiden
+mieltymyksissä sallitaan tasatilanteita. Jos tässä tapauksessa
+etsitään vakaata sijoittelua, on ongelman todistettu olevan
+NP-täydellinen.
 
 \section{Opiskelijavalintaongelma ja ratkaisualgoritmit}
 \label{algoritmit_luku}
@@ -221,10 +232,11 @@ olisi oppilaitoksen mielestä mieluisampi.
 
 Artikkelissaan School Choice: A Mechanism Design Approach
 Abdulkadiroğlu ja Sönmez esittelevät \emph{top trading cycles
-  -algoritmin} \cite{abdusön03}. Se on yleistys Galen top trading
-cycles -algoritmista \cite{shapley74} ja kuuluu Pápain
-karakterisoimaan hierarkisten vaihtosäännöstöjen (hierarchical echange
-rules) joukkoon \cite{papai00}.
+  -algoritmin} \cite{abdusön03}. Abdulkadiroğlu ja Sönmez toteavat sen
+olevan yleistys Galen top trading cycles -algoritmista
+\cite{shapley74} ja se kuuluu Pápain karakterisoimaan hierarkisten
+vaihtosäännöstöjen (hierarchical exchange rules) joukkoon
+\cite{papai00}.
 \newpage
 
 Top trading cycles -algoritmi toimii seuraavasti. Suoritusta jatketaan
@@ -304,16 +316,12 @@ Gale ja Shapley pitävät vakautta tärkeänä sijoittelun ominaisuutena
 oppilaitoksella on syy haluta muuttaa sijoittelun tulosta sillä
 epävakauden poistaminen parantaisi molempien tilannetta. Löyhästi
 valvotuissa valinnoissa tämä saattaa johtaa oppilaitosten ja
-hakijoiden kahdenkeskisiin päätöksiin. Laeilla säännellyissä
+hakijoiden kahdenkeskisiin päätöksiin. Abdulkadiroğlu ja Sönmez
+luonnehtivatkin vakautta kateuden kautta \cite{abdusön03}. Epävakaassa
+sijoittelussa löytyy hakija joka on oikeutetusti kateellinen jollekin
+toiselle hakijalle hänen saamastaan paikasta. Laeilla säännellyissä
 valinnoissa epävakaus voi olla ristiriidassa valintaa koskevien
 yleisten säännösten, kuten tasavertaisuusperiaatteiden, kanssa.
-
-Abdulkadiroğlu ja Sönmez luonnehtivat vakautta kateuden kautta
-\cite{abdusön03}. Epävakaassa sijoittelussa löytyy hakija joka on
-oikeutetusti kateellinen jollekin toiselle hakijalle hänen saamastaan
-paikasta. Joissain tapauksissa vakaudesta on kuitenkin tarpeen luopua,
-sillä tietyissä tilanteissa vakaus estää Pareto-optimaalisen ratkaisun
-\cite{ergin02}.
 
 Galen ja Shapleyn algoritmin antama sijoittelu on vakaa
 \cite{galeshapley62, gusfield89}. Bostonin mekanismi ei kuitenkaan
@@ -372,7 +380,7 @@ oppilaitokseen $o$. Tehdään vastaoletus, että on olemassa vakaa
 sijoittelu $\mu$ jossa $\mu(h) = o$. Mutta nyt on olemassa hakija $h'$
 jolla $\mu(h') \neq o$, mutta $h' \prec_o h$ ja $o \prec_{h'}
 \mu(h')$, joten sijoittelu $\mu$ on epävakaa. Siispä hakija hylätään
-oppilaitoksesta vain jos syntyvä sijoittelu olisi epävakaa. Siispä
+oppilaitoksesta vain jos syntyvä sijoittelu olisi epävakaa, joten
 saatu sijoittelu on optimaalinen.
 
 Galen ja Shapleyn algoritmia voidaan lisäksi muuntaa antamaan
@@ -395,9 +403,9 @@ huonoimmat hakijansa.
 \newpage
 
 Sijoittelun vakaus vaikuttaa myös oppilaitosten saamiin hakijoihin.
-Maalaissairaala -lause (rural hospitals theorem) toteaa, että kaikille
-yhden opiskelijavalintaongelman ratkaiseville sijoitteluille pätee
-seuraavaa \cite{gusfield89}:
+\emph{Maalaissairaala-lause} (rural hospitals theorem) toteaa, että
+kaikille yhden opiskelijavalintaongelman ratkaiseville sijoitteluille
+pätee seuraavaa \cite{gusfield89}:
 
 \begin{itemize*}
   \item Jokainen oppilaitos saa saman määrän opiskelijoita kaikissa
@@ -409,7 +417,7 @@ seuraavaa \cite{gusfield89}:
     opiskelijat.
 \end{itemize*}
 
-Maalaissairaala -lause siis takaa, että Galen ja Shapleyn algoritmin
+Maalaissairaala-lause siis takaa, että Galen ja Shapleyn algoritmin
 vaihtaminen johonkin toiseen vakaan sijoittelun tuottavaan algoritmiin
 ei muuta niiden oppilaitosten tilannetta jotka eivät saa täytettyä
 kaikkia vapaita paikkojaan. Erityisesti siis oppilaitospessimaalisen
@@ -439,11 +447,12 @@ ketään ei ole sijoitettu oppilaitokseen johon hän ei ole hakenut tai
 joka ei pitänyt häntä hyväksyttävänä hakijana.
 
 Galen ja Shapleyn algoritmi ei takaa Pareto-optimaalista sijoittelua.
-Roth osoittaa tämän antamalla esimerkin \ref{roth_optimaalisuus}
-tilanteen jossa ainut vakaa sijoittelu ei ole Pareto-optimaalinen
-\cite{roth82}. Artikkelissaan Efficient Resource Allocation on the
-Basis of Priorities Ergin karakterisoi tilanteen, jossa vakaa
-sijoittelu voi olla Pareto\hyph optimaalinen \cite{ergin02}.
+Roth osoittaa tämän antamalla taulukon \ref{roth_optimaalisuus}
+kuvaaman esimerkin jossa ainut vakaa sijoittelu ei ole
+Pareto-optimaalinen \cite{roth82}. Artikkelissaan Efficient Resource
+Allocation on the Basis of Priorities Ergin karakterisoi tilanteen,
+jossa vakaa sijoittelu voi olla Pareto\hyph optimaalinen
+\cite{ergin02}.
 
 \begin{table}[ht]
   \begin{center}
@@ -460,13 +469,13 @@ sijoittelu voi olla Pareto\hyph optimaalinen \cite{ergin02}.
   \end{center}
 \end{table}
 
-Taulukon \ref{roth_optimaalisuus} esimerkissä ainut vakaa sijoittelu
-on $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$, mutta se ei ole
-Pareto-optimaalinen. Sijoittelu $\mu = \{(h_1, o_2), (h_2, o_1), (h_3,
-o_3)\}$ olisi Pareto-optimaalinen, sillä siinä jokainen hakija pääsee
-mieluisimpaan hakukohteeseensa. Se ei kuitenkaan ole vakaa, sillä
-$\mu(h_3) \neq o_1$, vaikka $h_3 \prec_{o_1} h_2$ ja $o_1 \prec_{h_3}
-o_3$.
+Taulukon \ref{roth_optimaalisuus} mieltymyksillä ainut vakaa
+sijoittelu on $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$, mutta se ei
+ole Pareto-optimaalinen. Sijoittelu $\mu = \{(h_1, o_2), (h_2, o_1),
+(h_3, o_3)\}$ olisi Pareto-optimaalinen, sillä siinä jokainen hakija
+pääsee mieluisimpaan hakukohteeseensa. Se ei kuitenkaan ole vakaa,
+sillä $\mu(h_3) \neq o_1$, vaikka $h_3 \prec_{o_1} h_2$ ja $o_1
+\prec_{h_3} o_3$.
 
 Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on kuitenkin
 \emph{heikosti Pareto-optimaalinen} \cite{gusfield89}. Ei siis ole
@@ -495,28 +504,27 @@ väistämättä asettaisi hänet huonompaan tilanteeseen kuin missä hän
 aluksi oli. Siispä top trading cycles -algoritmin antama sijoittelu on
 Pareto-optimaalinen.
 
-\subsection{Strategian kestävyys}
+\subsection{Strategiankestävyys}
 
-Algoritmit voidaan jakaa strategian kestäviin ja kestämättömiin.
-Algoritmi on \emph{strategian kestävä}, jos hakija tai joukko
-hakijoita ei voi päästä mieluisampaan oppilaitokseen ilmoittamalla
+Algoritmit voidaan jakaa strategiankestäviin ja -kestämättömiin.
+Algoritmi on \emph{strategiankestävä}, jos hakija tai joukko hakijoita
+ei voi päästä mieluisampaan oppilaitokseen ilmoittamalla
 valheellisesti mieltymyksiään. Mieluisuus määritellään hakijoiden
 todellisten, ilmoittamatta jääneiden, mieltymysten perusteella.
 Yhteistyössä toimivasta ja mieltymyksensä valheellisesti ilmoittavasta
 hakijajoukosta osa voi päästä mieluisampaan oppilaitokseen.
 
-Galen ja Shapleyn algoritmi on strategian kestävä, riippumatta siitä
+Galen ja Shapleyn algoritmi on strategiankestävä, riippumatta siitä
 ovatko hakijat vai oppilaitokset pyynnön tekevänä osapuolena
-\cite{dubins81}. Strategian kestävyys koskee kuitenkin molemmissa
+\cite{dubins81}. Strategiankestävyys koskee kuitenkin molemmissa
 tapauksissa vain pyynnön tekevää osapuolta. Jos hakijat toimivat
 pyynnön tekevänä osapuolena, voivat oppilaitokset saada mieluisampia
 hakijoita ilmoittamalla mieltymyksensä valheellisesti \cite{dubins81}.
 
-\enlargethispage{\baselineskip}
-Bostonin mekanismi ei ole strategian kestävä \cite{abdusön03}. Tämä on
-helppo havaita esimerkistä jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1,
-h_2, h_3\}$ ja toimijoiden mieltymykset taulukon
-\ref{boston_strategia} mukaiset.
+\enlargethispage{\baselineskip} Bostonin mekanismi ei ole
+strategiankestävä \cite{abdusön03}. Tämä on helppo havaita esimerkistä
+jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1, h_2, h_3\}$ ja toimijoiden
+mieltymykset taulukon \ref{boston_strategia} mukaiset.
 
 \begin{table}[ht]
   \begin{center}
@@ -544,7 +552,7 @@ valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan se
 tapahtuu jonkun mieltymyksensä totuudenmukaisesti ilmoittaneen hakijan
 kustannuksella \cite{pathak08}.
 
-Top trading cycles on strategian kestävä \cite{abdusön03}.
+Top trading cycles on strategiankestävä \cite{abdusön03}.
 Abdulkadiroğlu ja Sönmez antavat seuraavanlaisen intuition
 todistukselleen. Ajatellaan, että hakija joka pohtii mieltymystensä
 manipulointia sijoitetaan algoritmin askeleella $k$. Koska jokaisella
@@ -556,6 +564,7 @@ askelta $k$ syntyneisiin kierroksiin, joten muokkauksesta voi olla
 vain haittaa.
 
 \section{Laskennan aikavaativuus}
+\label{aikavaativuus_luku}
 
 Opiskelijavalintaongelman ratkaisemisessa algoritmin tehokkuus on
 merkittävä ominaisuus. Algoritmeja käytetään usein keskitetyissä
@@ -572,13 +581,13 @@ heidän vakaan avioliiton ongelman ratkaisevalle algoritmille
 \cite{gusfield89}. On siis varsin todennäköistä, että myös
 opiskelijavalintaongelman ratkaiseva algoritmi toimii vastaavassa
 ajassa. Vakaan avioliiton ongelma ratkeaa ajassa $O(n^2)$, missä $n$
-on osapuolten joukon mahtavuus \cite{gusfield89}. Näin ollen voi
-olettaa opiskelijavalintaongelman ratkeavan ajassa $O(nm)$, missä $n$
-on oppilaitosten ja $m$ hakijoiden joukon mahtavuus. Manlove ja
+on naisten (ja miesten) joukon mahtavuus \cite{gusfield89}. Näin ollen
+voi olettaa opiskelijavalintaongelman ratkeavan ajassa $O(nm)$, missä
+$n$ on oppilaitosten ja $m$ hakijoiden joukon mahtavuus. Manlove ja
 kumppanit antavat ymmärtää näin artikkelissaan Hard variants of stable
-marriage \cite{manlove02} ja tekevät tämän oletuksen artikkelissaan A
-constraint programming approach to the hospitals/residents problem
-\cite{manlove07}.
+marriage \cite{manlove02} ja artikkelissaan A constraint programming
+approach to the hospitals/residents problem Manlove ja kumppanit
+tekevät saman oletuksen \cite{manlove07}.
 
 Bostonin mekanismille on sen yksinkertaisuuden takia helppo antaa
 karkea analyysi. Oppilaitosten ja hakijoiden mieltymykset voidaan
@@ -590,7 +599,7 @@ oppilaitoksessa tilaa ja joko sijoitetaan hakija oppilaitokseen tai
 poistetaan oppilaitos hakijan hakukohteiden joukosta. Selvästi tämä
 kaikki voidaan tehdä vakio ajassa. Koska jokainen hakija pyrkii
 jokaiseen oppilaitokseen korkeintaan kerran, saadaan yläraja $O(nm)$
-missä $n = |H|$ ja $m = |O|$.
+missä $n = |O|$ ja $m = |H|$.
 
 \enlargethispage{\baselineskip}
 Luvussa \ref{top_trading_cycles} esitetty top trading cycles algoritmi
@@ -598,8 +607,8 @@ on yleistys Galen esittelemästä algoritmista joka sijoittelee perheitä
 asuntoihin. Perheiden ja asuntojen sijoittelua voidaan pitää
 erikoistapauksena, jossa oppilaitoksilla on vain yksi avoin paikka.
 Abraham ja kumppanit antavat algoritmin joka ratkaisee tämän
-erikoistapauksen ajassa $O(\sqrt nm)$, missä $n$ on kaikkien
-toimijoiden määrä ja $m$ kaikkien preferenssirelaatioiden yhteen
+erikoistapauksen ajassa $O(\sqrt np)$, missä $n$ on kaikkien
+toimijoiden määrä ja $p$ kaikkien preferenssirelaatioiden yhteen
 laskettu pituus listana kuvattuna \cite{abraham05}.
 
 Järjestettäessä hakijoita esimerkiksi valintakokeen pisteiden avulla
@@ -614,6 +623,13 @@ tasatilanteet mieltymyksissä on aikavaativuudeltaan NP-täydellinen
 
 \section{Yhteenveto}
 
+Tutkielmassa esiteltiin Galen ja Shapleyn algoritmi, Bostonin
+mekanismi ja top trading cycles -algoritmi opiskelijavalintaongelman
+ratkaisemista varten. Lisäksi esiteltiin kolme kaikille algoritmeille
+määriteltyä ominaisuutta ja vain Galen ja Shapleyn algoritmia koskeva
+optimaalisuuden käsite. Lopuksi käytiin lyhyesti läpi algoritmien
+aikavaativuuksia.
+
 Ratkaisualgoritmien ominaisuudet on esitetty taulukossa
 \ref{algoritmi_ominaisuudet}. Opiskelijavalintaongelmassa
 ratkaisualgoritmin valinta perustuu usein erilaisten säännösten ja
@@ -621,9 +637,9 @@ politiikkojen asettamiin vaatimuksiin. Mikäli tärkeimpänä kriteerinä
 pidetään hakijoiden saamaa hyötyä, ovat Bostonin mekanismi ja top
 trading cycles Pareto-optimaalisina hyviä vaihtoehtoja.
 
-Näiden kahden algoritmin ero on niiden strategian kestävyydessä.
-Mikäli halutaan, että hakijat voivat yrittää parantaa sijoittumistaan
-kaikin keinoin, myös ilmoittamalla kiinnostuksensa todellisuudesta
+Näiden kahden algoritmin ero on niiden strategiankestävyydessä. Mikäli
+halutaan, että hakijat voivat yrittää parantaa sijoittumistaan kaikin
+keinoin, myös ilmoittamalla kiinnostuksensa todellisuudesta
 poikkeavassa järjestyksessä, on Bostonin mekanismi oikea valinta. Jos
 taas on toivottavaa, että hakijat voivat ilmoittaa mieltymyksensä
 totuudenmukaisesti ilman vaaraa huonommasta sijoituksesta, takaa top
@@ -646,11 +662,11 @@ molempien osapuolten tulosta sijoittelussa.
 \begin{table}[]
   \begin{center}
     \begin{tabular}{ c | c c c }
-      & vakaa & Pareto-optimaalinen & strategian kestävä \\
+      & vakaa & Pareto-optimaalinen & strategiankestävä \\
       \hline
-      Galen ja Shapley algoritmi & x &   & x \\
-      Bostonin mekanismi         &   & x &   \\
-      top trading cycles         &   & x & x \\
+      Galen ja Shapley algoritmi & x & & x \\
+      Bostonin mekanismi & & x & \\
+      top trading cycles & & x & x \\
     \end{tabular}
     \caption{Ratkaisualgoritmien ominaisuudet.}
     \label{algoritmi_ominaisuudet}
@@ -658,84 +674,86 @@ molempien osapuolten tulosta sijoittelussa.
 \end{table}
 
 \bibliographystyle{tktl}
-\begin{thebibliography}{XXX99}
+\bibliography{tutkielma}
+%% \begin{thebibliography}{XXX99}
 
-\bibitem[AbS03]{abdusön03}
-  Atila Abdulkadiroğlu, Tayfun Sönmez
-  School Choice: A Mechanism Design Approach.
-  \emph{The American Economic Review, 93, 3 (2003), sivut 729-747}
+%% \bibitem[AbS03]{abdusön03}
+%%   Atila Abdulkadiroğlu, Tayfun Sönmez
+%%   School Choice: A Mechanism Design Approach.
+%%   \emph{The American Economic Review, 93, 3 (2003), sivut 729-747}
 
-\bibitem[ACM05]{abraham05}
-  David J. Abraham, Katarína Cechlárobá, David F. Manlove, Kurt
-  Mehlhorn
-  Pareto Optimality in House Allocation Problems.
-  \emph{Lecture Notes in Computer Science, 3341, (2005), sivut 159-164}
+%% \bibitem[ACM05]{abraham05}
+%%   David J. Abraham, Katarína Cechlárobá, David F. Manlove, Kurt
+%%   Mehlhorn
+%%   Pareto Optimality in House Allocation Problems.
+%%   \emph{Lecture Notes in Computer Science, 3341, (2005), sivut 159-164}
 
-\bibitem[DuF81]{dubins81}
-  L. E. Dubins, D. A. Freedman
-  Machiavelli and the Gale-Shapley Algorithm.
-  \emph{The American Mathematical Monthly, 88, 7 (1981)}
+%% \bibitem[DuF81]{dubins81}
+%%   L. E. Dubins, D. A. Freedman
+%%   Machiavelli and the Gale-Shapley Algorithm.
+%%   \emph{The American Mathematical Monthly, 88, 7 (1981)}
 
-\bibitem[Erg02]{ergin02}
-  Haluk I. Ergin
-  Efficient Resource Allocation on the Basis of Priorities.
-  \emph{Econometrica, 70, 6, (2002), sivut 2489-2497}
+%% \bibitem[Erg02]{ergin02}
+%%   Haluk I. Ergin
+%%   Efficient Resource Allocation on the Basis of Priorities.
+%%   \emph{Econometrica, 70, 6, (2002), sivut 2489-2497}
 
-\bibitem[GaS62]{galeshapley62}
-  D. Gale, L. S. Shapley.
-  College Admissions and the Stability of Marriage.
-  \emph{The American Mathematical Monthly, 69, 1 (1962)}
+%% \bibitem[GaS62]{galeshapley62}
+%%   D. Gale, L. S. Shapley.
+%%   College Admissions and the Stability of Marriage.
+%%   \emph{The American Mathematical Monthly, 69, 1 (1962)}
 
-\bibitem[GuI89]{gusfield89}
-  D. Gusfield, Robert W. Irving.
-  The Stable Marriage Problem: Structure and Algorithms.
-  \emph{MIT Press, Cambridge, MA, 1989}
+%% \bibitem[GuI89]{gusfield89}
+%%   D. Gusfield, Robert W. Irving.
+%%   The Stable Marriage Problem: Structure and Algorithms.
+%%   \emph{MIT Press, Cambridge, MA, 1989}
 
-\bibitem[KoU10]{kojima10}
-  Fuhito Kojima, M. Utku Ünver
-  The 'Boston' School Choice Mechanism.
-  \emph{Boston College Working Papers in Economics}
+%% \bibitem[KoU10]{kojima10}
+%%   Fuhito Kojima, M. Utku Ünver
+%%   The 'Boston' School Choice Mechanism.
+%%   \emph{Boston College Working Papers in Economics}
 
-\bibitem[OPH12]{OPH12}
-  Opetushallitus.
-  Aloituspaikat, hakijat, hyväksytyt ja paikan vastaanottaneet
-  kevään 2011 ammatillisen ja lukiokoulutuksen yhteishaussa.
-  \url{https://www.kouluta.fi/koulutadw/faces/app/startupDWReports.jspx?report_id=18}
-      [3.3.2012]
+%% \bibitem[OPH12]{OPH12}
+%%   Opetushallitus.
+%%   Aloituspaikat, hakijat, hyväksytyt ja paikan vastaanottaneet
+%%   kevään 2011 ammatillisen ja lukiokoulutuksen yhteishaussa.
+%%   \url{https://www.kouluta.fi/koulutadw/faces/app/startupDWReports.jspx?report_id=18}
+%%       [3.3.2012]
 
-\bibitem[MII02]{manlove02}
-  David F. Manlove, Robert W. Irving, Kazuo Iwama, Shuichi Miyazaki,
-  Yasufumi Morita.
-  Hard variants of stable marriage.
-  \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
+%% \bibitem[MII02]{manlove02}
+%%   David F. Manlove, Robert W. Irving, Kazuo Iwama, Shuichi Miyazaki,
+%%   Yasufumi Morita.
+%%   Hard variants of stable marriage.
+%%   \emph{Theoretical Computer Science, 276, (2002), sivut 261-279}
 
-\bibitem[MMP07]{manlove07}
-  D. F. Manlove, G. O'Malley, P. Prosser, C. Unsworth
-  A constraint programming approach to the hospitals/residents
-  problem.
-  \emph{Lecture Notes in Computer Science, 4510, (2007), sivut 155-170}
+%% \bibitem[MMP07]{manlove07}
+%%   D. F. Manlove, G. O'Malley, P. Prosser, C. Unsworth
+%%   A constraint programming approach to the hospitals/residents
+%%   problem.
+%%   \emph{Lecture Notes in Computer Science, 4510, (2007), sivut 155-170}
 
-\bibitem[PaS08]{pathak08}
-  Parag A. Pathak, Tayfun Sönmez
-  Leveling the Playing Field: Sincere and Sophisticated Players in the
-  Boston Mechanism.
-  \emph{The American Economic Review, 98, 4, (2008), sivut 1636-1652}
+%% \bibitem[PaS08]{pathak08}
+%%   Parag A. Pathak, Tayfun Sönmez
+%%   Leveling the Playing Field: Sincere and Sophisticated Players in the
+%%   Boston Mechanism.
+%%   \emph{The American Economic Review, 98, 4, (2008), sivut 1636-1652}
 
-\bibitem[Pap00]{papai00}
-  Szilvia Pápai
-  Strategy-Proof Assignment by Hierarchical Exchange.
-  \emph{Econometrica, 68, 6, (2000), sivut 1403-1433}
+%% \bibitem[Pap00]{papai00}
+%%   Szilvia Pápai
+%%   Strategy-Proof Assignment by Hierarchical Exchange.
+%%   \emph{Econometrica, 68, 6, (2000), sivut 1403-1433}
 
-\bibitem[Rot82]{roth82}
-  Alvin E. Roth
-  The Economics of Matching: Stability and Incentives.
-  \emph{Mathematics of Operations Research, 7, 4, (1982), sivut 617-628}
+%% \bibitem[Rot82]{roth82}
+%%   Alvin E. Roth
+%%   The Economics of Matching: Stability and Incentives.
+%%   \emph{Mathematics of Operations Research, 7, 4, (1982), sivut 617-628}
 
-\bibitem[ShS74]{shapley74}
-  Lloyd Shapley, Herbert Scarf
-  On Cores and Indivisibility.
-  \emph{Journal of Mathematical Economics, 1, 1, (1974), sivut 23-37}
+%% \bibitem[ShS74]{shapley74}
+%%   Lloyd Shapley, Herbert Scarf
+%%   On Cores and Indivisibility.
+%%   \emph{Journal of Mathematical Economics, 1, 1, (1974), sivut 23-37}
+%%   (ei vapaasti saatavilla)
 
-\end{thebibliography}
+%% \end{thebibliography}
 \lastpage
 \end{document}
