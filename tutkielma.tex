@@ -71,6 +71,7 @@ aikaisempiin koulutodistuksiin perustuvaa pisteytystä. Hakijoilla
 paremmuusjärjestys taas kuvaa suoraan heidän haluaan päästä
 opiskelemaan järjestettyihin oppilaitoksiin.
 
+\enlargethispage{\baselineskip}
 Yksinkertaisessa järjestelmässä hakijat ja oppilaitokset voivat sopia
 opiskelupaikoista kahdenkeskisesti. Kun oppilaitosten ja hakijoiden
 määrä kasvaa, muuttuu yksinkertainen järjestelmä nopeasti
@@ -158,6 +159,7 @@ opiskelijavalintaongelman tapaukseen, ja osoittavat sen edelleen
 tuottavan vakaan ja optimaalisen sijoittelun. Galen ja Shapleyn
 algoritmi tunnetaan myös sen toimintaa kuvaavalla nimellä viivytetyn
 valinnan mekanismi (deferred acceptance mechanism).
+\newpage
 
 Galen ja Shapleyn algoritmi etenee seuraavasti, kunnes jokainen hakija
 on tullut alustavasti valituksi tai hylätyksi jokaisesta
@@ -235,6 +237,7 @@ olevan yleistys Galen top trading cycles -algoritmista
 \cite{shapley74} ja se kuuluu Pápain karakterisoimaan hierarkisten
 vaihtosäännöstöjen (hierarchical exchange rules) joukkoon
 \cite{papai00}.
+\newpage
 
 Top trading cycles -algoritmi toimii seuraavasti. Suoritusta jatketaan
 kunnes jokainen hakija on sijoitettu, tai jokaisen oppilaitoksen
@@ -308,6 +311,7 @@ löytyy hakija $h$ ja oppilaitos $o$, joilla seuraavat ehdot pätevät:
     \prec_o h'$
 \end{itemize*}
 
+\enlargethispage{\baselineskip}
 Gale ja Shapley pitävät vakautta tärkeänä sijoittelun ominaisuutena
 \cite{galeshapley62}. Epävakaassa sijoittelussa jollain hakijalla ja
 oppilaitoksella on syy haluta muuttaa sijoittelun tulosta, sillä
@@ -358,7 +362,6 @@ tahansa muussa vakaassa sijoittelussa. Sijoittelu $\mu$ on
 sijoittelua $\gamma$ jossa kaikilla $\gamma(h) = o$ pätee $o \prec_h
 \mu(h)$. Vastaavasti voidaan määritellä oppilaitosoptimaalinen
 sijoittelu.
-\newpage
 
 Koska Bostonin mekanismi ja top trading cycles -algoritmi eivät
 välttämättä anna vakaita sijoitteluja, ei optimaalisuuden käsite ole
@@ -396,12 +399,12 @@ pätee, että kaikilla $h \in \gamma^{-1}(o)$ ja $h' \in \mu^{-1}(o)
 \setminus \gamma^{-1}(o)$: $h \prec_o h'$. Oppilaitospessimaalisessa
 sijoittelussa ei siis ole niin, että jokainen oppilaitos saisi kaikki
 huonoimmat hakijansa.
-\newpage
 
 Sijoittelun vakaus vaikuttaa myös oppilaitosten saamiin hakijoihin.
 \emph{Maalaissairaala-lause} (rural hospitals theorem) toteaa, että
 kaikille yhden opiskelijavalintaongelman ratkaiseville sijoitteluille
 pätee seuraavaa \cite{gusfield89}:
+\newpage
 
 \begin{itemize*}
   \item Jokainen oppilaitos saa saman määrän opiskelijoita kaikissa
@@ -478,7 +481,6 @@ Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on kuitenkin
 olemassa toista sijoittelua $\gamma$ jossa jokainen hakija on päässyt
 mieluisampaan oppilaitokseen kuin sijoittelussa $\mu$.
 
-\enlargethispage{\baselineskip}
 Bostonin mekanismi puolestaan takaa Pareto-optimaalisen sijoittelun.
 Kojima ja kumppanit todistavat tämän osana karakterisointiaan
 \cite{kojima10}. Myös top trading cycles -algoritmi takaa
@@ -517,7 +519,6 @@ tapauksissa vain pyynnön tekevää osapuolta. Jos hakijat toimivat
 pyynnön tekevänä osapuolena, voivat oppilaitokset saada mieluisampia
 hakijoita ilmoittamalla mieltymyksensä valheellisesti \cite{dubins81}.
 
-\enlargethispage{\baselineskip}
 Bostonin mekanismi ei ole strategiankestävä \cite{abduson03}. Tämä on
 helppo havaita esimerkistä jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1,
 h_2, h_3\}$ ja toimijoiden mieltymykset taulukon
@@ -598,15 +599,14 @@ kaikki voidaan tehdä vakioajassa. Koska jokainen hakija pyrkii
 jokaiseen oppilaitokseen korkeintaan kerran, saadaan yläraja $O(nm)$
 missä $n = |O|$ ja $m = |H|$.
 
-\enlargethispage{\baselineskip} Luvussa \ref{top_trading_cycles}
-esitetty top trading cycles -algoritmi on yleistys Galen esittelemästä
-algoritmista joka sijoittelee perheitä asuntoihin. Perheiden ja
-asuntojen sijoittelua voidaan pitää erikoistapauksena, jossa
-oppilaitoksilla on vain yksi avoin paikka. Abraham ja kumppanit
-antavat algoritmin joka ratkaisee tämän erikoistapauksen ajassa
-$O(\sqrt np)$, missä $n$ on kaikkien toimijoiden määrä ja $p$ kaikkien
-preferenssirelaatioiden yhteenlaskettu pituus listana kuvattuna
-\cite{abraham05}.
+Luvussa \ref{top_trading_cycles} esitetty top trading cycles
+-algoritmi on yleistys Galen esittelemästä algoritmista joka
+sijoittelee perheitä asuntoihin. Perheiden ja asuntojen sijoittelua
+voidaan pitää erikoistapauksena, jossa oppilaitoksilla on vain yksi
+avoin paikka. Abraham ja kumppanit antavat algoritmin joka ratkaisee
+tämän erikoistapauksen ajassa $O(\sqrt np)$, missä $n$ on kaikkien
+toimijoiden määrä ja $p$ kaikkien preferenssirelaatioiden
+yhteenlaskettu pituus listana kuvattuna \cite{abraham05}.
 
 Järjestettäessä hakijoita esimerkiksi valintakokeen pisteiden avulla
 syntyy usein tasatilanteita hakijoiden välillä. Usein tasatilanteet
@@ -670,7 +670,6 @@ molempien osapuolten tulosta sijoittelussa.
   \end{center}
 \end{table}
 
-\newpage
 \begin{thebibliography}{XXX99}
 
 \bibitem[AbS03]{abduson03}
