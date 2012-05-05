@@ -31,15 +31,15 @@
 \begin{abstract}
 Opiskelijavalinta ongelma on tilanne, jossa useat oppilaitokset
 kilpailevat keskenään hakijoista. Sekä hakijat että oppilaitokset
-asettavat paremmuusjärjestykseen ne vastapuolen hakijat joista he ovat
-kiinnostuneita. Opiskelijavalintaongelman ratkaisemiseksi algoritmin
-tulee löytää sijoittelu joka määrää yksikäsitteisiä pareja hakijoista
-ja oppilaitoksista halutuin ominaisuuksin. Tässä tutkielmassa
-esitellään Galen ja Shapleyn algoritmi, Bostonin mekanismi ja top
-trading cycles algoritmi, ja vertaillaan niitä vakauden,
-optimaalisuuden, Pareto\hyph optimaalisuuden ja strategiankestävyyden
-käsitteillä. Lisäksi käsitellään lyhyesti algoritmien asymptoottisia
-aikavaativuuksia.
+asettavat paremmuusjärjestykseen ne vastapuolen hakijat, joista he
+ovat kiinnostuneita. Opiskelijavalintaongelman ratkaisemiseksi
+algoritmin tulee löytää sijoittelu joka määrää yksikäsitteisiä pareja
+hakijoista ja oppilaitoksista halutuin ominaisuuksin. Tässä
+tutkielmassa esitellään Galen ja Shapleyn algoritmi, Bostonin
+mekanismi ja top trading cycles algoritmi, ja vertaillaan niitä
+vakauden, optimaalisuuden, Pareto\hyph optimaalisuuden ja
+strategiankestävyyden käsitteillä. Lisäksi käsitellään lyhyesti
+algoritmien asymptoottisia aikavaativuuksia.
 \end{abstract}
 
 \mytableofcontents
@@ -94,7 +94,7 @@ Kaikki toimijat ilmoittavat jollekin keskitetylle taholle
 mieltymyksensä. Lisäksi oppilaitokset ilmoittavat avoimien paikkojensa
 määrän ja kenelle hakijoista tarjotaan opiskelupaikkaa. Algoritmi
 ajetaan kaikilla edellä mainituilla syötteillä, ja tuloksena saadaan
-sijoittelu joka määrittää kunkin hakijan opiskelupaikan.
+sijoittelu, joka määrittää kunkin hakijan opiskelupaikan.
 
 Opiskelijavalintaongelma pyritään ratkaisemaan sijoittamalla hakijat
 oppilaitosten avoimiin opiskelupaikkoihin noudattaen sekä
@@ -120,14 +120,14 @@ NP-täydellinen.
 
 Määritellään johdannossa kuvattu opiskelijavalintaongelma formaalisti.
 Olkoon $O$ oppilaitosten joukko ja $H$ hakijoiden joukko. Olkoon
-lisäksi $H_o$ niiden hakijoiden joukko jotka oppilaitos $o$ on valmis
-ottamaan vastaan ja vastaavasti $O_h$ niiden oppilaitosten joukko
+lisäksi $H_o$ niiden hakijoiden joukko, jotka oppilaitos $o$ on valmis
+ottamaan vastaan ja vastaavasti $O_h$ niiden oppilaitosten joukko,
 joihin hakija $h$ on hakenut.
 
 Olkoon nyt $P_O = \{P_o \subset H_o \times H_o | o \in O\}$ ja $P_H =
 \{P_h \subset O_h \times O_h | h \in H\}$ joukot täydellisiä
-järjestysrelaatioita jotka kertovat mihin järjestykseen oppilaitos $o$
-(vastaavasti hakija $h$) sijoittaa vastakkaisen puolen toimijat.
+järjestysrelaatioita, jotka kertovat mihin järjestykseen oppilaitos
+$o$ (vastaavasti hakija $h$) sijoittaa vastakkaisen puolen toimijat.
 Kutsutaan näitä relaatioita \emph{preferenssirelaatioiksi}. Merkitään
 $a \prec_x b$ jos toimija $x$ pitää enemmän $a$:sta kuin $b$:stä.
 Olkoon lisäksi jokaisella oppilaitoksella $o$ avoimien paikkojen määrä
@@ -136,8 +136,8 @@ määrittelee \emph{opiskelijavalintaongelman}.
 
 Opiskelijavalintaongelma pyritään ratkaisemaan määräämällä halutut
 ominaisuudet toteuttava \emph{sijoittelu} $\mu \subset H \times O$
-jossa $\mu(h) = o$ jos hakija $h$ on valittu oppilaitokseen $o$.
-Merkitään $\mu(h) = \emptyset$ jos hakijaa $h$ ei ole sijoitettu
+jossa $\mu(h) = o$, jos hakija $h$ on valittu oppilaitokseen $o$.
+Merkitään $\mu(h) = \emptyset$, jos hakijaa $h$ ei ole sijoitettu
 mihinkään oppilaitokseen.
 
 Sijoittelulle tulee päteä $|\mu^{-1}(o)| \leq q_o$ kaikilla
@@ -195,7 +195,7 @@ pyytää tulla sijoitetuksi seuraavaksi mieluisimpaan oppilaitokseen.
 
 Bostonin kaupungin vuodesta 1999 käyttämä valinta-algoritmi on antanut
 nimen opiskelijavalintaongelman ratkaisemiseksi käytetyille
-algoritmeille joita usein kutsutaan \emph{Bostonin mekanismeiksi}.
+algoritmeille, joita usein kutsutaan \emph{Bostonin mekanismeiksi}.
 Niitä käytetään tai on käytetty eri muunnoksin Bostonin lisäksi
 monissa muissa Yhdysvaltain koulupiireissä \cite{abduson03}.
 Seuraavaksi esitettävä algoritmi on Abdulkadiroğlun ja Sönmezin kuvaus
@@ -204,7 +204,7 @@ Myöhemmissä luvuissa esiteltävät ominaisuudet kuitenkin koskevat koko
 sitä algoritmien joukkoa jonka Kojima ja kumppanit karakterisoivat
 artikkelissaan The 'Boston' School Choice Mechanism \cite{kojima10}.
 
-Algoritmi etenee kierroksittain ja jokaisella kierroksella tehdyt
+Algoritmi etenee kierroksittain, ja jokaisella kierroksella tehdyt
 sijoitukset ovat lopullisia. Algoritmin suoritus päättyy, kun kaikki
 avoimet paikat on täytetty.
 
@@ -216,7 +216,7 @@ avoimet paikat on täytetty.
 
 \item Yleisesti kierroksella $k$ jokainen oppilaitos $o$ jolla on
   vielä avoimia paikkoja pyrkii täyttämään paikat mieltymystensä
-  mukaisessa järjestyksessä niillä hakijoilla jotka pitävät
+  mukaisessa järjestyksessä niillä hakijoilla, jotka pitävät
   oppilaitosta $o$ $k.$ mieluisimpana hakukohteenaan.
 \end{itemize*}
 
@@ -237,11 +237,11 @@ vaihtosäännöstöjen (hierarchical exchange rules) joukkoon
 \cite{papai00}.
 
 Top trading cycles -algoritmi toimii seuraavasti. Suoritusta jatketaan
-kunnes jokainen hakija on sijoitettu tai jokaisen oppilaitoksen paikat
-on täytetty.
+kunnes jokainen hakija on sijoitettu, tai jokaisen oppilaitoksen
+paikat on täytetty.
 \begin{enumerate}
 
-\item Jokainen hakija valitsee mieluisimman hakukohteensa ja jokainen
+\item Jokainen hakija valitsee mieluisimman hakukohteensa, ja jokainen
   oppilaitos mieluisimman hakijansa. Näin syntyy vähintään yksi
   kierros. Kierroksessa on vuoron perään hakija, hakijan mieluisin
   oppilaitos, tämän oppilaitoksen mieluisin hakija ja niin edelleen.
@@ -252,19 +252,19 @@ on täytetty.
   oppilaitokseensa.
 
 \item Sijoitetut hakijat ja oppilaitokset joiden kaikki paikat on
-  täytetty poistetaan käsiteltävien toimijoiden joukosta ja siirrytään
-  kohtaan 1.
+  täytetty poistetaan käsiteltävien toimijoiden joukosta, ja
+  siirrytään kohtaan 1.
 \end{enumerate}
 
-Algoritmi siis käsittelee aina niitä hakijoita jotka ovat mieluisimman
-oppilaitoksensa mieluisimpia hakijoita ja vastaavasti niitä
-oppilaitoksia joiden mieluisin hakija pitää oppilaitosta mieluisimpana
-hakukohteenaan. Nämä toimijat muodostavat kierroksia, jotka
-käsitellään siten, että hakijat voivat vaihtaa sijoituksiaan
+Algoritmi siis käsittelee aina niitä hakijoita, jotka ovat
+mieluisimman oppilaitoksensa mieluisimpia hakijoita, ja vastaavasti
+niitä oppilaitoksia, joiden mieluisin hakija pitää oppilaitosta
+mieluisimpana hakukohteenaan. Nämä toimijat muodostavat kierroksia,
+jotka käsitellään siten, että hakijat voivat vaihtaa sijoituksiaan
 oppilaitosten prioriteeteissa.
 
 Prioriteettien vaihtamista voidaan havainnollistaa esimerkillä, jossa
-$O = \{o_1, o_2\}$ ja $H = \{h_1, h_2\}$ ja toimijoiden mieltymykset
+$O = \{o_1, o_2\}$, $H = \{h_1, h_2\}$ ja toimijoiden mieltymykset
 taulukon \ref{top_esimerkki} mukaiset.
 
 \begin{table}[ht]
@@ -299,7 +299,7 @@ hakijaa, että oppilaitoksessa on vapaa paikka tai se pitää hakijaa
 mieluisampana kuin jotain siihen sijoitettua hakijaa, ja hakija ei ole
 sijoitettu oppilaitokseen vaikka pitää sitä mieluisampana kuin
 nykyistä sijoitustaan. Sijoittelu $\mu$ on siis \emph{epävakaa}, jos
-löytyy hakija $h$ ja oppilaitos $o$ joilla seuraavat ehdot pätevät:
+löytyy hakija $h$ ja oppilaitos $o$, joilla seuraavat ehdot pätevät:
 
 \begin{itemize*}
   \item $\mu(h) \neq o$, $h \in H_o$ ja $o \in O_h$,
@@ -310,12 +310,12 @@ löytyy hakija $h$ ja oppilaitos $o$ joilla seuraavat ehdot pätevät:
 
 Gale ja Shapley pitävät vakautta tärkeänä sijoittelun ominaisuutena
 \cite{galeshapley62}. Epävakaassa sijoittelussa jollain hakijalla ja
-oppilaitoksella on syy haluta muuttaa sijoittelun tulosta sillä
+oppilaitoksella on syy haluta muuttaa sijoittelun tulosta, sillä
 epävakauden poistaminen parantaisi molempien tilannetta. Löyhästi
 valvotuissa valinnoissa tämä saattaa johtaa oppilaitosten ja
 hakijoiden kahdenkeskisiin päätöksiin. Abdulkadiroğlu ja Sönmez
 luonnehtivatkin vakautta kateuden kautta \cite{abduson03}. Epävakaassa
-sijoittelussa löytyy hakija joka on oikeutetusti kateellinen jollekin
+sijoittelussa löytyy hakija, joka on oikeutetusti kateellinen jollekin
 toiselle hakijalle hänen saamastaan paikasta. Laeilla säännellyissä
 valinnoissa epävakaus voi olla ristiriidassa valintaa koskevien
 yleisten säännösten, kuten tasavertaisuusperiaatteiden, kanssa.
@@ -342,13 +342,11 @@ taulukon \ref{boston_vakaus} mukaiset.
 
 Bostonin mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3,
 o_3)\}$ joka ei ole vakaa, sillä $h_3 \prec_{o_2} h_2$ ja $o_2
-\prec_{h_3} o_3$.
-
-Myöskään top trading cycles -algoritmi ei takaa vakaata sijoittelua.
-Yllä olevassa esimerkissä syntyy kierros $h_1 \rightarrow o_1
-\rightarrow h_2 \rightarrow o_2$ joten algoritmi määrää parit $(h_1,
-o_1)$, $(h_2, o_2)$ ja $(h_3, o_3)$. Kuten edellä on todettu, tämä ei
-ole vakaa sijoittelu.
+\prec_{h_3} o_3$. Myöskään top trading cycles -algoritmi ei takaa
+vakaata sijoittelua. Yllä olevassa esimerkissä syntyy kierros $h_1
+\rightarrow o_1 \rightarrow h_2 \rightarrow o_2$ joten algoritmi
+määrää parit $(h_1, o_1)$, $(h_2, o_2)$ ja $(h_3, o_3)$. Kuten edellä
+on todettu, tämä ei ole vakaa sijoittelu.
 
 \subsection{Optimaalisuus}
 
@@ -363,7 +361,7 @@ sijoittelu.
 \newpage
 
 Koska Bostonin mekanismi ja top trading cycles -algoritmi eivät
-välttämättä anna vakaita sijoitteluja ei optimaalisuuden käsite ole
+välttämättä anna vakaita sijoitteluja, ei optimaalisuuden käsite ole
 hyvin määritelty niiden tapauksessa. Galen ja Shapleyn algoritmin
 antamat sijoittelut ovat kuitenkin hakijaoptimaalisia
 \cite{galeshapley62}.
@@ -373,7 +371,7 @@ on tilanteessa, jossa ketään hakijaa ei vielä ole hylätty sellaisesta
 oppilaitoksesta johon hakija sijoitetaan jossain vakaassa
 sijoittelussa. Oletetaan, että nyt oppilaitos $o$ hylkää hakijan $h$,
 koska kaikki sen avoimet paikat on täytetty. Osoitetaan, että ei ole
-olemassa sellaista vakaata sijoittelua jossa $h$ sijoitettaisiin
+olemassa sellaista vakaata sijoittelua, jossa $h$ sijoitettaisiin
 oppilaitokseen $o$. Tehdään vastaoletus, että on olemassa vakaa
 sijoittelu $\mu$ jossa $\mu(h) = o$. Mutta nyt on olemassa hakija $h'$
 jolla $\mu(h') \neq o$, mutta $h' \prec_o h$ ja $o \prec_{h'}
@@ -424,11 +422,11 @@ oppilaitosten tilannetta, joiden paikoista osa jäi täyttämättä.
 
 \subsection{Pareto-optimaalisuus}
 
-Sijoittelu $\mu$ on \emph{Pareto-optimaalinen} jos ei ole olemassa
+Sijoittelu $\mu$ on \emph{Pareto-optimaalinen}, jos ei ole olemassa
 toista sijoittelua $\gamma$ jossa kaikilla $h \in H$: $(\gamma(h) =
-\mu(h)$ tai $\gamma(h) \prec_h \mu(h))$ ja on olemassa $h' \in H$
+\mu(h)$ tai $\gamma(h) \prec_h \mu(h))$, ja on olemassa $h' \in H$
 jolla $\gamma(h') \prec_{h'} \mu(h')$. Siis ei ole olemassa toista
-sijoittelua jossa jokainen hakija pääsisi vähintään yhtä mieluisaan
+sijoittelua, jossa jokainen hakija pääsisi vähintään yhtä mieluisaan
 oppilaitokseen ja ainakin yksi hakija pääsisi mieluisampaan
 oppilaitokseen kuin sijoittelussa $\mu$.
 
@@ -437,11 +435,11 @@ ottaa vastaan vain osa hakijoista, ja hakijoiden on mahdollista hakea
 vain osaan oppilaitoksista. Tämän voidaan tulkita estävän yllä
 määritellyn Pareto-optimaalisuuden \cite{kojima10}.
 Pareto-optimaalisuudesta voidaan kuitenkin määritellä rajoitettu
-muoto. Sijoittelu $\mu$ on \emph{rajoitetusti Pareto-optimaalinen} jos
-ei ole olemassa toista sijoittelua $\gamma$ jossa jokainen hakija
+muoto. Sijoittelu $\mu$ on \emph{rajoitetusti Pareto-optimaalinen},
+jos ei ole olemassa toista sijoittelua $\gamma$ jossa jokainen hakija
 pääsisi vähintään yhtä mieluisaan oppilaitokseen, ainakin yksi hakija
 pääsisi mieluisampaan oppilaitokseen kuin sijoittelussa $\mu$ ja
-ketään ei ole sijoitettu oppilaitokseen johon hän ei ole hakenut tai
+ketään ei ole sijoitettu oppilaitokseen, johon hän ei ole hakenut tai
 joka ei pitänyt häntä hyväksyttävänä hakijana.
 
 Galen ja Shapleyn algoritmi ei takaa Pareto-optimaalista sijoittelua.
@@ -461,8 +459,8 @@ jossa vakaa sijoittelu voi olla Pareto\hyph optimaalinen
       $h_3$ & $h_1$ & $h_1$ & $o_1$ & $o_2$ & $o_2$ \\
       $h_2$ & $h_3$ & $h_3$ & $o_3$ & $o_3$ & $o_3$
     \end{tabular}
-    \caption{Esimerkki tilanteesta, jossa Galen ja Shapleyn algoritmi ei
-      anna Pareto-optimaalista sijoittelua.}
+    \caption{Esimerkki tilanteesta jossa Galen ja Shapleyn algoritmi
+      ei anna Pareto-optimaalista sijoittelua.}
     \label{roth_optimaalisuus}
   \end{center}
 \end{table}
@@ -472,7 +470,7 @@ sijoittelu on $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$, mutta se ei
 ole Pareto\hyph optimaalinen. Sijoittelu $\mu = \{(h_1, o_2), (h_2,
 o_1), (h_3, o_3)\}$ olisi Pareto\hyph optimaalinen, sillä siinä
 jokainen hakija pääsee mieluisimpaan hakukohteeseensa. Se ei
-kuitenkaan ole vakaa, sillä $\mu(h_3) \neq o_1$, vaikka $h_3
+kuitenkaan ole vakaa, sillä $\mu(h_3) \neq o_1$ vaikka $h_3
 \prec_{o_1} h_2$ ja $o_1 \prec_{h_3} o_3$.
 
 Galen ja Shapleyn algoritmin antama sijoittelu $\mu$ on kuitenkin
@@ -496,7 +494,7 @@ sijoitettujen hakijoiden tilannetta. Jotta myöhemmillä kierroksilla
 sijoitettu hakija voitaisiin siirtää hänelle mieluisampaan
 oppilaitokseen, täytyy sieltä siirtää pois jokin toinen hakija. Jotta
 hänen tilanteensa ei huononisi, täytyy hänet sijoittaa mieluisampaan
-oppilaitokseen ja taas joudutaan tekemään tilaa. Lopulta tulisi
+oppilaitokseen, ja taas joudutaan tekemään tilaa. Lopulta tulisi
 siirtää hakija pois hänelle mieluisimmasta oppilaitoksesta, joka
 väistämättä asettaisi hänet huonompaan tilanteeseen kuin missä hän
 aluksi oli. Siispä top trading cycles -algoritmin antama sijoittelu on
@@ -542,12 +540,12 @@ h_2, h_3\}$ ja toimijoiden mieltymykset taulukon
 Jokaisella oppilaitoksella $o_n$ on yksi vapaa paikka. Bostonin
 mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$.
 Jos hakija $h_3$ olisi ilmoittanut mieltymyksensä järjestyksessä
-$(o_2, o_1, o_3)$ olisi hän tullut sijoitetuksi oppilaitokseen $o_2$
+$(o_2, o_1, o_3)$, olisi hän tullut sijoitetuksi oppilaitokseen $o_2$
 ja näin parantanut saamaansa sijoitusta. Hakijan $h_3$ saama
 mieluisampi opiskelupaikka tulee hakijan $h_2$ kustannuksella, sillä
 hän tulee sijoitetuksi oppilaitokseen $o_3$. Pathak ja Sönmez
 osoittavat, että sama pätee yleisessä tapauksessa. Jos mieltymyksensä
-valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan se
+valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan, se
 tapahtuu jonkun mieltymyksensä totuudenmukaisesti ilmoittaneen hakijan
 kustannuksella \cite{pathak08}.
 
@@ -601,7 +599,7 @@ jokaiseen oppilaitokseen korkeintaan kerran, saadaan yläraja $O(nm)$
 missä $n = |O|$ ja $m = |H|$.
 
 \enlargethispage{\baselineskip} Luvussa \ref{top_trading_cycles}
-esitetty top trading cycles algoritmi on yleistys Galen esittelemästä
+esitetty top trading cycles -algoritmi on yleistys Galen esittelemästä
 algoritmista joka sijoittelee perheitä asuntoihin. Perheiden ja
 asuntojen sijoittelua voidaan pitää erikoistapauksena, jossa
 oppilaitoksilla on vain yksi avoin paikka. Abraham ja kumppanit
@@ -655,7 +653,7 @@ kahdenkeskisiin päätöksiin ohi valintajärjestelmän.
 Vakauden lisäksi Galen ja Shapleyn algoritmi takaa, että sijoittelu on
 myös toisen osapuolen kannalta optimaalinen. Samalla sijoittelu on
 kuitenkin vastakkaisen osapuolen kannalta pessimaalinen, mikä täytyy
-ottaa huomioon valintajärjestelmissä jossa on tarkoitus optimoida
+ottaa huomioon valintajärjestelmissä, joissa on tarkoitus optimoida
 molempien osapuolten tulosta sijoittelussa.
 
 \begin{table}[]
