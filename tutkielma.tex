@@ -29,7 +29,7 @@
 \hyphenation{}
 
 \begin{abstract}
-Opiskelijavalinta ongelma on tilanne, jossa useat oppilaitokset
+Opiskelijavalintaongelma on tilanne, jossa useat oppilaitokset
 kilpailevat keskenään hakijoista. Sekä hakijat että oppilaitokset
 asettavat paremmuusjärjestykseen ne vastapuolen hakijat, joista he
 ovat kiinnostuneita. Opiskelijavalintaongelman ratkaisemiseksi
@@ -115,6 +115,7 @@ huomioon. Luvussa nostetaan esiin erikoistapaus, jossa toimijoiden
 mieltymyksissä sallitaan tasatilanteita. Jos tässä tapauksessa
 etsitään vakaata sijoittelua, on ongelman todistettu olevan
 NP-täydellinen.
+\newpage
 
 \section{Opiskelijavalintaongelma ja ratkaisualgoritmit}
 \label{algoritmit_luku}
@@ -158,8 +159,8 @@ he yleistävät vakaan avioliiton ongelman ratkaisevan algoritminsa
 opiskelijavalintaongelman tapaukseen, ja osoittavat sen edelleen
 tuottavan vakaan ja optimaalisen sijoittelun. Galen ja Shapleyn
 algoritmi tunnetaan myös sen toimintaa kuvaavalla nimellä viivytetyn
-valinnan mekanismi (deferred acceptance mechanism).
-\newpage
+valinnan mekanismi (deferred acceptance mechanism)
+\cite{galeshapley62, kojima10}.
 
 Galen ja Shapleyn algoritmi etenee seuraavasti, kunnes jokainen hakija
 on tullut alustavasti valituksi tai hylätyksi jokaisesta
@@ -177,7 +178,7 @@ hakukohteestaan.
   hakijaa uusien pyyntöjen ja jo alustavasti valittujen joukosta.
   Loput hylätään.
 
-\item Jokainen hylätty hakijat poistaa hakukohteiden listastaan
+\item Jokainen hylätty hakija poistaa hakukohteiden listastaan
   oppilaitoksen josta hänet hylättiin, ja siirrytään kohtaan 2.
 \end{enumerate}
 
@@ -232,12 +233,11 @@ olisi oppilaitoksen mielestä mieluisampi.
 
 Artikkelissaan School Choice: A Mechanism Design Approach
 Abdulkadiroğlu ja Sönmez esittelevät \emph{top trading cycles
-  -algoritmin} \cite{abduson03}. Abdulkadiroğlu ja Sönmez toteavat sen
-olevan yleistys Galen top trading cycles -algoritmista
-\cite{shapley74} ja se kuuluu Pápain karakterisoimaan hierarkisten
-vaihtosäännöstöjen (hierarchical exchange rules) joukkoon
+  -algoritmin} \cite{abduson03}. Abdulkadiroğlu ja Sönmez toteavat
+\cite{abduson03} sen olevan yleistys Galen top trading cycles
+-algoritmista \cite{shapley74} ja se kuuluu Pápain karakterisoimaan
+hierarkisten vaihtosäännöstöjen (hierarchical exchange rules) joukkoon
 \cite{papai00}.
-\newpage
 
 Top trading cycles -algoritmi toimii seuraavasti. Suoritusta jatketaan
 kunnes jokainen hakija on sijoitettu, tai jokaisen oppilaitoksen
@@ -270,7 +270,7 @@ Prioriteettien vaihtamista voidaan havainnollistaa esimerkillä, jossa
 $O = \{o_1, o_2\}$, $H = \{h_1, h_2\}$ ja toimijoiden mieltymykset
 taulukon \ref{top_esimerkki} mukaiset.
 
-\begin{table}[ht]
+\begin{table}[]
   \begin{center}
     \begin{tabular}{ c c | c c }
     $o_1$ & $o_2$ & $h_1$ & $h_2$ \\
@@ -283,6 +283,7 @@ taulukon \ref{top_esimerkki} mukaiset.
   \end{center}
 \end{table}
 
+\enlargethispage{\baselineskip}
 Taulukosta \ref{top_esimerkki} nähdään, että hakijoiden ja
 oppilaitosten mieltymykset menevät ristiin. Oppilaitos $o_1$ haluaisi
 opiskelijan $h_1$, mutta tämä haluaisi opiskelemaan oppilaitokseen
@@ -297,12 +298,13 @@ ja päässeet näin mieluisampiin opiskelupaikkoihin.
 \subsection{Vakaus}
 
 Gale ja Shapley määrittelemä vakauden käsite \cite{galeshapley62} on
-seuraava. Vakaassa sijoittelussa ei löydy sellaista oppilaitosta ja
-hakijaa, että oppilaitoksessa on vapaa paikka tai se pitää hakijaa
-mieluisampana kuin jotain siihen sijoitettua hakijaa, ja hakija ei ole
-sijoitettu oppilaitokseen vaikka pitää sitä mieluisampana kuin
-nykyistä sijoitustaan. Sijoittelu $\mu$ on siis \emph{epävakaa}, jos
-löytyy hakija $h$ ja oppilaitos $o$, joilla seuraavat ehdot pätevät:
+seuraava. \emph{Vakaassa} sijoittelussa ei löydy sellaista
+oppilaitosta ja hakijaa, että oppilaitoksessa on vapaa paikka tai se
+pitää hakijaa mieluisampana kuin jotain siihen sijoitettua hakijaa, ja
+hakija ei ole sijoitettu oppilaitokseen vaikka pitää sitä
+mieluisampana kuin nykyistä sijoitustaan. Sijoittelu $\mu$ on siis
+\emph{epävakaa}, jos löytyy hakija $h$ ja oppilaitos $o$, joilla
+seuraavat ehdot pätevät:
 
 \begin{itemize*}
   \item $\mu(h) \neq o$, $h \in H_o$ ja $o \in O_h$,
@@ -311,7 +313,6 @@ löytyy hakija $h$ ja oppilaitos $o$, joilla seuraavat ehdot pätevät:
     \prec_o h'$
 \end{itemize*}
 
-\enlargethispage{\baselineskip}
 Gale ja Shapley pitävät vakautta tärkeänä sijoittelun ominaisuutena
 \cite{galeshapley62}. Epävakaassa sijoittelussa jollain hakijalla ja
 oppilaitoksella on syy haluta muuttaa sijoittelun tulosta, sillä
@@ -330,7 +331,15 @@ takaa vakaata sijoittelua. Tarkastellaan esimerkkiä, jossa $O = \{o_1,
 o_2, o_3\}$, $H = \{h_1, h_2, h_3\}$ ja toimijoiden mieltymykset
 taulukon \ref{boston_vakaus} mukaiset.
 
-\begin{table}[ht]
+Bostonin mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3,
+o_3)\}$ joka ei ole vakaa, sillä $h_3 \prec_{o_2} h_2$ ja $o_2
+\prec_{h_3} o_3$. Myöskään top trading cycles -algoritmi ei takaa
+vakaata sijoittelua. Yllä olevassa esimerkissä syntyy kierros $h_1
+\rightarrow o_1 \rightarrow h_2 \rightarrow o_2$ joten algoritmi
+määrää parit $(h_1, o_1)$, $(h_2, o_2)$ ja $(h_3, o_3)$. Kuten edellä
+on todettu, tämä ei ole vakaa sijoittelu.
+
+\begin{table}[b]
   \begin{center}
     \begin{tabular}{ c c c | c c c }
     $o_1$ & $o_2$ & $o_3$ & $h_1$ & $h_2$ & $h_3$ \\
@@ -343,14 +352,6 @@ taulukon \ref{boston_vakaus} mukaiset.
     \label{boston_vakaus}
   \end{center}
 \end{table}
-
-Bostonin mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3,
-o_3)\}$ joka ei ole vakaa, sillä $h_3 \prec_{o_2} h_2$ ja $o_2
-\prec_{h_3} o_3$. Myöskään top trading cycles -algoritmi ei takaa
-vakaata sijoittelua. Yllä olevassa esimerkissä syntyy kierros $h_1
-\rightarrow o_1 \rightarrow h_2 \rightarrow o_2$ joten algoritmi
-määrää parit $(h_1, o_1)$, $(h_2, o_2)$ ja $(h_3, o_3)$. Kuten edellä
-on todettu, tämä ei ole vakaa sijoittelu.
 
 \subsection{Optimaalisuus}
 
@@ -405,7 +406,6 @@ Sijoittelun vakaus vaikuttaa myös oppilaitosten saamiin hakijoihin.
 kaikille yhden opiskelijavalintaongelman ratkaiseville sijoitteluille
 pätee seuraavaa \cite{gusfield89}:
 \newpage
-
 \begin{itemize*}
   \item Jokainen oppilaitos saa saman määrän opiskelijoita kaikissa
     vakaissa sijoitteluissa,
@@ -453,7 +453,7 @@ Allocation on the Basis of Priorities Ergin karakterisoi tilanteen,
 jossa vakaa sijoittelu voi olla Pareto\hyph optimaalinen
 \cite{ergin02}.
 
-\begin{table}[ht]
+\begin{table}[b]
   \begin{center}
     \begin{tabular}{ c c c | c c c }
       $o_1$ & $o_2$ & $o_3$ & $h_1$ & $h_2$ & $h_3$ \\
@@ -462,8 +462,7 @@ jossa vakaa sijoittelu voi olla Pareto\hyph optimaalinen
       $h_3$ & $h_1$ & $h_1$ & $o_1$ & $o_2$ & $o_2$ \\
       $h_2$ & $h_3$ & $h_3$ & $o_3$ & $o_3$ & $o_3$
     \end{tabular}
-    \caption{Esimerkki tilanteesta jossa Galen ja Shapleyn algoritmi
-      ei anna Pareto-optimaalista sijoittelua.}
+    \caption{Toimijoiden mieltymykset sarakkeittain, mieluisampi ylempänä.}
     \label{roth_optimaalisuus}
   \end{center}
 \end{table}
@@ -521,10 +520,20 @@ hakijoita ilmoittamalla mieltymyksensä valheellisesti \cite{dubins81}.
 
 Bostonin mekanismi ei ole strategiankestävä \cite{abduson03}. Tämä on
 helppo havaita esimerkistä jossa $O = \{o_1, o_2, o_3\}$, $H = \{h_1,
-h_2, h_3\}$ ja toimijoiden mieltymykset taulukon
-\ref{boston_strategia} mukaiset.
+h_2, h_3\}$, toimijoiden mieltymykset taulukon \ref{boston_strategia}
+mukaiset ja jokaisella oppilaitoksella on yksi vapaa paikka. Bostonin
+mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$.
+Jos hakija $h_3$ olisi ilmoittanut mieltymyksensä järjestyksessä
+$(o_2, o_1, o_3)$, olisi hän tullut sijoitetuksi oppilaitokseen $o_2$
+ja näin parantanut saamaansa sijoitusta. Hakijan $h_3$ saama
+mieluisampi opiskelupaikka tulee hakijan $h_2$ kustannuksella, sillä
+hän tulee sijoitetuksi oppilaitokseen $o_3$. Pathak ja Sönmez
+osoittavat, että sama pätee yleisessä tapauksessa. Jos mieltymyksensä
+valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan, se
+tapahtuu jonkun mieltymyksensä totuudenmukaisesti ilmoittaneen hakijan
+kustannuksella \cite{pathak08}.
 
-\begin{table}[ht]
+\begin{table}[]
   \begin{center}
     \begin{tabular}{ c c c | c c c }
       $o_1$ & $o_2$ & $o_3$ & $h_1$ & $h_2$ & $h_3$ \\
@@ -538,18 +547,6 @@ h_2, h_3\}$ ja toimijoiden mieltymykset taulukon
   \end{center}
 \end{table}
 
-Jokaisella oppilaitoksella $o_n$ on yksi vapaa paikka. Bostonin
-mekanismi antaa sijoittelun $\{(h_1, o_1), (h_2, o_2), (h_3, o_3)\}$.
-Jos hakija $h_3$ olisi ilmoittanut mieltymyksensä järjestyksessä
-$(o_2, o_1, o_3)$, olisi hän tullut sijoitetuksi oppilaitokseen $o_2$
-ja näin parantanut saamaansa sijoitusta. Hakijan $h_3$ saama
-mieluisampi opiskelupaikka tulee hakijan $h_2$ kustannuksella, sillä
-hän tulee sijoitetuksi oppilaitokseen $o_3$. Pathak ja Sönmez
-osoittavat, että sama pätee yleisessä tapauksessa. Jos mieltymyksensä
-valheellisesti ilmoittanut hakija saa mieluisamman opiskelupaikan, se
-tapahtuu jonkun mieltymyksensä totuudenmukaisesti ilmoittaneen hakijan
-kustannuksella \cite{pathak08}.
-
 Top trading cycles on strategiankestävä \cite{abduson03}.
 Abdulkadiroğlu ja Sönmez antavat seuraavanlaisen intuition
 todistukselleen. Ajatellaan, että hakija joka pohtii mieltymystensä
@@ -557,7 +554,7 @@ manipulointia sijoitetaan algoritmin askeleella $k$. Koska jokaisella
 askeleella hakija on pyrkinyt mieluisimpaan jäljellä olevaan
 oppilaitokseen, ovat kaikki oppilaitokset joihin hän olisi mieluummin
 tullut sijoitetuksi täyttyneet ennen askelta $k$. Muokkaamalla
-mieltymyksiään miten tahansa, hakija ei pysty vaikuttamaan ennen
+mieltymyksiään miten tahansa hakija ei pysty vaikuttamaan ennen
 askelta $k$ syntyneisiin kierroksiin, joten muokkauksesta voi olla
 vain haittaa.
 
@@ -575,7 +572,7 @@ aikaa, joten sijoittelun laskemisessa useaa päivää tai jopa viikkoa
 voidaan vielä pitää hyväksyttävänä suoritusaikana.
 
 Galen ja Shapleyn algoritmi on verrattain yksinkertainen yleistys
-heidän vakaan avioliiton ongelman ratkaisevalle algoritmille
+heidän vakaan avioliiton ongelman ratkaisevalle algoritmilleen
 \cite{gusfield89}. On siis varsin todennäköistä, että myös
 opiskelijavalintaongelman ratkaiseva algoritmi toimii vastaavassa
 ajassa. Vakaan avioliiton ongelma ratkeaa ajassa $O(n^2)$, missä $n$
@@ -613,10 +610,10 @@ syntyy usein tasatilanteita hakijoiden välillä. Usein tasatilanteet
 ratkaistaan arvalla, jolloin saadaan lopputulokseksi täydellinen
 järjestys. Tämä ei kuitenkaan ole täysin ongelmatonta, sillä nyt
 kaikki saadut vakaat sijoittelut eivät välttämättä ole saman kokoisia
-\cite{manlove02}. Isompi ongelma koskee laskennan aikavaativuutta.
-Mikä tahansa algoritmi joka takaa vakaan sijoittelun ja sallii
-tasatilanteet mieltymyksissä on aikavaativuudeltaan NP-täydellinen
-\cite{manlove02}.
+\cite{manlove02}. Toinen merkittävä ongelma koskee laskennan
+aikavaativuutta. Mikä tahansa algoritmi joka takaa vakaan sijoittelun
+ja sallii tasatilanteet mieltymyksissä on aikavaativuudeltaan
+NP-täydellinen \cite{manlove02}.
 
 \section{Yhteenveto}
 
@@ -643,12 +640,13 @@ totuudenmukaisesti ilman vaaraa huonommasta sijoituksesta, takaa top
 trading cycles algoritmi hakijoiden tasapuolisen kohtelun tässä
 mielessä.
 
-Galen ja Shapleyn algoritmi toisen osapuolen kannalta optimaalinen
-vakaa sijoittelu. Vakaus takaa, ettei kukaan hakija tule sijoitetuksi
-vähemmän mieluisaan oppilaitokseen, vaikka mieluisampi oppilaitos
-olisi ollut valmis ottamaan hänet vastaan. Vähemmän säännöstellyissä
-järjestelmissä tämä vähentää kiusausta oppilaitosten ja hakijoiden
-kahdenkeskisiin päätöksiin ohi valintajärjestelmän.
+Galen ja Shapleyn algoritmi takaa toisen osapuolen kannalta
+optimaalisen, vakaan sijoittelun. Vakaus takaa, ettei kukaan hakija
+tule sijoitetuksi vähemmän mieluisaan oppilaitokseen, vaikka
+mieluisampi oppilaitos olisi ollut valmis ottamaan hänet vastaan.
+Vähemmän säännöstellyissä järjestelmissä tämä vähentää kiusausta
+oppilaitosten ja hakijoiden kahdenkeskisiin päätöksiin ohi
+valintajärjestelmän.
 
 Vakauden lisäksi Galen ja Shapleyn algoritmi takaa, että sijoittelu on
 myös toisen osapuolen kannalta optimaalinen. Samalla sijoittelu on
